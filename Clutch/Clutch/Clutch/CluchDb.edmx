@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ClutchDb.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cocina">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellidos" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dni" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="vacaciones" Type="bit" Nullable="false" />
+          <Property Name="diasVacaciones" Type="int" Nullable="false" />
+          <Property Name="alta" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="baja" Type="datetime2" Precision="7" />
+          <Property Name="contraseña" Type="nvarchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Encargado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incidencias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="incidencia" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="resuelta" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jornada">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="Entrada" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="Salida" Type="datetime2" Precision="7" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="pedidos" Type="int" />
+          <Property Name="sueldo" Type="float" Nullable="false" />
+          <Property Name="horas" Type="float" Nullable="false" />
+          <Property Name="sueldoHoy" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="matricula" Type="nvarchar" MaxLength="7" Nullable="false" />
+          <Property Name="cc" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="numero" Type="int" Nullable="false" />
+          <Property Name="estado" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idRepartidor" Type="int" Nullable="false" />
+          <Property Name="pedido" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="precio" Type="float" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="tlfCliente" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="nombreCliente" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Repartidor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="idEmpleado" Type="int" Nullable="false" />
+          <Property Name="moto" Type="int" Nullable="false" />
+          <Property Name="CC" Type="nvarchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cocina_Empleado">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Cocina" Type="Self.Cocina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cocina">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Empleados">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Encargado" Type="Self.Encargado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_incidencias_Empleado">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="incidencias" Type="Self.incidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incidencias">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_Empleado">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Repartidor">
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repartidor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idRepartidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repartidor_Empleados">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="1" />
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repartidor">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repartidor_Moto">
+          <End Role="Moto" Type="Self.Moto" Multiplicity="1" />
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repartidor">
+              <PropertyRef Name="moto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClutchDbStoreContainer">
+          <EntitySet Name="Cocina" EntityType="Self.Cocina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Encargado" EntityType="Self.Encargado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="incidencias" EntityType="Self.incidencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jornada" EntityType="Self.Jornada" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Moto" EntityType="Self.Moto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repartidor" EntityType="Self.Repartidor" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cocina_Empleado" Association="Self.FK_Cocina_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cocina" EntitySet="Cocina" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Empleados" Association="Self.FK_Encargado_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Encargado" EntitySet="Encargado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_incidencias_Empleado" Association="Self.FK_incidencias_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="incidencias" EntitySet="incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jornada_Empleado" Association="Self.FK_Jornada_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Jornada" EntitySet="Jornada" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Repartidor" Association="Self.FK_Pedido_Repartidor">
+            <End Role="Repartidor" EntitySet="Repartidor" />
+            <End Role="Pedido" EntitySet="Pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repartidor_Empleados" Association="Self.FK_Repartidor_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Repartidor" EntitySet="Repartidor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repartidor_Moto" Association="Self.FK_Repartidor_Moto">
+            <End Role="Moto" EntitySet="Moto" />
+            <End Role="Repartidor" EntitySet="Repartidor" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClutchDb" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cocina">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dni" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vacaciones" Type="Boolean" Nullable="false" />
+          <Property Name="diasVacaciones" Type="Int32" Nullable="false" />
+          <Property Name="alta" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="baja" Type="DateTime" Precision="7" />
+          <Property Name="contraseña" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          </EntityType>
+        <EntityType Name="Encargado">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="incidencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="incidencia1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="resuelta" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Jornada">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="Entrada" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="Salida" Type="DateTime" Precision="7" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="pedidos" Type="Int32" />
+          <Property Name="sueldo" Type="Double" Nullable="false" />
+          <Property Name="horas" Type="Double" Nullable="false" />
+          <Property Name="sueldoHoy" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Moto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="matricula" Type="String" MaxLength="7" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cc" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numero" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idRepartidor" Type="Int32" Nullable="false" />
+          <Property Name="pedido1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="precio" Type="Double" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tlfCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nombreCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Repartidor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="moto" Type="Int32" Nullable="false" />
+          <Property Name="CC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cocina_Empleado">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Cocina" Type="Self.Cocina" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cocina">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Encargado_Empleados">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Encargado" Type="Self.Encargado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Encargado">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_incidencias_Empleado">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="incidencias" Type="Self.incidencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="incidencias">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Jornada_Empleado">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Jornada" Type="Self.Jornada" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Jornada">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repartidor_Empleados">
+          <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repartidor">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repartidor_Moto">
+          <End Role="Moto" Type="Self.Moto" Multiplicity="1" />
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Moto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repartidor">
+              <PropertyRef Name="moto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pedido_Repartidor">
+          <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="1" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repartidor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pedido">
+              <PropertyRef Name="idRepartidor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClutchDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cocinas" EntityType="Self.Cocina" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleado" />
+          <EntitySet Name="Encargadoes" EntityType="Self.Encargado" />
+          <EntitySet Name="incidencias" EntityType="Self.incidencia" />
+          <EntitySet Name="Jornadas" EntityType="Self.Jornada" />
+          <EntitySet Name="Motoes" EntityType="Self.Moto" />
+          <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
+          <EntitySet Name="Repartidors" EntityType="Self.Repartidor" />
+          <AssociationSet Name="FK_Cocina_Empleado" Association="Self.FK_Cocina_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Cocina" EntitySet="Cocinas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Encargado_Empleados" Association="Self.FK_Encargado_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Encargado" EntitySet="Encargadoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_incidencias_Empleado" Association="Self.FK_incidencias_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="incidencias" EntitySet="incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Jornada_Empleado" Association="Self.FK_Jornada_Empleado">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Jornada" EntitySet="Jornadas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repartidor_Empleados" Association="Self.FK_Repartidor_Empleados">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Repartidor" EntitySet="Repartidors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repartidor_Moto" Association="Self.FK_Repartidor_Moto">
+            <End Role="Moto" EntitySet="Motoes" />
+            <End Role="Repartidor" EntitySet="Repartidors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pedido_Repartidor" Association="Self.FK_Pedido_Repartidor">
+            <End Role="Repartidor" EntitySet="Repartidors" />
+            <End Role="Pedido" EntitySet="Pedidoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClutchDbStoreContainer" CdmEntityContainer="ClutchDbEntities">
+          <EntitySetMapping Name="Cocinas">
+            <EntityTypeMapping TypeName="ClutchDb.Cocina">
+              <MappingFragment StoreEntitySet="Cocina">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="ClutchDb.Empleado">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="vacaciones" ColumnName="vacaciones" />
+                <ScalarProperty Name="diasVacaciones" ColumnName="diasVacaciones" />
+                <ScalarProperty Name="alta" ColumnName="alta" />
+                <ScalarProperty Name="baja" ColumnName="baja" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Encargadoes">
+            <EntityTypeMapping TypeName="ClutchDb.Encargado">
+              <MappingFragment StoreEntitySet="Encargado">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="incidencias">
+            <EntityTypeMapping TypeName="ClutchDb.incidencia">
+              <MappingFragment StoreEntitySet="incidencias">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="incidencia1" ColumnName="incidencia" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="resuelta" ColumnName="resuelta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jornadas">
+            <EntityTypeMapping TypeName="ClutchDb.Jornada">
+              <MappingFragment StoreEntitySet="Jornada">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+                <ScalarProperty Name="Salida" ColumnName="Salida" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="pedidos" ColumnName="pedidos" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="horas" ColumnName="horas" />
+                <ScalarProperty Name="sueldoHoy" ColumnName="sueldoHoy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Motoes">
+            <EntityTypeMapping TypeName="ClutchDb.Moto">
+              <MappingFragment StoreEntitySet="Moto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="cc" ColumnName="cc" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidoes">
+            <EntityTypeMapping TypeName="ClutchDb.Pedido">
+              <MappingFragment StoreEntitySet="Pedido">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
+                <ScalarProperty Name="pedido1" ColumnName="pedido" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
+                <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repartidors">
+            <EntityTypeMapping TypeName="ClutchDb.Repartidor">
+              <MappingFragment StoreEntitySet="Repartidor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="moto" ColumnName="moto" />
+                <ScalarProperty Name="CC" ColumnName="CC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
