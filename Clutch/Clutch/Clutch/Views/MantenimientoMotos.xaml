@@ -17,7 +17,7 @@
                 <MenuItem Header="Borrar" x:Name="mnMotosBorrar" Click="mnMotosBorrar_Click"/>
             </MenuItem>
         </Menu>
-        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lvMotos_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Matricula" Width="120" DisplayMemberBinding="{Binding Matricula}"/>

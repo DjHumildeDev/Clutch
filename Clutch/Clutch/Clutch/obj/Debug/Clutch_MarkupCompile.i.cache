@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-B:\Proyecto_Clutch\ClucthWpf\Clutch\Clutch\Clutch\obj\Debug\
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\
 Clutch
 none
 false
 DEBUG;TRACE
-B:\Proyecto_Clutch\ClucthWpf\Clutch\Clutch\Clutch\App.xaml
-31691514109
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\App.xaml
+31813038010
 2-1227097475
-21-2144700854
-18324129284
-Identificacion.xaml;MainWindow.xaml;MantenimientoMotos.xaml;
+21276141699
+18-1921052081
+Views\Identificacion.xaml;Views\MainWindow.xaml;Views\MantenimientoMotos.xaml;
 
-True
+False
 

@@ -43,5 +43,10 @@ namespace Clutch
         {
 
         }
+
+        private void lvMotos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

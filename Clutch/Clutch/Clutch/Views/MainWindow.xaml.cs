@@ -20,9 +20,12 @@ namespace Clutch
     /// </summary>
     public partial class MainWindow : Window
     {
+        Negocio negocio;
+        List<Jornada> jornadas;
         public MainWindow()
         {
             InitializeComponent();
+            negocio = new Negocio();
         }
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
@@ -51,6 +54,18 @@ namespace Clutch
         }
 
         private void mnMenuPedidos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnFichar_Click(object sender, RoutedEventArgs e)
+        {
+            Identificacion identificacion = new Identificacion(negocio);
+            identificacion.Owner = this;
+            identificacion.ShowDialog();
+        }
+
+        private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
         {
 
         }

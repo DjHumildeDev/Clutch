@@ -12,8 +12,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox VerticalAlignment="Center" Height="40" Margin="10,0" Style="{StaticResource texIdentUsuario}" />
-        <TextBox VerticalAlignment="Center" Height="40" Margin="10,0" Style="{StaticResource texIdentPass}" Grid.Row="1" />
-        <Button Grid.Row="2" VerticalAlignment="Center" Height="40" HorizontalAlignment="Center" Width="130" Content="Confirmar" Margin="10,0"/>
+        <StackPanel>
+            <Label Margin="10,0" Content="Usuario :"/>
+            <TextBox VerticalAlignment="Center" Height="25" Margin="10,0" x:Name="txtBxUser" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Label Margin="10,0" Content="Contraseña :"/>
+            <PasswordBox VerticalAlignment="Center" Height="25" Margin="10,0" Grid.Row="1"  x:Name="txtBxPass" />
+        </StackPanel>
+        <Button Grid.Row="2" VerticalAlignment="Center" Height="40" HorizontalAlignment="Center" Width="130" Content="Confirmar" Margin="10,0" Click="Button_Click"/>
     </Grid>
 </Window>

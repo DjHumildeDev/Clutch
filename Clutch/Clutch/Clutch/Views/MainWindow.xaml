@@ -21,8 +21,8 @@
                 <MenuItem x:Name="mnMenuPedidos" Header="Pedidos" Click="mnMenuPedidos_Click"/>
             </MenuItem>
             <MenuItem Header="Trabajadores">
-                <MenuItem x:Name="mnFichar" Header="Fichar"/>
-                <MenuItem x:Name="mnGenIncidencia" Header="GenerarIncidencia"/>
+                <MenuItem x:Name="mnFichar" Header="Fichar" Click="mnFichar_Click"/>
+                <MenuItem x:Name="mnGenIncidencia" Header="GenerarIncidencia" Click="mnGenIncidencia_Click"/>
             </MenuItem>
             <MenuItem Header="Ventana">
             </MenuItem>
