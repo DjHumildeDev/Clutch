@@ -63,8 +63,16 @@ namespace Clutch
         private void CerrarJornada(Jornada jornadaHoy)
         {
             //calcular sueldo y horas
+            DateTime fecha1 = jornadaHoy.Entrada;
+            DateTime fecha2 = DateTime.Now;
 
+            TimeSpan result = fecha2.Subtract(fecha1);
+            float horas = float.Parse(Convert.ToString(result.TotalHours));
+
+            jornadaHoy.horas = horas;
+            jornadaHoy.sueldoHoy = jornadaHoy.sueldo * horas;
             jornadaHoy.Salida = DateTime.Now;
+
             negocio.EditarJornada(jornadaHoy);
         }
 

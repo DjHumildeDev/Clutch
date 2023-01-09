@@ -20,6 +20,6 @@
             <Label Margin="10,0" Content="Contraseña :"/>
             <PasswordBox VerticalAlignment="Center" Height="25" Margin="10,0" Grid.Row="1"  x:Name="txtBxPass" />
         </StackPanel>
-        <Button Grid.Row="2" VerticalAlignment="Center" Height="40" HorizontalAlignment="Center" Width="130" Content="Confirmar" Margin="10,0" Click="Button_Click"/>
+        <Button Grid.Row="2" VerticalAlignment="Center" Height="40" HorizontalAlignment="Center" Width="130" Content="Confirmar" Margin="10,0" Click="Button_Click" IsDefault="True"/>
     </Grid>
 </Window>

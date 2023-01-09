@@ -146,7 +146,7 @@ namespace Clutch
         }
         public int SiguienteEncargadoId()
         {
-            return siguienteEncargadoId++;
+            return bd.Encargadoes.Count();
         }
         public List<Encargado> ObtenerEncargados()
         {
@@ -169,6 +169,8 @@ namespace Clutch
                     }
                     jornada.idEmpleado = empleado.id;
                     jornada.id = SiguienteJornadaId();
+                    jornada.sueldo = 12.5;
+                    jornada.pedidos = 0;
                     bd.Jornadas.Add(jornada);
                     bd.SaveChanges();
                 }
@@ -183,7 +185,7 @@ namespace Clutch
 
         public int SiguienteJornadaId()
         {
-            return siguienteJornadaId++;
+            return bd.Jornadas.Count();
         }
         public void Cerrarjornada(Empleado empleado)
         {
