@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ClutchDbStoreContainer" CdmEntityContainer="ClutchDbEntities">
+    <EntitySetMapping Name="Cocinas">
+      <EntityTypeMapping TypeName="ClutchDb.Cocina">
+        <MappingFragment StoreEntitySet="Cocina">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empleados">
+      <EntityTypeMapping TypeName="ClutchDb.Empleado">
+        <MappingFragment StoreEntitySet="Empleados">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="vacaciones" ColumnName="vacaciones" />
+          <ScalarProperty Name="diasVacaciones" ColumnName="diasVacaciones" />
+          <ScalarProperty Name="alta" ColumnName="alta" />
+          <ScalarProperty Name="baja" ColumnName="baja" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Encargadoes">
+      <EntityTypeMapping TypeName="ClutchDb.Encargado">
+        <MappingFragment StoreEntitySet="Encargado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="incidencias">
+      <EntityTypeMapping TypeName="ClutchDb.incidencia">
+        <MappingFragment StoreEntitySet="incidencias">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="incidencia1" ColumnName="incidencia" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="resuelta" ColumnName="resuelta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jornadas">
+      <EntityTypeMapping TypeName="ClutchDb.Jornada">
+        <MappingFragment StoreEntitySet="Jornada">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+          <ScalarProperty Name="Salida" ColumnName="Salida" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="pedidos" ColumnName="pedidos" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+          <ScalarProperty Name="horas" ColumnName="horas" />
+          <ScalarProperty Name="sueldoHoy" ColumnName="sueldoHoy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Motoes">
+      <EntityTypeMapping TypeName="ClutchDb.Moto">
+        <MappingFragment StoreEntitySet="Moto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matricula" ColumnName="matricula" />
+          <ScalarProperty Name="cc" ColumnName="cc" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedidoes">
+      <EntityTypeMapping TypeName="ClutchDb.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
+          <ScalarProperty Name="pedido1" ColumnName="pedido" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Repartidors">
+      <EntityTypeMapping TypeName="ClutchDb.Repartidor">
+        <MappingFragment StoreEntitySet="Repartidor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+          <ScalarProperty Name="moto" ColumnName="moto" />
+          <ScalarProperty Name="CC" ColumnName="CC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

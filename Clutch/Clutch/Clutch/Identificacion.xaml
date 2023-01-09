@@ -1,0 +1,25 @@
+﻿<Window x:Class="Clutch.Identificacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clutch"
+        mc:Ignorable="d"
+        Title="Identificacion" Height="200" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Label Margin="10,0" Content="Usuario :"/>
+            <TextBox VerticalAlignment="Center" Height="25" Margin="10,0" x:Name="txtBxUser" />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Label Margin="10,0" Content="Contraseña :"/>
+            <PasswordBox VerticalAlignment="Center" Height="25" Margin="10,0" Grid.Row="1"  x:Name="txtBxPass" />
+        </StackPanel>
+        <Button Grid.Row="2" VerticalAlignment="Center" Height="40" HorizontalAlignment="Center" Width="130" Content="Confirmar" Margin="10,0" Click="Button_Click"/>
+    </Grid>
+</Window>

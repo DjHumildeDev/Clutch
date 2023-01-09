@@ -174,6 +174,13 @@ namespace Clutch
                 }
             }
         }
+        public void EditarJornada(Jornada jornada)
+        {
+            Jornada nuevaJornada = ObtenerJornada(jornada.id);
+            nuevaJornada = jornada;
+            bd.SaveChanges();
+        }
+
         public int SiguienteJornadaId()
         {
             return siguienteJornadaId++;
