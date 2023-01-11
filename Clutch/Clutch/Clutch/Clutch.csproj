@@ -101,6 +101,9 @@
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoIncincenciaEnum.cs" />
+    <Compile Include="Views\MantenimientoJornadas.xaml.cs">
+      <DependentUpon>MantenimientoJornadas.xaml</DependentUpon>
+    </Compile>
     <Page Include="Identificacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +131,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MantenimientoMotos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MantenimientoJornadas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,8 +188,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

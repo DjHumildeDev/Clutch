@@ -8,6 +8,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.SqlServ
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Identificacion.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MantenimientoMotos.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\App.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_Content.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_MarkupCompile.cache
@@ -16,6 +17,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\App.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Identificacion.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MantenimientoMotos.baml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.g.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.Properties.Resources.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.GenerateResource.cache
@@ -23,4 +25,3 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache

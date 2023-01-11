@@ -1,0 +1,43 @@
+﻿<Window x:Class="Clutch.Views.MantenimientoJornadas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clutch.Views"
+        mc:Ignorable="d"
+        Title="MantenimientoJornadas" Height="450" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Menu">
+                <MenuItem Header="salir" x:Name="mnJornadasSalir" Click="mnJornadasSalir_Click"/>
+            </MenuItem>
+            <MenuItem Header="Moto">
+                <MenuItem Header="Crear" x:Name="mnJornadasCrear" Click="mnJornadasCrear_Click"/>
+                <MenuItem Header="Editar" x:Name="mnJornadasEditar" Click="mnJornadasEditar_Click"/>
+                <MenuItem Header="Borrar" x:Name="mnJornadasBorrar" Click="mnJornadasBorrar_Click"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label Content="Empleado: "/>
+            <ComboBox Name="cmBxEmpleado" SelectedIndex="0" SelectionChanged="cmBxEmpleado_SelectionChanged"><ComboBoxItem>Nombre Empleado</ComboBoxItem></ComboBox>
+            <Label Margin="20,0" Content="Entrada:"/>
+            <DatePicker x:Name="dtPckEntrada" SelectedDateChanged="dtPckEntrada_SelectedDateChanged"/>
+            <Label Margin="20,0" Content="Salida:"/>
+            <DatePicker x:Name="dtPckSalida" SelectedDateChanged="dtPckSalida_SelectedDateChanged"/>
+            <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
+        </StackPanel>
+        <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Empleado" Width="120" DisplayMemberBinding="{Binding Empleado}"/>
+                    <GridViewColumn Header="Entrada" Width="120" DisplayMemberBinding="{Binding Entrada}"/>
+                    <GridViewColumn Header="Salida" Width="120" DisplayMemberBinding="{Binding Salida}"/>
+                    <GridViewColumn Header="Pedidos" Width="120" DisplayMemberBinding="{Binding Pedidos}"/>
+                    <GridViewColumn Header="Sueldo" Width="120" DisplayMemberBinding="{Binding Sueldo}"/>
+                    <GridViewColumn Header="Horas" Width="120" DisplayMemberBinding="{Binding Horas}"/>
+                    <GridViewColumn Header="Sueldo hoy" Width="120" DisplayMemberBinding="{Binding SueldoHoy}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
