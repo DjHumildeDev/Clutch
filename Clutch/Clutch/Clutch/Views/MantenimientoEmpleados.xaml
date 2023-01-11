@@ -9,25 +9,25 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Menu">
-                <MenuItem Header="salir" x:Name="mnEmpleadosSalir" Click=""/>
+                <MenuItem Header="salir" x:Name="mnEmpleadosSalir" Click="mnEmpleadosSalir_Click"/>
             </MenuItem>
             <MenuItem Header="Moto">
-                <MenuItem Header="Crear" x:Name="mnEmpleadosCrear" Click=""/>
-                <MenuItem Header="Editar" x:Name="mnEmpleadosEditar" Click=""/>
-                <MenuItem Header="Borrar" x:Name="mnEmpleadosBorrar" Click=""/>
+                <MenuItem Header="Crear" x:Name="mnEmpleadosCrear" Click="mnEmpleadosCrear_Click"/>
+                <MenuItem Header="Editar" x:Name="mnEmpleadosEditar" Click="mnEmpleadosEditar_Click"/>
+                <MenuItem Header="Borrar" x:Name="mnEmpleadosBorrar" Click="mnEmpleadosBorrar_Click"/>
             </MenuItem>
         </Menu>
         <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
             <Label Content="Nombre: "/>
-            <ComboBox Name="cmBxNombre" SelectedIndex="0" SelectionChanged="">
+            <ComboBox Name="cmBxNombre" SelectedIndex="0" SelectionChanged="cmBxNombre_SelectionChanged">
                 <ComboBoxItem>Nombre Empleado</ComboBoxItem>
             </ComboBox>
             <Label Content="Apellidos: "/>
-            <ComboBox Name="cmBxApellidos" SelectedIndex="0" SelectionChanged="">
+            <ComboBox Name="cmBxApellidos" SelectedIndex="0" SelectionChanged="cmBxApellidos_SelectionChanged">
                 <ComboBoxItem>Apellidos Empleado</ComboBoxItem>
             </ComboBox>
             <Label Margin="20,0" Content="Alta:"/>
-            <DatePicker x:Name="dtPckAlta" SelectedDateChanged=""/>
+            <DatePicker x:Name="dtPckAlta" SelectedDateChanged="dtPckAlta_SelectedDateChanged"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
         </StackPanel>
         <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">

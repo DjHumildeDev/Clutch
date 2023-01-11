@@ -4,46 +4,6 @@
              xmlns:local="clr-namespace:Clutch"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="texIdentUsuario">
-            <Style.Resources>
-                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                    <VisualBrush.Visual>
-                        <Label Content="Usuario" Foreground="LightGray" />
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </Style.Resources>
-            <Style.Triggers>
-                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                </Trigger>
-                <Trigger Property="Text" Value="{x:Null}">
-                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                </Trigger>
-                <Trigger Property="IsKeyboardFocused" Value="True">
-                    <Setter Property="Background" Value="White" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib" x:Key="texIdentPass">
-            <Style.Resources>
-                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                    <VisualBrush.Visual>
-                        <Label Content="Contraseña" Foreground="LightGray" />
-                    </VisualBrush.Visual>
-                </VisualBrush>
-            </Style.Resources>
-            <Style.Triggers>
-                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                </Trigger>
-                <Trigger Property="Text" Value="{x:Null}">
-                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                </Trigger>
-                <Trigger Property="IsKeyboardFocused" Value="True">
-                    <Setter Property="Background" Value="White" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+       
     </Application.Resources>
 </Application>

@@ -78,17 +78,11 @@
     <Compile Include="Encargado.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Identificacion.xaml.cs">
-      <DependentUpon>Identificacion.xaml</DependentUpon>
-    </Compile>
     <Compile Include="incidencia.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Jornada.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MantenimientoMotos.xaml.cs">
-      <DependentUpon>MantenimientoMotos.xaml</DependentUpon>
     </Compile>
     <Compile Include="Moto.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
@@ -101,13 +95,18 @@
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoIncincenciaEnum.cs" />
+    <Compile Include="Views\Identificacion.xaml.cs">
+      <DependentUpon>Identificacion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MantenimientoEmpleados.xaml.cs">
+      <DependentUpon>MantenimientoEmpleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MantenimientoJornadas.xaml.cs">
       <DependentUpon>MantenimientoJornadas.xaml</DependentUpon>
     </Compile>
-    <Page Include="Identificacion.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="Views\MantenimientoMotos.xaml.cs">
+      <DependentUpon>MantenimientoMotos.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -130,11 +129,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MantenimientoMotos.xaml">
+    <Page Include="Views\Identificacion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MantenimientoEmpleados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MantenimientoJornadas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MantenimientoMotos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

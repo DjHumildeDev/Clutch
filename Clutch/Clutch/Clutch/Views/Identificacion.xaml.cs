@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Clutch
+namespace Clutch.Views
 {
     /// <summary>
     /// Lógica de interacción para Identificacion.xaml
@@ -40,7 +40,7 @@ namespace Clutch
                     if (jornadaHoy != null)
                     {
                         CerrarJornada(jornadaHoy);
-                       
+
                         MessageBox.Show("Hasta pronto! " + empleadoAbre.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
@@ -52,7 +52,7 @@ namespace Clutch
                     negocio.CrearJornada(empleadoAbre, jornada);
                     MessageBox.Show("Buenos dias " + empleadoAbre.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
-                }         
+                }
             }
             else
             {
@@ -88,7 +88,7 @@ namespace Clutch
                     {
                         int id = empleado.id;
                         empleadoAbre = negocio.ObtenerEmpleado(id);
-                        
+
                         return true;
 
                     }
@@ -101,19 +101,20 @@ namespace Clutch
         {
             List<Jornada> jornadas = negocio.ObtenerJornadas();
             List<Jornada> jornadasEmpleado = new List<Jornada>();
-            foreach(Jornada jornada in jornadas)
+            foreach (Jornada jornada in jornadas)
             {
                 if (jornada.idEmpleado.Equals(empleado.id))
                 {
                     jornadasEmpleado.Add(jornada);
                 }
             }
-             
+
             foreach (Jornada jornada in jornadasEmpleado)
             {
                 if (jornada.Entrada.Date.Equals(DateTime.Today))
                 {
-                    if(jornada.Salida == null){
+                    if (jornada.Salida == null)
+                    {
                         jornadaHoy = jornada;
                         return true;
                     }
@@ -123,7 +124,7 @@ namespace Clutch
                     }
                 }
             }
-            return false;           
+            return false;
         }
     }
 }

@@ -23,5 +23,50 @@ namespace Clutch.Views
         {
             InitializeComponent();
         }
+
+        private void mnEmpleadosSalir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnEmpleadosCrear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnEmpleadosEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnEmpleadosBorrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmBxNombre_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cmBxApellidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void dtPckAlta_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
