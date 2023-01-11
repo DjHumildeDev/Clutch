@@ -101,6 +101,9 @@
     <Compile Include="Views\MantenimientoEmpleados.xaml.cs">
       <DependentUpon>MantenimientoEmpleados.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MantenimientoIncidencias.xaml.cs">
+      <DependentUpon>MantenimientoIncidencias.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MantenimientoJornadas.xaml.cs">
       <DependentUpon>MantenimientoJornadas.xaml</DependentUpon>
     </Compile>
@@ -134,6 +137,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MantenimientoEmpleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MantenimientoIncidencias.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
