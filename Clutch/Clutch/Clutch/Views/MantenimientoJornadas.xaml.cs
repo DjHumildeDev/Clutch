@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clutch.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +20,37 @@ namespace Clutch.Views
     /// </summary>
     public partial class MantenimientoJornadas : Window
     {
-        public MantenimientoJornadas()
+        private Negocio negocio;
+        
+        public MantenimientoJornadas(Negocio negocio)
         {
             InitializeComponent();
+            this.negocio = negocio;
+            ActualizarLista();
+        }
+
+        private void ActualizarLista()
+        {
+            lvJornadas.Items.Clear();
+            List<Jornada> jornadas = negocio.ObtenerJornadas();
+            foreach(Jornada jornada in jornadas)
+            {
+                int idEmpleado =jornada.idEmpleado;
+                Empleado empleado = negocio.ObtenerEmpleado(idEmpleado);
+                string nombre = empleado.nombre;
+                string apellidos = empleado.apellidos;
+
+                string nombreCompleto = nombre + " " + apellidos;
+
+                
+                
+                lvJornadas.Items.Add(new JornadaListModel {NombreCompleto=nombreCompleto,Entrada=jornada.Entrada,Salida=jornada.Salida,pedidos=jornada.pedidos,sueldo=jornada.sueldo,horas=jornada.horas,sueldoHoy=jornada.sueldoHoy});
+            }
         }
 
         private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+           
         }
 
         private void mnJornadasCrear_Click(object sender, RoutedEventArgs e)

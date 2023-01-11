@@ -36,7 +36,7 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Rol}"/>
-                    <GridViewColumn Header="Empleado" Width="120" DisplayMemberBinding="{Binding Empleado}"/>
+                    <GridViewColumn x:Name="grVwClNombre" Header="Empleado" Width="120" DisplayMemberBinding="{Binding Empleado}"/>
                     <GridViewColumn Header="Entrada" Width="120" DisplayMemberBinding="{Binding Entrada}"/>
                     <GridViewColumn Header="Salida" Width="120" DisplayMemberBinding="{Binding Salida}"/>
                     <GridViewColumn Header="Pedidos" Width="120" DisplayMemberBinding="{Binding Pedidos}"/>

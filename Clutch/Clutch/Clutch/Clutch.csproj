@@ -84,6 +84,7 @@
     <Compile Include="Jornada.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\JornadaListModel.cs" />
     <Compile Include="Moto.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
