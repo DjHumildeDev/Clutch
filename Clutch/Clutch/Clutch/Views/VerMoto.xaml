@@ -1,0 +1,36 @@
+﻿<Window x:Class="Clutch.Views.VerMoto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clutch.Views"
+        mc:Ignorable="d"
+        Title="VerMoto" Height="150" Width="500" ResizeMode="NoResize">
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Top" Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Matricula:" HorizontalAlignment="Right"/>
+            <Label Grid.Row="1" Content="Número:" HorizontalAlignment="Right"/>
+            <Label Grid.Column="2" Content="Centimetros Cubicos:" HorizontalAlignment="Right"/>
+            <Label Grid.Row="1" Grid.Column="2" Content="Estado:" HorizontalAlignment="Right"/>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" x:Name="txtBxMatricula"/>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="txtBxNumero" SelectionChanged="txtBxNumero_SelectionChanged"/>
+            <ComboBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" x:Name="cmbBxEstado" SelectionChanged="cmbBxEstado_SelectionChanged"/>
+            <ComboBox Grid.Column="3" VerticalAlignment="Center" x:Name="cmbBxCC"/>
+        </Grid>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Cancelar" x:Name="btnCancelar" Padding="7" VerticalAlignment="Center" IsCancel="True" Margin="5" Click="btnCancelar_Click"/>
+            <Button Content="Aceptar" x:Name="btnAceptar" Padding="7" VerticalAlignment="Center" IsDefault="True" Margin="5" Click="btnAceptar_Click"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

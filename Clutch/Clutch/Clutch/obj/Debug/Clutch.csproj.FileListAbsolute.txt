@@ -5,12 +5,14 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.SqlServer.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.SqlServer.xml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\Identificacion.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoEmpleados.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoIncidencias.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoMotos.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerMoto.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\App.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_Content.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_MarkupCompile.cache
@@ -21,6 +23,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoEmpl
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoIncidencias.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoMotos.baml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerMoto.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.g.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.Properties.Resources.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.GenerateResource.cache
@@ -28,4 +31,3 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
