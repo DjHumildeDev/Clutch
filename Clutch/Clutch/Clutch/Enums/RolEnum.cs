@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clutch
+namespace Clutch.Enums
 {
-    public enum TipoIncidenciaEnum
+    public enum RolEnum
     {
-        Moto,
-        Cocina,
-        Otros
+        Encargado,
+        Concina,
+        Repartidor
     }
 }

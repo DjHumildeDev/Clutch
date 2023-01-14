@@ -32,9 +32,7 @@
                     <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Rol}"/>
                     <GridViewColumn Header="Empleado" Width="120" DisplayMemberBinding="{Binding NombreCompleto}" />
                     <GridViewColumn Header="Entrada" Width="120" DisplayMemberBinding="{Binding Entrada, StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}"/>
-                    <GridViewColumn Header="Salida" Width="120" DisplayMemberBinding="{Binding Salida, StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}}"/>
-                    <GridViewColumn Header="Pedidos" Width="120" DisplayMemberBinding="{Binding pedidos}"/>
-                    <GridViewColumn Header="Sueldo" Width="120" DisplayMemberBinding="{Binding sueldo,StringFormat={}{0:#,0.0} €/h}"/>
+                    <GridViewColumn Header="Salida" Width="120" DisplayMemberBinding="{Binding Salida, StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}"/>
                     <GridViewColumn Header="Horas" Width="120" DisplayMemberBinding="{Binding horas, StringFormat={}{0:#,0.00}}"/>
                     <GridViewColumn Header="Sueldo hoy" Width="120" DisplayMemberBinding="{Binding sueldoHoy, StringFormat={}{0:#,0.00}€}"/>
                 </GridView>
