@@ -8,7 +8,7 @@ namespace Clutch.Models
 {
     class JornadaListModel
     {
-        public string rol { get; set; }
+        public string Rol { get; set; }
         public string NombreCompleto { get; set; }
         public DateTime Entrada { get; set; }
         public Nullable<System.DateTime> Salida { get; set; }

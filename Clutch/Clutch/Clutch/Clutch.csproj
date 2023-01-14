@@ -78,6 +78,8 @@
     <Compile Include="Encargado.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Enums\RolEnum.cs" />
+    <Compile Include="Enums\TipoincidenciaEnum.cs" />
     <Compile Include="incidencia.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
@@ -95,7 +97,6 @@
     <Compile Include="Repartidor.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="TipoIncincenciaEnum.cs" />
     <Compile Include="Views\Identificacion.xaml.cs">
       <DependentUpon>Identificacion.xaml</DependentUpon>
     </Compile>

@@ -105,6 +105,13 @@ namespace Clutch
             List<Repartidor> query = bd.Repartidors.ToList();
             return query;
         }
+
+        public Repartidor ObtenerRepartidor(int empleadoId)
+        {
+            Repartidor repartidor = bd.Repartidors.Where(x => x.idEmpleado.Equals(empleadoId)).FirstOrDefault();
+
+            return repartidor;
+        }
         public void CrearCocinero(Empleado empleado, Cocina cocinero)
         {
             if (empleado != null)
@@ -117,6 +124,12 @@ namespace Clutch
                     bd.SaveChanges();
                 }
             }
+        }
+        public Cocina ObtenerCocinero(int empleadoId)
+        {
+            Cocina cocinero = bd.Cocinas.Where(x => x.idEmpleado.Equals(empleadoId)).FirstOrDefault();
+
+            return cocinero;
         }
         public int SiguienteCocineroId()
         {
@@ -148,6 +161,13 @@ namespace Clutch
         {
             return bd.Encargadoes.Count();
         }
+        public Encargado ObtenerEncargado(int empleadoId)
+        {
+            Encargado encargado = bd.Encargadoes.Where(x => x.idEmpleado.Equals(empleadoId)).FirstOrDefault();
+
+            return encargado;
+        }
+
         public List<Encargado> ObtenerEncargados()
         {
             List<Encargado> query = bd.Encargadoes.ToList();

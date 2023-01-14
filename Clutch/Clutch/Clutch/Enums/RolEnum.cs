@@ -9,7 +9,7 @@ namespace Clutch.Enums
     public enum RolEnum
     {
         Encargado,
-        Concina,
+        Cocina,
         Repartidor
     }
 }

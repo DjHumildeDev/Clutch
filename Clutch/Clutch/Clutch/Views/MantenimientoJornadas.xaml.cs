@@ -1,4 +1,5 @@
-﻿using Clutch.Models;
+﻿using Clutch.Enums;
+using Clutch.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,10 +42,28 @@ namespace Clutch.Views
                 string apellidos = empleado.apellidos;
 
                 string nombreCompleto = nombre + " " + apellidos;
+                string rol = "sin rol";
+
+                Encargado esEncargado = negocio.ObtenerEncargado(idEmpleado);
+                Cocina esCocinero = negocio.ObtenerCocinero(idEmpleado);
+                Repartidor esRepartidor = negocio.ObtenerRepartidor(idEmpleado);
+
+                if(esEncargado != null)
+                {
+                    rol = RolEnum.Encargado.ToString();
+                }
+                if (esCocinero != null)
+                {
+                    rol = RolEnum.Cocina.ToString();
+                }
+                if (esRepartidor != null)
+                {
+                    rol = RolEnum.Repartidor.ToString();
+                }
 
                 
                 
-                lvJornadas.Items.Add(new JornadaListModel {NombreCompleto=nombreCompleto,Entrada=jornada.Entrada,Salida=jornada.Salida,pedidos=jornada.pedidos,sueldo=jornada.sueldo,horas=jornada.horas,sueldoHoy=jornada.sueldoHoy});
+                lvJornadas.Items.Add(new JornadaListModel {Rol=rol,NombreCompleto=nombreCompleto,Entrada=jornada.Entrada,Salida=jornada.Salida,pedidos=jornada.pedidos,sueldo=jornada.sueldo,horas=jornada.horas,sueldoHoy=jornada.sueldoHoy});
             }
         }
 
