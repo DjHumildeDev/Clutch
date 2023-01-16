@@ -31,22 +31,28 @@ namespace Clutch
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            App.Current.Shutdown();
         }
 
         private void mnMantMotos_Click(object sender, RoutedEventArgs e)
         {
-
+            MantenimientoMotos ventana = new MantenimientoMotos(negocio);
+            ventana.Owner = this;
+            ventana.ShowDialog();
         }
 
         private void mnMantEmpleados_Click(object sender, RoutedEventArgs e)
         {
-
+            MantenimientoEmpleados ventana = new MantenimientoEmpleados(negocio);
+            ventana.Owner = this;
+            ventana.ShowDialog();
         }
 
         private void mnMantIncidencias_Click(object sender, RoutedEventArgs e)
         {
-
+            MantenimientoIncidencias ventana = new MantenimientoIncidencias(negocio);
+            ventana.Owner = this;
+            ventana.ShowDialog();
         }
 
         private void mnMantJornadas_Click(object sender, RoutedEventArgs e)
@@ -58,7 +64,7 @@ namespace Clutch
 
         private void mnMenuPedidos_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void mnFichar_Click(object sender, RoutedEventArgs e)
@@ -70,7 +76,14 @@ namespace Clutch
 
         private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
         {
-
+            incidencia nueva = new incidencia();
+            VerIncidencia ventana = new VerIncidencia(nueva);
+            ventana.Owner = this;
+            if (ventana.ShowDialog() == true)
+            {
+                Empleado empleado = negocio.ObtenerEmpleado(nueva.idEmpleado);
+                negocio.CrearIncidencia(empleado,nueva);
+            }
         }
     }
 }

@@ -33,5 +33,10 @@ namespace Clutch.Views
         {
 
         }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

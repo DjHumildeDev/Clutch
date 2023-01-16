@@ -19,7 +19,7 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerIncidencia : Window
     {
-        public VerIncidencia()
+        public VerIncidencia(incidencia nueva)
         {
             InitializeComponent();
         }

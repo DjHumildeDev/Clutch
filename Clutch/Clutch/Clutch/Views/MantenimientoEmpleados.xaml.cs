@@ -19,7 +19,7 @@ namespace Clutch.Views
     /// </summary>
     public partial class MantenimientoEmpleados : Window
     {
-        public MantenimientoEmpleados()
+        public MantenimientoEmpleados(Negocio negocio)
         {
             InitializeComponent();
         }
