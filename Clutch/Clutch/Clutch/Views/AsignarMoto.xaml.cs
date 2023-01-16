@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Clutch.Views
 {
     /// <summary>
-    /// Lógica de interacción para VerIncidencia.xaml
+    /// Lógica de interacción para AsignarMoto.xaml
     /// </summary>
-    public partial class VerIncidencia : Window
+    public partial class AsignarMoto : Window
     {
-        public VerIncidencia()
+        public AsignarMoto()
         {
             InitializeComponent();
         }
@@ -30,21 +30,6 @@ namespace Clutch.Views
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void chBxResuelta_Click(object sender, RoutedEventArgs e)
         {
 
         }

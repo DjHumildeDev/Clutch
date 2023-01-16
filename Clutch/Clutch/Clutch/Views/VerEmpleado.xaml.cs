@@ -15,28 +15,13 @@ using System.Windows.Shapes;
 namespace Clutch.Views
 {
     /// <summary>
-    /// Lógica de interacción para VerIncidencia.xaml
+    /// Lógica de interacción para VerEmpleado.xaml
     /// </summary>
-    public partial class VerIncidencia : Window
+    public partial class VerEmpleado : Window
     {
-        public VerIncidencia()
+        public VerEmpleado()
         {
             InitializeComponent();
-        }
-
-        private void btnCancelar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +29,7 @@ namespace Clutch.Views
 
         }
 
-        private void chBxResuelta_Click(object sender, RoutedEventArgs e)
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
 
         }
