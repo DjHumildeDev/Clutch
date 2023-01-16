@@ -1,0 +1,34 @@
+﻿<Window x:Class="Clutch.Views.MantenimientoPedidos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clutch.Views"
+        mc:Ignorable="d"
+        Title="MantenimientoPedidos" Height="300" Width="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Menu">
+                <MenuItem Header="salir" x:Name="mnPedidosSalir" Click="mnPedidosSalir_Click"/>
+            </MenuItem>
+            <MenuItem Header="Pedido">
+                <MenuItem Header="Crear" x:Name="mnPedidosCrear" Click="mnPedidosCrear_Click"/>
+                <MenuItem Header="Editar" x:Name="mnPedidosEditar" Click="mnPedidosEditar_Click"/>
+                <MenuItem Header="Borrar" x:Name="mnPedidosBorrar" Click="mnPedidosBorrar_Click"/>
+            </MenuItem>
+        </Menu>
+        <ListView Margin="10" x:Name="lvPedidos" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Repartidor" Width="120" DisplayMemberBinding="{Binding Repartidor}"/>
+                    <GridViewColumn Header="Precio" Width="120" DisplayMemberBinding="{Binding Precio}"/>
+                    <GridViewColumn Header="Cliente" Width="120" DisplayMemberBinding="{Binding Cliente}"/>
+                    <GridViewColumn Header="Direccion" Width="120" DisplayMemberBinding="{Binding Direccion}"/>
+                    <GridViewColumn Header="Telefono" Width="120" DisplayMemberBinding="{Binding Telefono}"/>
+                    <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+
+</Window>

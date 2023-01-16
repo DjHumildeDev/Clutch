@@ -99,6 +99,9 @@
     <Compile Include="Repartidor.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\AsignarMoto.xaml.cs">
+      <DependentUpon>AsignarMoto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Identificacion.xaml.cs">
       <DependentUpon>Identificacion.xaml</DependentUpon>
     </Compile>
@@ -114,11 +117,20 @@
     <Compile Include="Views\MantenimientoMotos.xaml.cs">
       <DependentUpon>MantenimientoMotos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MantenimientoPedidos.xaml.cs">
+      <DependentUpon>MantenimientoPedidos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerEmpleado.xaml.cs">
+      <DependentUpon>VerEmpleado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VerIncidencia.xaml.cs">
       <DependentUpon>VerIncidencia.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VerMoto.xaml.cs">
       <DependentUpon>VerMoto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VerPedido.xaml.cs">
+      <DependentUpon>VerPedido.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +154,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\AsignarMoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Identificacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,11 +178,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MantenimientoPedidos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VerEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\VerIncidencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VerMoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VerPedido.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

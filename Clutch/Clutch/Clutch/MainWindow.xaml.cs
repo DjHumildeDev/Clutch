@@ -64,7 +64,9 @@ namespace Clutch
 
         private void mnMenuPedidos_Click(object sender, RoutedEventArgs e)
         {
-            
+            MantenimientoPedidos ventana = new MantenimientoPedidos(negocio);
+            ventana.Owner = this;
+            ventana.ShowDialog();
         }
 
         private void mnFichar_Click(object sender, RoutedEventArgs e)
