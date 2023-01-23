@@ -11,7 +11,7 @@
             <MenuItem Header="Menu">
                 <MenuItem Header="salir" x:Name="mnEmpleadosSalir" Click="mnEmpleadosSalir_Click"/>
             </MenuItem>
-            <MenuItem Header="Moto">
+            <MenuItem Header="Empleado">
                 <MenuItem Header="Crear" x:Name="mnEmpleadosCrear" Click="mnEmpleadosCrear_Click"/>
                 <MenuItem Header="Editar" x:Name="mnEmpleadosEditar" Click="mnEmpleadosEditar_Click"/>
                 <MenuItem Header="Borrar" x:Name="mnEmpleadosBorrar" Click="mnEmpleadosBorrar_Click"/>

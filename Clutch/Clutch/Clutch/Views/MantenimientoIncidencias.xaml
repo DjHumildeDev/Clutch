@@ -11,7 +11,7 @@
             <MenuItem Header="Menu">
                 <MenuItem Header="salir" x:Name="mnIncidenciasSalir" Click="mnIncidenciasSalir_Click"/>
             </MenuItem>
-            <MenuItem Header="Moto">
+            <MenuItem Header="Incidencia">
                 <MenuItem Header="Crear" x:Name="mnIncidenciasCrear" Click="mnIncidenciasCrear_Click"/>
                 <MenuItem Header="Editar" x:Name="mnIncidenciassEditar" Click="mnIncidenciassEditar_Click"/>
                 <MenuItem Header="Borrar" x:Name="mnIncidenciasBorrar" Click="mnIncidenciasBorrar_Click"/>

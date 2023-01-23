@@ -74,12 +74,19 @@ namespace Clutch.Views
 
         private void mnJornadasCrear_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void mnJornadasEditar_Click(object sender, RoutedEventArgs e)
         {
-
+            Jornada jornada = negocio.ObtenerJornada(2);
+            VerJornada ver = new VerJornada(jornada);
+            ver.Owner = this;
+            if (ver.ShowDialog() == true)
+            {
+                negocio.EditarJornada(jornada);
+                ActualizarLista();
+            }
         }
 
         private void mnJornadasBorrar_Click(object sender, RoutedEventArgs e)
@@ -89,7 +96,7 @@ namespace Clutch.Views
 
         private void mnJornadasSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)

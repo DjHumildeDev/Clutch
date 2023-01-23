@@ -15,28 +15,13 @@ using System.Windows.Shapes;
 namespace Clutch.Views
 {
     /// <summary>
-    /// Lógica de interacción para VerEmpleado.xaml
+    /// Lógica de interacción para VerJornada.xaml
     /// </summary>
-    public partial class VerEmpleado : Window
+    public partial class VerJornada : Window
     {
-        public VerEmpleado(Empleado nuevo)
+        public VerJornada(Jornada jornada)
         {
             InitializeComponent();
-        }
-
-        private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

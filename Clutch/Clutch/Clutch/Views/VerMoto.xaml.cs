@@ -19,7 +19,7 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerMoto : Window
     {
-        public VerMoto()
+        public VerMoto(Moto moto)
         {
             InitializeComponent();
         }

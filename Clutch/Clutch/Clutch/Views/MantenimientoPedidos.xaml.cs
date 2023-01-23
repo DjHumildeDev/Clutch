@@ -27,7 +27,7 @@ namespace Clutch.Views
 
         private void mnPedidosSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void mnPedidosCrear_Click(object sender, RoutedEventArgs e)

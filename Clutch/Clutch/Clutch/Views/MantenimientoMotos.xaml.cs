@@ -19,19 +19,34 @@ namespace Clutch.Views
     /// </summary>
     public partial class MantenimientoMotos : Window
     {
+        private Negocio negocio;
         public MantenimientoMotos(Negocio negocio)
         {
             InitializeComponent();
+            this.negocio = negocio;
+            ActualizarLista();
         }
 
         private void mnMotosSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void mnMotosCrear_Click(object sender, RoutedEventArgs e)
         {
+            Moto nueva = new Moto();
+            VerMoto ventana = new VerMoto(nueva);
+            ventana.Owner = this;
+            if (ventana.ShowDialog() == true)
+            {
+                negocio.CrearMoto(nueva);
+                ActualizarLista();
+            }
+        }
 
+        private void ActualizarLista()
+        {
+           
         }
 
         private void mnMotosEditar_Click(object sender, RoutedEventArgs e)

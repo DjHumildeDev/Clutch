@@ -19,9 +19,17 @@ namespace Clutch.Views
     /// </summary>
     public partial class MantenimientoIncidencias : Window
     {
+        private Negocio negocio;
         public MantenimientoIncidencias(Negocio negocio)
         {
             InitializeComponent();
+            this.negocio = negocio;
+            ActualizarLista();
+        }
+
+        private void ActualizarLista()
+        {
+           
         }
 
         private void dtPckFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -63,12 +71,21 @@ namespace Clutch.Views
 
         private void mnIncidenciasCrear_Click(object sender, RoutedEventArgs e)
         {
-
+            //Accer como un login para sacar el empleado que crea la incidencia
+            incidencia nueva = new incidencia();
+            Empleado empleado = new Empleado();
+            VerIncidencia ventana = new VerIncidencia(nueva);
+            ventana.Owner = this;
+            if (ventana.ShowDialog() == true)
+            {
+                negocio.CrearIncidencia(empleado,nueva);
+                ActualizarLista();
+            }
         }
 
         private void mnIncidenciasSalir_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)

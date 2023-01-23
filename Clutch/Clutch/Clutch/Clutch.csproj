@@ -126,6 +126,9 @@
     <Compile Include="Views\VerIncidencia.xaml.cs">
       <DependentUpon>VerIncidencia.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\VerJornada.xaml.cs">
+      <DependentUpon>VerJornada.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VerMoto.xaml.cs">
       <DependentUpon>VerMoto.xaml</DependentUpon>
     </Compile>
@@ -187,6 +190,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\VerIncidencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VerJornada.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

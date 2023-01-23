@@ -41,3 +41,5 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoPedi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerEmpleado.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerIncidencia.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerPedido.baml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerJornada.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerJornada.baml
