@@ -29,7 +29,11 @@
         <TextBox x:Name="txtBxApellidos" VerticalAlignment="Center" Margin="5,0" Grid.Column="3"/>
         <TextBox x:Name="txtBxDNI" VerticalAlignment="Center" Margin="5,0" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="txtBxPass" VerticalAlignment="Center" Margin="5,0" Grid.Column="3" Grid.Row="1" IsReadOnly="True"/>
-        <ComboBox VerticalAlignment="Center" Margin="5,0" x:Name="cmBxTipo" SelectionChanged="cmBxTipo_SelectionChanged" Grid.Column="5"/>
+        <ComboBox VerticalAlignment="Center" Margin="5,0" x:Name="cmBxTipo" SelectionChanged="cmBxTipo_SelectionChanged" Grid.Column="5">
+            <ComboBoxItem Content="Encargado"/>
+            <ComboBoxItem Content="Cocinero"/>
+            <ComboBoxItem Content="Repartidor"/>
+        </ComboBox>
         <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.ColumnSpan="6" Grid.Row="2">
             <Button x:Name="btnCancel" IsCancel="True" Padding="7" Content="Cancelar" Click="btnCancel_Click" Margin="5,0"/>
             <Button x:Name="btnAceptar" IsDefault="True" Padding="7" Content="Aceptar" Click="btnAceptar_Click" Margin="5,0"/>

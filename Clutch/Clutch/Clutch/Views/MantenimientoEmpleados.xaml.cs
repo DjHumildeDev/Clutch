@@ -35,7 +35,7 @@ namespace Clutch.Views
         private void mnEmpleadosCrear_Click(object sender, RoutedEventArgs e)
         {
             Empleado nuevo = new Empleado();
-            VerEmpleado ventana = new VerEmpleado(nuevo);
+            VerEmpleado ventana = new VerEmpleado(nuevo,negocio);
             ventana.Owner = this;
             if (ventana.ShowDialog() == true)
             {
