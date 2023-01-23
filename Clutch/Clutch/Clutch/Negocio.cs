@@ -103,7 +103,15 @@ namespace Clutch
         public List<Repartidor> ObtenerRepartidores()
         {
             List<Repartidor> query = bd.Repartidors.ToList();
-            return query;
+
+            if (query != null)
+            {
+                return query;
+            }
+            else{
+                return new List<Repartidor>();
+            }
+            
         }
 
         public Repartidor ObtenerRepartidor(int empleadoId)
@@ -138,7 +146,14 @@ namespace Clutch
         public List<Cocina> ObtenerCocineros()
         {
             List<Cocina> query = bd.Cocinas.ToList();
-            return query;
+            if (query != null)
+            {
+                return query;
+            }
+            else{
+                return new List<Cocina>();
+            }
+          
         }
         public Cocina BucarCocinero(int cocineroId)
         {
@@ -172,7 +187,15 @@ namespace Clutch
         {
             List<Encargado> query = bd.Encargadoes.ToList();
 
-            return query;
+            if (query != null)
+            {
+                return query;
+            }
+            else
+            {
+                return new List<Encargado>();
+            }
+
         }
         public Encargado BuscarEncargado(int encargadoId) => bd.Encargadoes.FirstOrDefault(x => x.id == encargadoId);
 

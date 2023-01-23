@@ -27,6 +27,7 @@ namespace Clutch.Views
         {
             InitializeComponent();
             this.empleado = empleado;
+            this.negocio = negocio;
             RellenarCampos();
             
         }
@@ -38,8 +39,10 @@ namespace Clutch.Views
             txtBxApellidos.Text = empleado.apellidos;
             txtBxDNI.Text = empleado.dni;
             txtBxPass.Text = empleado.contraseña;
-
+          
             List<Cocina> cocineros = negocio.ObtenerCocineros();
+            
+            
             List<Encargado> encargados = negocio.ObtenerEncargados();
             List<Repartidor> repartidores = negocio.ObtenerRepartidores();
 
