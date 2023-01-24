@@ -23,5 +23,20 @@ namespace Clutch.Views
         {
             InitializeComponent();
         }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
