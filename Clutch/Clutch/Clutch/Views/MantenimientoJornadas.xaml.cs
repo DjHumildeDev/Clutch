@@ -79,7 +79,7 @@ namespace Clutch.Views
 
         private void mnJornadasEditar_Click(object sender, RoutedEventArgs e)
         {
-            Jornada jornada = negocio.ObtenerJornada(2);
+            Jornada jornada = new Jornada();
             VerJornada ver = new VerJornada(jornada);
             ver.Owner = this;
             if (ver.ShowDialog() == true)

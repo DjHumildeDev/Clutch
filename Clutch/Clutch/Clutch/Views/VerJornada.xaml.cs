@@ -38,5 +38,17 @@ namespace Clutch.Views
         {
 
         }
+
+        private void chBxSalida_Click(object sender, RoutedEventArgs e)
+        {
+            if(chBxSalida.IsChecked == true)
+            {
+                TPickerSalida.IsEnabled = true;
+            }
+            else
+            {
+                TPickerSalida.IsEnabled = false;
+            }
+        }
     }
 }
