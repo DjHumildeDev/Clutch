@@ -22,11 +22,14 @@ namespace Clutch.Views
     public partial class MantenimientoJornadas : Window
     {
         private Negocio negocio;
-        
+
+        List<Empleado> empleados = new List<Empleado>();
+
         public MantenimientoJornadas(Negocio negocio)
         {
             InitializeComponent();
             this.negocio = negocio;
+            empleados = negocio.ObtenerEmpleados();
             ActualizarLista();
         }
 
@@ -74,19 +77,20 @@ namespace Clutch.Views
 
         private void mnJornadasCrear_Click(object sender, RoutedEventArgs e)
         {
-            
+            Empleado empleado = new Empleado();
+            Jornada jornada = new Jornada();
+            VerJornada ver = new VerJornada(jornada,empleado,empleados);
+            ver.Owner = this;
+            if (ver.ShowDialog() == true)
+            {
+                negocio.CrearJornada(empleado, jornada);
+                ActualizarLista();
+            }
         }
 
         private void mnJornadasEditar_Click(object sender, RoutedEventArgs e)
         {
-            Jornada jornada = new Jornada();
-            VerJornada ver = new VerJornada(jornada);
-            ver.Owner = this;
-            if (ver.ShowDialog() == true)
-            {
-                negocio.EditarJornada(jornada);
-                ActualizarLista();
-            }
+  
         }
 
         private void mnJornadasBorrar_Click(object sender, RoutedEventArgs e)

@@ -19,9 +19,29 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerJornada : Window
     {
-        public VerJornada(Jornada jornada)
+        private List<Empleado> empleados;
+        private Jornada jornada;
+        private Empleado empleado;
+
+        public VerJornada(Jornada jornada, Empleado empleado, List<Empleado> empleados)
         {
             InitializeComponent();
+            InicializarCombo();
+            this.empleados = empleados;
+            this.jornada = jornada;
+            this.empleado = empleado;
+        }
+
+        private void InicializarCombo()
+        {
+            foreach(Empleado emp in empleados)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = emp.nombre + " " + emp.apellidos;
+                item.Tag = emp;
+                cmBxEmpleado.Items.Add(item);
+            }
+            
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -31,11 +51,22 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            jornada.Entrada = (DateTime)TPickerEntrada.Value;
+            jornada.horas = Convert.ToDouble(txtBxHoras.Text);
+            jornada.sueldoHoy = Convert.ToDouble(txtBxSueldoHoy.Text);
+            jornada.idEmpleado = empleado.id;
+            jornada.pedidos = Convert.ToInt32(txtBxPedidos.Text);
+            if (TPickerSalida.IsEnabled == true)
+            {
+                jornada.Salida = (DateTime)TPickerSalida.Value;
+            }
 
+            this.DialogResult = true;
         }
 
         private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            empleado  = (Empleado)((ComboBoxItem)sender).Tag;
 
         }
 
