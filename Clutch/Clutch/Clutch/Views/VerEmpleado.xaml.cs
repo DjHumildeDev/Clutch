@@ -29,7 +29,6 @@ namespace Clutch.Views
             this.empleado = empleado;
             this.negocio = negocio;
             RellenarCampos();
-            
         }
 
         private void RellenarCampos()
@@ -85,7 +84,8 @@ namespace Clutch.Views
 
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            ComboBox combo = (ComboBox)sender;
+            rol = (string)((ComboBoxItem)combo.SelectedItem).Tag;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -112,7 +112,7 @@ namespace Clutch.Views
                     Repartidor repar = new Repartidor();
                     negocio.CrearRepartidor(empleado, repar);
                     break;
-                case "Cocina":
+                case "Cocinero":
                     Cocina cocinero = new Cocina();
                     negocio.CrearCocinero(empleado, cocinero);
                     break;

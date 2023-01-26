@@ -38,7 +38,7 @@ namespace Clutch
         }
         public int SiguienteEmpleadoId()
         {
-            return siguienteEmpleadoId++;
+            return bd.Empleados.Count();
         }
         public void DarDeBajaEmpleado(Empleado empleado)
         {
@@ -98,7 +98,7 @@ namespace Clutch
         }
         public int SiguienteRepartidorId()
         {
-            return siguienteRepartidorId++;
+            return bd.Repartidors.Count();
         }
         public List<Repartidor> ObtenerRepartidores()
         {
@@ -141,7 +141,7 @@ namespace Clutch
         }
         public int SiguienteCocineroId()
         {
-            return siguienteCocineroId++;
+            return bd.Cocinas.Count();
         }
         public List<Cocina> ObtenerCocineros()
         {
