@@ -87,6 +87,7 @@ namespace Clutch
         {
             if (empleado != null)
             {
+                CrearEmpleado(empleado);
                 if (repartidor != null)
                 {
                     repartidor.idEmpleado = empleado.id;
@@ -124,6 +125,7 @@ namespace Clutch
         {
             if (empleado != null)
             {
+                CrearEmpleado(empleado);
                 if (cocinero != null)
                 {
                     cocinero.idEmpleado = empleado.id;
@@ -163,6 +165,7 @@ namespace Clutch
         {
             if (empleado != null)
             {
+                CrearEmpleado(empleado);
                 if (encargado != null)
                 {
                     encargado.idEmpleado = empleado.id;

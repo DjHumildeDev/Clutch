@@ -38,8 +38,7 @@ namespace Clutch.Views
             VerEmpleado ventana = new VerEmpleado(nuevo,negocio);
             ventana.Owner = this;
             if (ventana.ShowDialog() == true)
-            {
-                negocio.CrearEmpleado(nuevo);
+            {        
                 ActualizarLista();
             }
         }
