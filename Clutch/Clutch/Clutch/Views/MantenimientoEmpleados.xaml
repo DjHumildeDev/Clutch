@@ -30,16 +30,16 @@
             <DatePicker x:Name="dtPckAlta" SelectedDateChanged="dtPckAlta_SelectedDateChanged"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
         </StackPanel>
-        <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
+        <ListView Margin="10" x:Name="lvEmpleados" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding Nombre}"/>
-                    <GridViewColumn Header="Apellidos" Width="120" DisplayMemberBinding="{Binding Apellidos}"/>
-                    <GridViewColumn Header="DNI" Width="120" DisplayMemberBinding="{Binding DNI}"/>
-                    <GridViewColumn Header="Vacaciones" Width="120" DisplayMemberBinding="{Binding Vacaciones}"/>
-                    <GridViewColumn Header="Dias de Vacaciones" Width="120" DisplayMemberBinding="{Binding DiasDeVacaciones}"/>
-                    <GridViewColumn Header="Alta" Width="120" DisplayMemberBinding="{Binding Alta}"/>
-                    <GridViewColumn Header="Baja" Width="120" DisplayMemberBinding="{Binding Baja}"/>
+                    <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding nombre}"/>
+                    <GridViewColumn Header="Apellidos" Width="120" DisplayMemberBinding="{Binding apellidos}"/>
+                    <GridViewColumn Header="DNI" Width="120" DisplayMemberBinding="{Binding dni}"/>
+                    <GridViewColumn Header="Vacaciones" Width="120" DisplayMemberBinding="{Binding vacaciones}"/>
+                    <GridViewColumn Header="Dias de Vacaciones" Width="120" DisplayMemberBinding="{Binding diasVacaciones}"/>
+                    <GridViewColumn Header="Alta" Width="120" DisplayMemberBinding="{Binding alta}"/>
+                    <GridViewColumn Header="Baja" Width="120" DisplayMemberBinding="{Binding baja}"/>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -45,7 +45,12 @@ namespace Clutch.Views
 
         private void ActualizarLista()
         {
-            
+            lvEmpleados.Items.Clear();
+            List<Empleado> empleados = negocio.ObtenerEmpleados();
+            foreach (Empleado x in empleados)
+            {
+                lvEmpleados.Items.Add(x);
+            }
         }
 
         private void mnEmpleadosEditar_Click(object sender, RoutedEventArgs e)
