@@ -75,7 +75,7 @@ namespace Clutch.Views
             incidencia nueva = new incidencia();
             Empleado empleado = new Empleado();
             Identificacion identificacion = new Identificacion(negocio, false, empleado);
-            if (identificacion.DialogResult == true)
+            if (identificacion.ShowDialog() == true)
             {
                 VerIncidencia ventana = new VerIncidencia(nueva, empleado);
                 ventana.Owner = this;
