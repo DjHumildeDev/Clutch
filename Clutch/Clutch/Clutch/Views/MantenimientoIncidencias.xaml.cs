@@ -74,12 +74,16 @@ namespace Clutch.Views
             //Accer como un login para sacar el empleado que crea la incidencia
             incidencia nueva = new incidencia();
             Empleado empleado = new Empleado();
-            VerIncidencia ventana = new VerIncidencia(nueva);
-            ventana.Owner = this;
-            if (ventana.ShowDialog() == true)
+            Identificacion identificacion = new Identificacion(negocio, false, empleado);
+            if (identificacion.DialogResult == true)
             {
-                negocio.CrearIncidencia(empleado,nueva);
-                ActualizarLista();
+                VerIncidencia ventana = new VerIncidencia(nueva, empleado);
+                ventana.Owner = this;
+                if (ventana.ShowDialog() == true)
+                {
+                    negocio.CrearIncidencia(empleado, nueva);
+                    ActualizarLista();
+                }
             }
         }
 

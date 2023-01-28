@@ -19,9 +19,39 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerIncidencia : Window
     {
-        public VerIncidencia(incidencia nueva)
+        private incidencia incidencia;
+        private Empleado empleado;
+  
+        public VerIncidencia(incidencia nueva,Empleado empleado)
         {
             InitializeComponent();
+            this.incidencia = nueva;
+            this.empleado = empleado;
+           
+            RellenarCampos();
+        }
+
+        private void RellenarCampos()
+        {
+            txtBxDescripcionIncidencia.Text = incidencia.incidencia1;
+            chBxResuelta.IsChecked = incidencia.resuelta;
+            dtPckFecha.SelectedDate = incidencia.fecha;
+            txtBxEmpleado.Text = empleado.nombre;
+
+            if (incidencia.tipo == "Moto")
+            {
+                cmBxTipo.SelectedIndex = 0;
+                
+            }
+            if (incidencia.tipo == "Cocina")
+            {
+                cmBxTipo.SelectedIndex = 1;
+            }
+            if (incidencia.tipo == "Otros")
+            {
+                cmBxTipo.SelectedIndex = 2;
+            }
+          
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -31,7 +61,7 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = true;
         }
 
         private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)

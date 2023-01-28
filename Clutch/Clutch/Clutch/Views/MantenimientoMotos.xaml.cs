@@ -46,7 +46,12 @@ namespace Clutch.Views
 
         private void ActualizarLista()
         {
-           
+            lvMotos.Items.Clear();
+            List<Moto> motos = negocio.ObtenerMotos();
+            foreach (Moto moto in motos)
+            {
+                lvMotos.Items.Add(moto);
+            }
         }
 
         private void mnMotosEditar_Click(object sender, RoutedEventArgs e)

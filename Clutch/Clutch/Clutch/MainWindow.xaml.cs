@@ -71,7 +71,7 @@ namespace Clutch
 
         private void mnFichar_Click(object sender, RoutedEventArgs e)
         {
-            Identificacion identificacion = new Identificacion(negocio);
+            Identificacion identificacion = new Identificacion(negocio,true);
             identificacion.Owner = this;
             identificacion.ShowDialog();
         }
@@ -79,13 +79,19 @@ namespace Clutch
         private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
         {
             incidencia nueva = new incidencia();
-            VerIncidencia ventana = new VerIncidencia(nueva);
-            ventana.Owner = this;
-            if (ventana.ShowDialog() == true)
+            Empleado empleado = new Empleado();
+            Identificacion identificacion = new Identificacion(negocio, false, empleado);
+            if (identificacion.DialogResult == true)
             {
-                Empleado empleado = negocio.ObtenerEmpleado(nueva.idEmpleado);
-                negocio.CrearIncidencia(empleado,nueva);
+                VerIncidencia ventana = new VerIncidencia(nueva, empleado);
+                ventana.Owner = this;
+                if (ventana.ShowDialog() == true)
+                {
+
+                    negocio.CrearIncidencia(empleado, nueva);
+                }
             }
+          
         }
     }
 }

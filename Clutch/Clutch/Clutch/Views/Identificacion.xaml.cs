@@ -22,41 +22,63 @@ namespace Clutch.Views
         private Negocio negocio;
         private Empleado empleadoAbre;
         private Jornada jornadaHoy;
+        private bool fichar;
 
-
-        public Identificacion(Negocio negocio)
+        public Identificacion()
         {
             InitializeComponent();
-            this.negocio = negocio;
+        }
 
+        public Identificacion(Negocio negocio,bool fichar):this()
+        {
+            this.negocio = negocio;
+            this.fichar = fichar;
+
+        }
+        public Identificacion(Negocio negocio, bool fichar,Empleado empleado):this()
+        {
+            this.negocio = negocio;
+            this.fichar = fichar;
+            empleadoAbre = empleado;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             if (ComprobarIdentificacion(txtBxUser.Text.ToString(), txtBxPass.Password.ToString()))
             {
-                if (YaFichado(empleadoAbre))
+                if (fichar)
                 {
-                    if (jornadaHoy != null)
+                    if (YaFichado(empleadoAbre))
                     {
-                        CerrarJornada(jornadaHoy);
+                        if (jornadaHoy != null)
+                        {
+                            CerrarJornada(jornadaHoy);
 
-                        MessageBox.Show("Hasta pronto! " + empleadoAbre.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Hasta pronto! " + empleadoAbre.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        Jornada jornada = new Jornada();
+                        jornada.Entrada = DateTime.Now;
+                        negocio.CrearJornada(empleadoAbre, jornada);
+                        MessageBox.Show("Buenos dias " + empleadoAbre.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
                 }
                 else
                 {
-                    Jornada jornada = new Jornada();
-                    jornada.Entrada = DateTime.Now;
-                    negocio.CrearJornada(empleadoAbre, jornada);
-                    MessageBox.Show("Buenos dias " + empleadoAbre.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
-                }
+                    
+                    MessageBox.Show("Identificacion correcta", "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.DialogResult = true;
+                    
+                }       
             }
             else
             {
-                MessageBox.Show("Alguno de los campos no es correcto", "Error en el inicio de sesion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Alguno de los campos no es correcto", "Error en la identificacion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

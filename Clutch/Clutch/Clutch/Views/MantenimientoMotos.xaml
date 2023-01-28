@@ -20,10 +20,10 @@
         <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lvMotos_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Matricula" Width="120" DisplayMemberBinding="{Binding Matricula}"/>
-                    <GridViewColumn Header="CC" Width="120" DisplayMemberBinding="{Binding CC}"/>
-                    <GridViewColumn Header="Numero" Width="120" DisplayMemberBinding="{Binding Numero}"/>
-                    <GridViewColumn Header="Estado" Width="120" DisplayMemberBinding="{Binding Estado}"/>
+                    <GridViewColumn Header="Matricula" Width="120" DisplayMemberBinding="{Binding matricula}"/>
+                    <GridViewColumn Header="CC" Width="120" DisplayMemberBinding="{Binding cc}"/>
+                    <GridViewColumn Header="Numero" Width="120" DisplayMemberBinding="{Binding numero}"/>
+                    <GridViewColumn Header="Estado" Width="120" DisplayMemberBinding="{Binding estado}"/>
                 </GridView>
             </ListView.View>
         </ListView>

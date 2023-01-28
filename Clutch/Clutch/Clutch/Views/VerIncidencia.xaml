@@ -26,8 +26,12 @@
         <Label Content="Resuelta:" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <Label Content="Incidencia:" Grid.Row="2"  VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBox x:Name="txtBxDescripcionIncidencia" Grid.Row="3" Grid.ColumnSpan="4" Margin="7" TextWrapping="Wrap"/>
-        <ComboBox x:Name="cmBxEmpleado" SelectionChanged="cmBxEmpleado_SelectionChanged" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
-        <ComboBox Name="cmBxTipo" SelectionChanged="cmBxTipo_SelectionChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
+        <TextBox x:Name="txtBxEmpleado" IsReadOnly="True"  Grid.Column="1" VerticalAlignment="Center" Margin="5"/>
+        <ComboBox Name="cmBxTipo" SelectionChanged="cmBxTipo_SelectionChanged" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="5">
+            <ComboBoxItem Content="Moto" Tag="Moto"/>
+            <ComboBoxItem Content="Cocina" Tag="Cocina"/>
+            <ComboBoxItem Content="Otros" Tag="Otros"/>
+        </ComboBox>
         <CheckBox x:Name="chBxResuelta" Click="chBxResuelta_Click" VerticalAlignment="Center" Grid.Column="3"/>
         <DatePicker x:Name="dtPckFecha" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center"/>
         <StackPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal"  HorizontalAlignment="Right">
