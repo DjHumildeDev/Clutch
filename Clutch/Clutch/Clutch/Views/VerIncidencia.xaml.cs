@@ -21,7 +21,8 @@ namespace Clutch.Views
     {
         private incidencia incidencia;
         private Empleado empleado;
-  
+        private string tipo;
+
         public VerIncidencia(incidencia nueva,Empleado empleado)
         {
             InitializeComponent();
@@ -61,22 +62,28 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            incidencia.incidencia1 = txtBxDescripcionIncidencia.Text;
+            incidencia.fecha = dtPckFecha.SelectedDate.Value;
+
             this.DialogResult = true;
         }
-
-        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+  
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            ComboBox combo = (ComboBox)sender;
+            tipo = (string)((ComboBoxItem)combo.SelectedItem).Tag;
         }
 
         private void chBxResuelta_Click(object sender, RoutedEventArgs e)
         {
-
+            if (chBxResuelta.IsChecked == true)
+            {
+                incidencia.resuelta = true;
+            }
+            else
+            {
+                incidencia.resuelta = false;
+            }
         }
     }
 }
