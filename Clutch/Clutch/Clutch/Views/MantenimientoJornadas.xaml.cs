@@ -2,6 +2,7 @@
 using Clutch.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,8 @@ namespace Clutch.Views
     public partial class MantenimientoJornadas : Window
     {
         private Negocio negocio;
+        private GridViewColumnHeader columnaOrdenada;
+        private ListSortDirection sentidoOrden;
 
         private List<Empleado> empleados = new List<Empleado>();
 
@@ -146,7 +149,33 @@ namespace Clutch.Views
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
+            GridViewColumnHeader columnaClick = (sender as GridViewColumnHeader);
+            string ordenadoPor = columnaClick.Tag.ToString();
 
+            if (columnaOrdenada == null)
+            {
+                columnaOrdenada = columnaClick;
+                sentidoOrden = ListSortDirection.Descending;
+            }
+
+            this.lvJornadas.Items.SortDescriptions.Clear();
+
+            if (columnaOrdenada == columnaClick)
+            {
+                if (sentidoOrden == ListSortDirection.Ascending)
+                {
+                    sentidoOrden = ListSortDirection.Descending;
+                }
+                else
+                {
+                    sentidoOrden = ListSortDirection.Ascending;
+                }
+                lvJornadas.Items.SortDescriptions.Add(new SortDescription(ordenadoPor, sentidoOrden));
+            }
+            else
+            {
+                columnaOrdenada = null;
+            }
         }
     }
 }
