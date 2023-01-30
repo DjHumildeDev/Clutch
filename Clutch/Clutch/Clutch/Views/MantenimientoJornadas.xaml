@@ -32,42 +32,42 @@
                 <GridView>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding Rol}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="Rol" Click="GridViewColumnHeader_Click">
                                 Rol
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding NombreCompleto}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="NombreCompleto" Click="GridViewColumnHeader_Click">
                                 Empleado
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Entrada, StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="Entrada" Click="GridViewColumnHeader_Click">
                                 Entrada
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Salida, StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="Salida" Click="GridViewColumnHeader_Click">
                                 Salida
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding horas, StringFormat={}{0:#,0.00}}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="horas" Click="GridViewColumnHeader_Click">
                                 Horas
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding sueldoHoy, StringFormat={}{0:#,0.00}€}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="sueldoHoy" Click="GridViewColumnHeader_Click">
                                 Sueldo Hoy
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
