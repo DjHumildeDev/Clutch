@@ -29,7 +29,12 @@ namespace Clutch.Views
 
         private void ActualizarLista()
         {
-           
+            lvIncidencias.Items.Clear();
+            List<incidencia> incidencias = negocio.ObtenerIncidencias();
+            foreach(incidencia inci in incidencias)
+            {
+                lvIncidencias.Items.Add(inci);
+            }
         }
 
         private void dtPckFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
@@ -41,8 +46,6 @@ namespace Clutch.Views
         {
 
         }
-
-
 
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -77,6 +80,7 @@ namespace Clutch.Views
             Identificacion identificacion = new Identificacion(negocio, false, empleado);
             if (identificacion.ShowDialog() == true)
             {
+                empleado = identificacion.EmpleadoSeleccionado;
                 VerIncidencia ventana = new VerIncidencia(nueva, empleado);
                 ventana.Owner = this;
                 if (ventana.ShowDialog() == true)

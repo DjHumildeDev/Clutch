@@ -83,6 +83,7 @@ namespace Clutch
             Identificacion identificacion = new Identificacion(negocio, false, empleado);
             if (identificacion.ShowDialog() == true)
             {
+                empleado = identificacion.EmpleadoSeleccionado;
                 VerIncidencia ventana = new VerIncidencia(nueva, empleado);
                 ventana.Owner = this;
                 if (ventana.ShowDialog() == true)

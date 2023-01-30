@@ -32,17 +32,13 @@
             <CheckBox VerticalAlignment="Center" x:Name="chBxResuelta" Click="chBxResuelta_Click"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
         </StackPanel>
-        <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
+        <ListView Margin="10" x:Name="lvIncidencias" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Rol}"/>
-                    <GridViewColumn x:Name="grVwClNombre" Header="Empleado" Width="120" DisplayMemberBinding="{Binding Empleado}"/>
-                    <GridViewColumn Header="Entrada" Width="120" DisplayMemberBinding="{Binding Entrada}"/>
-                    <GridViewColumn Header="Salida" Width="120" DisplayMemberBinding="{Binding Salida}"/>
-                    <GridViewColumn Header="Pedidos" Width="120" DisplayMemberBinding="{Binding Pedidos}"/>
-                    <GridViewColumn Header="Sueldo" Width="120" DisplayMemberBinding="{Binding Sueldo}"/>
-                    <GridViewColumn Header="Horas" Width="120" DisplayMemberBinding="{Binding Horas}"/>
-                    <GridViewColumn Header="Sueldo hoy" Width="120" DisplayMemberBinding="{Binding SueldoHoy}"/>
+                    <GridViewColumn Header="Fecha" Width="120" DisplayMemberBinding="{Binding fecha}"/>
+                    <GridViewColumn x:Name="grVwClNombre" Header="Tipo" Width="120" DisplayMemberBinding="{Binding tipo}"/>
+                    <GridViewColumn Header="Incidencia" Width="450" DisplayMemberBinding="{Binding incidencia1}"/>
+                    <GridViewColumn Header="Resuekta" Width="120" DisplayMemberBinding="{Binding resuelta}"/>
                 </GridView>
             </ListView.View>
         </ListView>

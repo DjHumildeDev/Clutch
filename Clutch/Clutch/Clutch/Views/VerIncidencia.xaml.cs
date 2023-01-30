@@ -24,7 +24,7 @@ namespace Clutch.Views
         private string tipo;
 
         public VerIncidencia(incidencia nueva,Empleado empleado)
-        {
+        {          
             InitializeComponent();
             this.incidencia = nueva;
             this.empleado = empleado;
@@ -42,7 +42,6 @@ namespace Clutch.Views
             if (incidencia.tipo == "Moto")
             {
                 cmBxTipo.SelectedIndex = 0;
-                
             }
             if (incidencia.tipo == "Cocina")
             {
@@ -57,7 +56,7 @@ namespace Clutch.Views
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = false;
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
@@ -65,6 +64,7 @@ namespace Clutch.Views
             incidencia.incidencia1 = txtBxDescripcionIncidencia.Text;
             incidencia.fecha = dtPckFecha.SelectedDate.Value;
 
+            incidencia.tipo = tipo;
             this.DialogResult = true;
         }
   

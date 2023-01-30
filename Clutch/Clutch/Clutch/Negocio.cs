@@ -285,7 +285,7 @@ namespace Clutch
         }
         public int SiguienteIncidenciaId()
         {
-            return siguienteIncidenciaId++;
+            return bd.incidencias.Count();
         }
         public void CerrarIncidencia(incidencia incidencia)
         {

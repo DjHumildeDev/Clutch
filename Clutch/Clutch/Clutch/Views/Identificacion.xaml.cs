@@ -20,10 +20,10 @@ namespace Clutch.Views
     public partial class Identificacion : Window
     {
         private Negocio negocio;
-        private Empleado empleadoAbre;
+        private Empleado empleado;
         private Jornada jornadaHoy;
         private bool fichar;
-
+        public Empleado EmpleadoSeleccionado { get; set; }
         public Identificacion()
         {
             InitializeComponent();
@@ -35,11 +35,11 @@ namespace Clutch.Views
             this.fichar = fichar;
 
         }
-        public Identificacion(Negocio negocio, bool fichar,Empleado empleado):this()
+        public Identificacion(Negocio negocio, bool fichar, Empleado empleado):this()
         {
             this.negocio = negocio;
             this.fichar = fichar;
-            empleadoAbre = empleado;
+            this.empleado = empleado;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -49,13 +49,13 @@ namespace Clutch.Views
             {
                 if (fichar)
                 {
-                    if (YaFichado(empleadoAbre))
+                    if (YaFichado(empleado))
                     {
                         if (jornadaHoy != null)
                         {
                             CerrarJornada(jornadaHoy);
 
-                            MessageBox.Show("Hasta pronto! " + empleadoAbre.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show("Hasta pronto! " + empleado.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
                             this.Close();
                         }
                     }
@@ -63,15 +63,17 @@ namespace Clutch.Views
                     {
                         Jornada jornada = new Jornada();
                         jornada.Entrada = DateTime.Now;
-                        negocio.CrearJornada(empleadoAbre, jornada);
-                        MessageBox.Show("Buenos dias " + empleadoAbre.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.Close();
+                        negocio.CrearJornada(empleado, jornada);
+                        MessageBox.Show("Buenos dias " + empleado.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.DialogResult = true;
                     }
                 }
                 else
                 {
-                    
-                    MessageBox.Show("Identificacion correcta", "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    EmpleadoSeleccionado = empleado;
+
+
+                    MessageBox.Show("Identificacion correcta"+empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.DialogResult = true;
                     
                 }       
@@ -109,7 +111,7 @@ namespace Clutch.Views
                     if (empleado.contraseña.Equals(pass))
                     {
                         int id = empleado.id;
-                        empleadoAbre = negocio.ObtenerEmpleado(id);
+                        this.empleado = negocio.ObtenerEmpleado(id);
 
                         return true;
 
