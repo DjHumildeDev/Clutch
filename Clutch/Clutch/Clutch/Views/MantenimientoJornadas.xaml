@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="MantenimientoJornadas" Height="450" Width="800">
+        Title="MantenimientoJornadas" Height="450" Width="900">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Menu">
@@ -19,14 +19,15 @@
         </Menu>
         <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
             <Label Content="Empleado: "/>
-            <ComboBox Name="cmBxEmpleado" SelectedIndex="0" SelectionChanged="cmBxEmpleado_SelectionChanged"><ComboBoxItem>Nombre Empleado</ComboBoxItem></ComboBox>
+            <ComboBox Name="cmBxEmpleado" SelectedIndex="0" />
             <Label Margin="20,0" Content="Entrada:"/>
-            <DatePicker x:Name="dtPckEntrada" SelectedDateChanged="dtPckEntrada_SelectedDateChanged"/>
+            <DatePicker x:Name="dtPckEntrada"/>
             <Label Margin="20,0" Content="Salida:"/>
-            <DatePicker x:Name="dtPckSalida" SelectedDateChanged="dtPckSalida_SelectedDateChanged"/>
+            <DatePicker x:Name="dtPckSalida"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" Margin="15,0" Padding="10,0" Click="btnBuscar_Click"/>
         </StackPanel>
-        <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionMode="Single" ContextMenuOpening="lvJornadas_ContextMenuOpening">
+        <ListView Margin="10" x:Name="lvJornadas" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionMode="Single" ContextMenuOpening="lvJornadas_ContextMenuOpening">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Rol" Width="120" DisplayMemberBinding="{Binding Rol}"/>

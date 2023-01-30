@@ -31,6 +31,19 @@ namespace Clutch.Views
             this.negocio = negocio;
             empleados = negocio.ObtenerEmpleados();
             ActualizarLista();
+            RellenarCombo();
+        }
+
+        private void RellenarCombo()
+        {
+            cmBxEmpleado.Items.Add("Seleccionar Empleado");
+            foreach (Empleado emp in empleados)
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = emp.nombre + " " + emp.apellidos;
+                item.Tag = emp;
+                cmBxEmpleado.Items.Add(item);
+            }
         }
 
         private void ActualizarLista()
@@ -62,10 +75,7 @@ namespace Clutch.Views
                 if (esRepartidor != null)
                 {
                     rol = RolEnum.Repartidor.ToString();
-                }
-
-                
-                
+                }               
                 lvJornadas.Items.Add(new JornadaListModel {Rol=rol,NombreCompleto=nombreCompleto,Entrada=jornada.Entrada,Salida=jornada.Salida,pedidos=jornada.pedidos,sueldo=jornada.sueldo,horas=jornada.horas,sueldoHoy=jornada.sueldoHoy});
             }
         }
@@ -115,24 +125,9 @@ namespace Clutch.Views
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-
+            cmBxEmpleado.SelectedIndex = 0;
+            ActualizarLista();
         }
-
-        private void dtPckSalida_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void dtPckEntrada_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void lvJornadas_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             ctxBorrar.IsEnabled = false;
@@ -142,6 +137,11 @@ namespace Clutch.Views
                 ctxEditar.IsEnabled = true;
                 ctxBorrar.IsEnabled = false;
             }
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
