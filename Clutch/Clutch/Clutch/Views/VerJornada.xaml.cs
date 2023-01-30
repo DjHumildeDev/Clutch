@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,17 +20,22 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerJornada : Window
     {
-        private List<Empleado> empleados = new List<Empleado>();
+        private List<Empleado> empleados;
         private Jornada jornada;
         private Empleado empleado;
+
+        private bool salida,entrada,pedidos;
 
         public VerJornada(Jornada jornada, Empleado empleado, List<Empleado> empleados)
         {
             InitializeComponent();
-            InicializarCombo();
+            entrada = true;
             this.empleados = empleados;
             this.jornada = jornada;
             this.empleado = empleado;
+
+
+            InicializarCombo();
         }
 
         private void InicializarCombo()
@@ -68,7 +74,7 @@ namespace Clutch.Views
         {
             if (cmBxEmpleado.SelectedItem != null)
             {
-                empleado = (Empleado)((ComboBoxItem)sender).Tag;
+                empleado = (Empleado)((ComboBoxItem)cmBxEmpleado.SelectedItem).Tag;
             }        
         }
 
@@ -81,7 +87,46 @@ namespace Clutch.Views
             else
             {
                 TPickerSalida.IsEnabled = false;
+                salida = false;
+                txtBxSueldoHoy.Text = "0";
+                txtBxHoras.Text = "0";
             }
+        }
+
+        private void TPickerEntrada_ValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ComprobarCamposSueldo();
+        }
+
+        private void TPickerSalida_ValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            salida = true;
+            ComprobarCamposSueldo();
+        }
+
+        private void txtBxPedidos_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            pedidos = true;
+            ComprobarCamposSueldo();
+        }
+
+        private void ComprobarCamposSueldo()
+        {
+            if (pedidos == true && entrada == true && salida == true)
+            {
+                RellenarHorasSueldo();
+            }
+        }
+
+        private void RellenarHorasSueldo()
+        {
+            double horas = 0, sueldo = 0;
+
+        }
+
+        private void txtBxPedidos_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]+").IsMatch(e.Text);
         }
     }
 }
