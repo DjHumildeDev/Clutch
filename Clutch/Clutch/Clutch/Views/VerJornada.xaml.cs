@@ -33,9 +33,22 @@ namespace Clutch.Views
             this.empleados = empleados;
             this.jornada = jornada;
             this.empleado = empleado;
-
+            TPickerEntrada.Value = DateTime.Now;
+            TPickerSalida.Value = DateTime.Now;
 
             InicializarCombo();
+            if (jornada.Salida != null)
+            {
+                cmBxEmpleado.SelectedItem = empleado;
+                txtBxSueldoHoy.Text = Convert.ToString(jornada.sueldoHoy);
+                txtBxHoras.Text = Convert.ToString(jornada.horas);
+                txtBxPedidos.Text = Convert.ToString(jornada.pedidos);
+                TPickerEntrada.Value = jornada.Entrada;
+                if (jornada.Salida != null)
+                {
+                    TPickerSalida.Value = jornada.Salida;
+                }
+            }                   
         }
 
         private void InicializarCombo()
@@ -46,8 +59,7 @@ namespace Clutch.Views
                 item.Content = emp.nombre + " " + emp.apellidos;
                 item.Tag = emp;
                 cmBxEmpleado.Items.Add(item);
-            }
-            
+            }          
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
@@ -61,7 +73,15 @@ namespace Clutch.Views
             jornada.horas = Convert.ToDouble(txtBxHoras.Text);
             jornada.sueldoHoy = Convert.ToDouble(txtBxSueldoHoy.Text);
             jornada.idEmpleado = empleado.id;
-            jornada.pedidos = Convert.ToInt32(txtBxPedidos.Text);
+            if (String.IsNullOrEmpty(txtBxPedidos.Text))
+            {
+                jornada.pedidos = 0;
+            }
+            else
+            {
+                jornada.pedidos = Convert.ToInt32(txtBxPedidos.Text);
+            }
+           
             if (TPickerSalida.IsEnabled == true)
             {
                 jornada.Salida = (DateTime)TPickerSalida.Value;

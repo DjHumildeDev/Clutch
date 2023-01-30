@@ -78,14 +78,20 @@ namespace Clutch.Views
                 if (esRepartidor != null)
                 {
                     rol = RolEnum.Repartidor.ToString();
-                }               
-                lvJornadas.Items.Add(new JornadaListModel {Rol=rol,NombreCompleto=nombreCompleto,Entrada=jornada.Entrada,Salida=jornada.Salida,pedidos=jornada.pedidos,sueldo=jornada.sueldo,horas=jornada.horas,sueldoHoy=jornada.sueldoHoy});
+                }
+                JornadaListModel jornadaItem = new JornadaListModel { Rol = rol, NombreCompleto = nombreCompleto, Entrada = jornada.Entrada, Salida = jornada.Salida, pedidos = jornada.pedidos, sueldo = jornada.sueldo, horas = jornada.horas, sueldoHoy = jornada.sueldoHoy };
+                ListViewItem item = new ListViewItem();
+
+                item.Content = jornadaItem;
+                item.Tag = jornada;
+                lvJornadas.Items.Add(item);
             }
         }
 
 
         private void mnJornadasCrear_Click(object sender, RoutedEventArgs e)
         {
+            //Proceso de identificacion
             Empleado empleado = new Empleado();
             Jornada jornada = new Jornada();
             VerJornada ver = new VerJornada(jornada,empleado,empleados);
@@ -101,7 +107,16 @@ namespace Clutch.Views
         {
             if (lvJornadas.SelectedItems.Count == 1)
             {
-
+                //Proceso de identificacion
+                Jornada jornada = (Jornada)((ListViewItem)lvJornadas.SelectedItems[0]).Tag;
+                Empleado empleado = negocio.ObtenerEmpleado(jornada.idEmpleado);
+                VerJornada ver = new VerJornada(jornada, empleado, empleados);
+                ver.Owner = this;
+                if (ver.ShowDialog() == true)
+                {
+                    negocio.EditarEmpleado(empleado);
+                    ActualizarLista();
+                }
             }
             else
             {
@@ -113,7 +128,24 @@ namespace Clutch.Views
         {
             if (lvJornadas.SelectedItems.Count == 1)
             {
+                //Proceso de identificacion
 
+                MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta  Jornada?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                if (result == MessageBoxResult.OK)
+                {
+                    Jornada borrar = (Jornada)((ListViewItem)lvJornadas.SelectedItems[0]).Tag;
+
+                    if (negocio.BorrarJornada(borrar.id))
+                    {
+                        MessageBox.Show("Se ha borrado la jornada correctamente", "Jornada Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar la jornada", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    ActualizarLista();
+                    
+                }
             }
             else
             {
@@ -138,7 +170,7 @@ namespace Clutch.Views
             if (lvJornadas.SelectedItems.Count == 1)
             {
                 ctxEditar.IsEnabled = true;
-                ctxBorrar.IsEnabled = false;
+                ctxBorrar.IsEnabled = true;
             }
         }
 

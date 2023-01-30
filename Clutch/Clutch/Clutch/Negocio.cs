@@ -229,9 +229,21 @@ namespace Clutch
             bd.SaveChanges();
         }
 
+        public bool BorrarJornada(int jornadaId)
+        {
+            Jornada borrar = ObtenerJornada(jornadaId);
+            if (borrar != null)
+            {
+                bd.Jornadas.Remove(borrar);
+                bd.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public int SiguienteJornadaId()
         {
-            return bd.Jornadas.Count();
+            return bd.Jornadas.Last().id;
         }
         public void Cerrarjornada(Empleado empleado)
         {

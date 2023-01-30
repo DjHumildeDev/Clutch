@@ -34,6 +34,7 @@ namespace Clutch.Views
             foreach(incidencia inci in incidencias)
             {
                 lvIncidencias.Items.Add(inci);
+                
             }
         }
 

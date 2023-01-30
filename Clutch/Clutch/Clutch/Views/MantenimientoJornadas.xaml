@@ -65,6 +65,13 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding pedidos}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="pedidos" Click="GridViewColumnHeader_Click">
+                                Pedidos
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding sueldoHoy, StringFormat={}{0:#,0.00}€}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="sueldoHoy" Click="GridViewColumnHeader_Click">
