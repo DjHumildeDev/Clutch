@@ -121,6 +121,30 @@ namespace Clutch.Views
         private void RellenarHorasSueldo()
         {
             double horas = 0, sueldo = 0;
+            DateTime salida = new DateTime();
+            DateTime entrada = new DateTime();
+            int pedidos = 0;
+
+            if (!(String.IsNullOrEmpty(txtBxPedidos.Text)))
+            {
+                pedidos = Convert.ToInt32(txtBxPedidos.Text);
+                salida = (DateTime)TPickerSalida.Value;
+                entrada = (DateTime)TPickerEntrada.Value;
+                this.jornada.sueldo = 12.5;
+                TimeSpan result = salida.Subtract(entrada);
+                horas = double.Parse(Convert.ToString(result.TotalHours));
+
+                pedidos = Convert.ToInt32(txtBxPedidos.Text);
+
+
+                sueldo = this.jornada.sueldo * horas + pedidos;
+
+                txtBxSueldoHoy.Text = sueldo.ToString();
+                txtBxHoras.Text = horas.ToString();
+
+            }
+
+
 
         }
 

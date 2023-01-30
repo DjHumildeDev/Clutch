@@ -94,7 +94,7 @@ namespace Clutch.Views
             float horas = float.Parse(Convert.ToString(result.TotalHours));
 
             jornadaHoy.horas = horas;
-            jornadaHoy.sueldoHoy = jornadaHoy.sueldo * horas;
+            jornadaHoy.sueldoHoy = (double)(jornadaHoy.sueldo * horas + jornadaHoy.pedidos);
             jornadaHoy.Salida = DateTime.Now;
 
             negocio.EditarJornada(jornadaHoy);
@@ -102,7 +102,6 @@ namespace Clutch.Views
 
         private bool ComprobarIdentificacion(string usuario, string pass)
         {
-
             List<Empleado> empleados = negocio.ObtenerEmpleados();
             foreach (Empleado empleado in empleados)
             {
