@@ -98,7 +98,7 @@ namespace Clutch.Views
             empleado.nombre = txtBxNombre.Text;
             empleado.apellidos = txtBxApellidos.Text;
             empleado.dni = txtBxDNI.Text;
-            string pass = empleado.dni.Substring(4, 3);
+            string pass = empleado.dni.Substring(4, 4);
             empleado.contraseña = pass;
             empleado.alta = DateTime.Today;
 

@@ -19,7 +19,7 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerJornada : Window
     {
-        private List<Empleado> empleados;
+        private List<Empleado> empleados = new List<Empleado>();
         private Jornada jornada;
         private Empleado empleado;
 
@@ -66,8 +66,10 @@ namespace Clutch.Views
 
         private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            empleado  = (Empleado)((ComboBoxItem)sender).Tag;
-
+            if (cmBxEmpleado.SelectedItem != null)
+            {
+                empleado = (Empleado)((ComboBoxItem)sender).Tag;
+            }        
         }
 
         private void chBxSalida_Click(object sender, RoutedEventArgs e)

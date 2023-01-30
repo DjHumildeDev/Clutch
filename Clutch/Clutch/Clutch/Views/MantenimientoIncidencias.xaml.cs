@@ -52,10 +52,6 @@ namespace Clutch.Views
 
         }
 
-        private void cmBxTipo_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -64,12 +60,26 @@ namespace Clutch.Views
 
         private void mnIncidenciasBorrar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lvIncidencias.SelectedItems.Count == 1)
+            {
+               
+            }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void mnIncidenciassEditar_Click(object sender, RoutedEventArgs e)
         {
+            if (lvIncidencias.SelectedItems.Count == 1)
+            {
 
+            }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void mnIncidenciasCrear_Click(object sender, RoutedEventArgs e)
@@ -101,9 +111,16 @@ namespace Clutch.Views
 
         }
 
-        private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+        private void lvIncidencias_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            ctxBorrar.IsEnabled = false;
+            ctxEditar.IsEnabled = false;
+            if (lvIncidencias.SelectedItems.Count == 1)
+            {
+                ctxEditar.IsEnabled = true;
+                ctxBorrar.IsEnabled = false;
+            }
         }
     }
 }

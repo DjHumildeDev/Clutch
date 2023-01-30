@@ -39,14 +39,14 @@
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Vertical" Margin="5">
+                <StackPanel Orientation="Vertical" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2">
+                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
 
                 </StackPanel>
             </Grid>
-            <WrapPanel Grid.Row="2">
+            <WrapPanel Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                 
             </WrapPanel>
         </Grid>

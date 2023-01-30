@@ -23,7 +23,7 @@ namespace Clutch.Views
     {
         private Negocio negocio;
 
-        List<Empleado> empleados = new List<Empleado>();
+        private List<Empleado> empleados = new List<Empleado>();
 
         public MantenimientoJornadas(Negocio negocio)
         {

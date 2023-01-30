@@ -23,7 +23,7 @@
                 <ComboBoxItem>Nombre Empleado</ComboBoxItem>
             </ComboBox>
             <Label Margin="10,0" Content="Tipo:"/>
-            <ComboBox Name="cmBxTipo" SelectedIndex="0" SelectionChanged="cmBxTipo_SelectionChanged_1">
+            <ComboBox Name="cmBxTipo" SelectedIndex="0" SelectionChanged="cmBxTipo_SelectionChanged">
                 <ComboBoxItem>Tipo</ComboBoxItem>
             </ComboBox>
             <Label Margin="10,0" Content="Fecha:"/>
@@ -32,7 +32,7 @@
             <CheckBox VerticalAlignment="Center" x:Name="chBxResuelta" Click="chBxResuelta_Click"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
         </StackPanel>
-        <ListView Margin="10" x:Name="lvIncidencias" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
+        <ListView Margin="10" x:Name="lvIncidencias" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"  SelectionMode="Single" ContextMenuOpening="lvIncidencias_ContextMenuOpening">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Fecha" Width="120" DisplayMemberBinding="{Binding fecha}"/>
@@ -41,6 +41,13 @@
                     <GridViewColumn Header="Resuekta" Width="120" DisplayMemberBinding="{Binding resuelta}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="ctxMenuIncidencias">
+                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnIncidenciasCrear_Click"/>
+                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnIncidenciassEditar_Click"/>
+                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnIncidenciasBorrar_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </DockPanel>
 </Window>
