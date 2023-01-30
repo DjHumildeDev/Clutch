@@ -52,7 +52,7 @@ namespace Clutch.Views
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = false;
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
@@ -143,8 +143,6 @@ namespace Clutch.Views
                 txtBxHoras.Text = horas.ToString();
 
             }
-
-
 
         }
 

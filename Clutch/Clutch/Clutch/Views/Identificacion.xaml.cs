@@ -113,7 +113,6 @@ namespace Clutch.Views
                         this.empleado = negocio.ObtenerEmpleado(id);
 
                         return true;
-
                     }
                 }
             }

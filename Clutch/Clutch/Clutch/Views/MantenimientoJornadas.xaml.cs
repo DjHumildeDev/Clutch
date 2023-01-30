@@ -70,10 +70,6 @@ namespace Clutch.Views
             }
         }
 
-        private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           
-        }
 
         private void mnJornadasCrear_Click(object sender, RoutedEventArgs e)
         {
@@ -90,12 +86,26 @@ namespace Clutch.Views
 
         private void mnJornadasEditar_Click(object sender, RoutedEventArgs e)
         {
-  
+            if (lvJornadas.SelectedItems.Count == 1)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void mnJornadasBorrar_Click(object sender, RoutedEventArgs e)
         {
+            if (lvJornadas.SelectedItems.Count == 1)
+            {
 
+            }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void mnJornadasSalir_Click(object sender, RoutedEventArgs e)
@@ -123,6 +133,15 @@ namespace Clutch.Views
 
         }
 
-
+        private void lvJornadas_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            ctxBorrar.IsEnabled = false;
+            ctxEditar.IsEnabled = false;
+            if (lvJornadas.SelectedItems.Count == 1)
+            {
+                ctxEditar.IsEnabled = true;
+                ctxBorrar.IsEnabled = false;
+            }
+        }
     }
 }
