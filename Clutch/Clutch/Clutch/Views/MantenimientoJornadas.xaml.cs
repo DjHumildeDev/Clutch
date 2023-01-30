@@ -143,5 +143,10 @@ namespace Clutch.Views
         {
 
         }
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
