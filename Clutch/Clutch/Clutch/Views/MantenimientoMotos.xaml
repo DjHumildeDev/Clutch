@@ -16,8 +16,11 @@
                 <MenuItem Header="Editar" x:Name="mnMotosEditar" Click="mnMotosEditar_Click"/>
                 <MenuItem Header="Borrar" x:Name="mnMotosBorrar" Click="mnMotosBorrar_Click"/>
             </MenuItem>
+            <MenuItem Header="Opciones">
+                <MenuItem Header="Asignar Moto" Name="mnMotoAsignar" Click="mnMotoAsignar_Click"/>
+            </MenuItem>
         </Menu>
-        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionChanged="lvMotos_SelectionChanged">
+        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Matricula" Width="120" DisplayMemberBinding="{Binding matricula}"/>

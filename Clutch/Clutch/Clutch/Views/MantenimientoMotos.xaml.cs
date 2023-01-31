@@ -64,9 +64,16 @@ namespace Clutch.Views
 
         }
 
-        private void lvMotos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void mnMotoAsignar_Click(object sender, RoutedEventArgs e)
         {
-
+            Repartidor repar = new Repartidor();
+            Moto moto = new Moto();
+            AsignarMoto ventana = new AsignarMoto();
+            ventana.Owner = this;
+            if (ventana.ShowDialog() == true)
+            {
+                negocio.AsignarMoto(repar, moto);
+            }
         }
     }
 }
