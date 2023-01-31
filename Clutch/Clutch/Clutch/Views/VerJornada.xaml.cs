@@ -35,8 +35,19 @@ namespace Clutch.Views
             this.empleado = empleado;
             TPickerEntrada.Value = DateTime.Now;
             TPickerSalida.Value = DateTime.Now;
-
             InicializarCombo();
+            if (!(string.IsNullOrEmpty(empleado.nombre)))
+            {
+                foreach (ComboBoxItem item in cmBxEmpleado.Items)
+                {
+                    if (item.Tag.Equals(empleado))
+                    {
+                        cmBxEmpleado.SelectedItem = item;
+                    }
+                }
+            }
+
+            
             if (jornada.Salida != null)
             {
                 cmBxEmpleado.SelectedItem = empleado;

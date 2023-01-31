@@ -40,8 +40,14 @@ namespace Clutch
         {
             var result = (from Empleado in bd.Empleados orderby Empleado.id descending select Empleado).FirstOrDefault();
 
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void DarDeBajaEmpleado(Empleado empleado)
         {
@@ -104,8 +110,14 @@ namespace Clutch
         {
             var result = (from Repartidor in bd.Repartidors orderby Repartidor.id descending select Repartidor).FirstOrDefault();
 
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public List<Repartidor> ObtenerRepartidores()
         {
@@ -151,8 +163,14 @@ namespace Clutch
         {
             var result = (from Cocina in bd.Cocinas orderby Cocina.id descending select Cocina).FirstOrDefault();
 
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public List<Cocina> ObtenerCocineros()
         {
@@ -188,8 +206,14 @@ namespace Clutch
         {
             var result = (from Encargado in bd.Encargadoes orderby Encargado.id descending select Encargado).FirstOrDefault();
 
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public Encargado ObtenerEncargado(int empleadoId)
         {
@@ -256,9 +280,15 @@ namespace Clutch
         public int SiguienteJornadaId()
         {
             var result = (from Jornada in bd.Jornadas orderby Jornada.id descending select Jornada).FirstOrDefault();
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
             
-
-            return result.id+1;
         }
         public void Cerrarjornada(Empleado empleado)
         {
@@ -313,9 +343,14 @@ namespace Clutch
         public int SiguienteIncidenciaId()
         {
             var result = (from incidencia in bd.incidencias orderby incidencia.id descending select incidencia).FirstOrDefault();
-
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void CerrarIncidencia(incidencia incidencia)
         {
@@ -359,8 +394,14 @@ namespace Clutch
         {
             var result = (from Pedido in bd.Pedidoes orderby Pedido.id descending select Pedido).FirstOrDefault();
 
-
-            return result.id + 1; 
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void RecogerPedido(Pedido pedido, Repartidor repartidor)
         {
@@ -409,8 +450,14 @@ namespace Clutch
         {
             var result = (from Moto in bd.Motoes orderby Moto.id descending select Moto).FirstOrDefault();
 
-
-            return result.id + 1;
+            if (result != null)
+            {
+                return result.id + 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void EditarMoto(Moto moto)
         {
