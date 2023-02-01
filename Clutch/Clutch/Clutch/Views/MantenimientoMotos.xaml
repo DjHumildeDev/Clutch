@@ -51,7 +51,15 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding asignada}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Asignada" Click="GridViewColumnHeader_Click">
+                                Asignada
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
+
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu x:Name="ctxMenuMotoss">

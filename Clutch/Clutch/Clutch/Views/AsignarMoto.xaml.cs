@@ -56,10 +56,7 @@ namespace Clutch.Views
                         cmBxMoto.SelectedItem = item;
                     }
                 }
-
             }
-
-
               
         }
 
