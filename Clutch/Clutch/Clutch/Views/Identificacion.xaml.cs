@@ -23,6 +23,7 @@ namespace Clutch.Views
         private Empleado empleado;
         private Jornada jornadaHoy;
         private bool fichar;
+        private bool Encargado;
         public Empleado EmpleadoSeleccionado { get; set; }
         public Identificacion()
         {
@@ -35,11 +36,12 @@ namespace Clutch.Views
             this.fichar = fichar;
 
         }
-        public Identificacion(Negocio negocio, bool fichar, Empleado empleado):this()
+        public Identificacion(Negocio negocio, bool fichar, Empleado empleado,bool encargado):this()
         {
             this.negocio = negocio;
             this.fichar = fichar;
             this.empleado = empleado;
+            this.Encargado = encargado;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,11 +72,29 @@ namespace Clutch.Views
                 }
                 else
                 {
-                    EmpleadoSeleccionado = empleado;
+                    if (Encargado == true)
+                    {
+                        EmpleadoSeleccionado = empleado;
+                        Encargado encargado = negocio.ObtenerEncargado(EmpleadoSeleccionado.id);
+                        if (encargado != null)
+                        {
+                            MessageBox.Show("Identificacion correcta " + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.DialogResult = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Este usuario no es encargado" , "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    else
+                    {
+                        EmpleadoSeleccionado = empleado;
 
 
-                    MessageBox.Show("Identificacion correcta"+empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.DialogResult = true;
+                        MessageBox.Show("Identificacion correcta" + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                        this.DialogResult = true;
+                    }
+                    
                     
                 }       
             }

@@ -33,16 +33,34 @@ namespace Clutch.Views
             this.Close();
         }
 
+
+        private bool Identificacion()
+        {
+            Empleado empleado = new Empleado();
+            Identificacion identificacion = new Identificacion(negocio, false, empleado, false);
+            if (identificacion.ShowDialog() == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }            
+        }
+
         private void mnMotosCrear_Click(object sender, RoutedEventArgs e)
         {
-            Moto nueva = new Moto();
-            VerMoto ventana = new VerMoto(nueva);
-            ventana.Owner = this;
-            if (ventana.ShowDialog() == true)
+            if (Identificacion())
             {
-                negocio.CrearMoto(nueva);
-                ActualizarLista();
-            }
+                Moto nueva = new Moto();
+                VerMoto ventana = new VerMoto(nueva);
+                ventana.Owner = this;
+                if (ventana.ShowDialog() == true)
+                {
+                    negocio.CrearMoto(nueva);
+                    ActualizarLista();
+                }
+            }         
         }
 
         private void ActualizarLista()
@@ -61,23 +79,25 @@ namespace Clutch.Views
 
         private void mnMotosEditar_Click(object sender, RoutedEventArgs e)
         {
-            if (lvMotos.SelectedItems.Count == 1)
+            if (Identificacion())
             {
-                Moto ver = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
-                VerMoto ventana = new VerMoto(ver);
-                ventana.Owner = this;
-                if (ventana.ShowDialog() == true)
+                if (lvMotos.SelectedItems.Count == 1)
                 {
-                    negocio.EditarMoto(ver);
-                    ActualizarLista();
+                    Moto ver = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
+                    VerMoto ventana = new VerMoto(ver);
+                    ventana.Owner = this;
+                    if (ventana.ShowDialog() == true)
+                    {
+                        negocio.EditarMoto(ver);
+                        ActualizarLista();
+                    }
+
                 }
-
+                else
+                {
+                    MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
-            else
-            {
-                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-
         }
 
         private void mnMotosBorrar_Click(object sender, RoutedEventArgs e)
@@ -85,23 +105,25 @@ namespace Clutch.Views
             if (lvMotos.SelectedItems.Count == 1)
             {
                 //Proceso de identificacion
-
-                MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta moto?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
-                if (result == MessageBoxResult.OK)
+                if (Identificacion())
                 {
-                    Moto borrar = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
-
-                    if (negocio.BorrarMoto(borrar))
+                    MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta moto?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.OK)
                     {
-                        MessageBox.Show("Se ha borrado la moto correctamente", "Moto Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar la moto", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    ActualizarLista();
+                        Moto borrar = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
 
-                }
+                        if (negocio.BorrarMoto(borrar))
+                        {
+                            MessageBox.Show("Se ha borrado la moto correctamente", "Moto Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar la moto", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        ActualizarLista();
+
+                    }
+                }        
             }
             else
             {

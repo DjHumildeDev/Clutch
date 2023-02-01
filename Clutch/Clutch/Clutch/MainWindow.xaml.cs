@@ -80,7 +80,7 @@ namespace Clutch
         {
             incidencia nueva = new incidencia();
             Empleado empleado = new Empleado();
-            Identificacion identificacion = new Identificacion(negocio, false, empleado);
+            Identificacion identificacion = new Identificacion(negocio, false, empleado,false);
             if (identificacion.ShowDialog() == true)
             {
                 empleado = identificacion.EmpleadoSeleccionado;
