@@ -37,7 +37,7 @@ namespace Clutch.Views
         private bool Identificacion()
         {
             Empleado empleado = new Empleado();
-            Identificacion identificacion = new Identificacion(negocio, false, empleado, false);
+            Identificacion identificacion = new Identificacion(negocio, false, empleado, true);
             if (identificacion.ShowDialog() == true)
             {
                 return true;

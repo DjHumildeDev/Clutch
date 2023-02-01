@@ -35,10 +35,34 @@
         <ListView Margin="10" x:Name="lvIncidencias" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"  SelectionMode="Single" ContextMenuOpening="lvIncidencias_ContextMenuOpening">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Fecha" Width="120" DisplayMemberBinding="{Binding fecha}"/>
-                    <GridViewColumn x:Name="grVwClNombre" Header="Tipo" Width="120" DisplayMemberBinding="{Binding tipo}"/>
-                    <GridViewColumn Header="Incidencia" Width="450" DisplayMemberBinding="{Binding incidencia1}"/>
-                    <GridViewColumn Header="Resuekta" Width="120" DisplayMemberBinding="{Binding resuelta}"/>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding fecha}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                                Fecha
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding tipo}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                                Tipo
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="450" DisplayMemberBinding="{Binding incidencia1}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                                Incidencia
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding resuelta}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                                Resuelta
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>

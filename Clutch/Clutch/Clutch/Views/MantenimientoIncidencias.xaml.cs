@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,10 @@ namespace Clutch.Views
             List<incidencia> incidencias = negocio.ObtenerIncidencias();
             foreach(incidencia inci in incidencias)
             {
-                lvIncidencias.Items.Add(inci);
-                
+                ListViewItem item = new ListViewItem();
+                item.Content = inci;
+                item.Tag = inci;
+                lvIncidencias.Items.Add(item);              
             }
         }
 
@@ -63,7 +66,10 @@ namespace Clutch.Views
         {
             if (lvIncidencias.SelectedItems.Count == 1)
             {
-               
+                if (Identificacion())
+                {
+
+                }
             }
             else
             {
@@ -75,7 +81,10 @@ namespace Clutch.Views
         {
             if (lvIncidencias.SelectedItems.Count == 1)
             {
+                if (Identificacion())
+                {
 
+                }
             }
             else
             {
@@ -86,21 +95,39 @@ namespace Clutch.Views
         private void mnIncidenciasCrear_Click(object sender, RoutedEventArgs e)
         {
             //Accer como un login para sacar el empleado que crea la incidencia
-            incidencia nueva = new incidencia();
+            if (Identificacion())
+            {
+                incidencia nueva = new incidencia();
+                Empleado empleado = new Empleado();
+                Identificacion identificacion = new Identificacion(negocio, false, empleado, false);
+                if (identificacion.ShowDialog() == true)
+                {
+                    empleado = identificacion.EmpleadoSeleccionado;
+                    VerIncidencia ventana = new VerIncidencia(nueva, empleado);
+                    ventana.Owner = this;
+                    if (ventana.ShowDialog() == true)
+                    {
+                        negocio.CrearIncidencia(empleado, nueva);
+                        ActualizarLista();
+                    }
+                }
+            } 
+        }
+
+        private bool Identificacion()
+        {
             Empleado empleado = new Empleado();
-            Identificacion identificacion = new Identificacion(negocio, false, empleado,false);
+            Identificacion identificacion = new Identificacion(negocio, false, empleado, true);
             if (identificacion.ShowDialog() == true)
             {
-                empleado = identificacion.EmpleadoSeleccionado;
-                VerIncidencia ventana = new VerIncidencia(nueva, empleado);
-                ventana.Owner = this;
-                if (ventana.ShowDialog() == true)
-                {
-                    negocio.CrearIncidencia(empleado, nueva);
-                    ActualizarLista();
-                }
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+
 
         private void mnIncidenciasSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -109,10 +136,8 @@ namespace Clutch.Views
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-
+            ActualizarLista();
         }
-
-
         private void lvIncidencias_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             ctxBorrar.IsEnabled = false;
@@ -121,6 +146,39 @@ namespace Clutch.Views
             {
                 ctxEditar.IsEnabled = true;
                 ctxBorrar.IsEnabled = false;
+            }
+        }
+
+        private GridViewColumnHeader columnaOrdenada;
+        private ListSortDirection sentidoOrden;
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader columnaClick = (sender as GridViewColumnHeader);
+            string ordenadoPor = columnaClick.Tag.ToString();
+
+            if (columnaOrdenada == null)
+            {
+                columnaOrdenada = columnaClick;
+                sentidoOrden = ListSortDirection.Descending;
+            }
+
+            this.lvIncidencias.Items.SortDescriptions.Clear();
+
+            if (columnaOrdenada == columnaClick)
+            {
+                if (sentidoOrden == ListSortDirection.Ascending)
+                {
+                    sentidoOrden = ListSortDirection.Descending;
+                }
+                else
+                {
+                    sentidoOrden = ListSortDirection.Ascending;
+                }
+                lvIncidencias.Items.SortDescriptions.Add(new SortDescription(ordenadoPor, sentidoOrden));
+            }
+            else
+            {
+                columnaOrdenada = null;
             }
         }
     }
