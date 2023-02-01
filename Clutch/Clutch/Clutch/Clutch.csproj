@@ -100,6 +100,7 @@
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JornadaListModel.cs" />
+    <Compile Include="Models\MotoListModel.cs" />
     <Compile Include="Moto.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
     </Compile>

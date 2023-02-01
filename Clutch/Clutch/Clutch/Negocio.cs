@@ -139,6 +139,13 @@ namespace Clutch
 
             return repartidor;
         }
+
+        public Repartidor ObtenerRepartidor_Moto(int motoId)
+        {
+            Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
+
+            return repartidor;
+        }
         public void CrearCocinero(Empleado empleado, Cocina cocinero)
         {
             if (empleado != null)
@@ -505,7 +512,7 @@ namespace Clutch
         {
             return bd.Motoes.FirstOrDefault(x => x.id == motoId);
         }
-        public void AsignarMoto(Repartidor repartidor, Moto moto)
+        public void AsignarMoto (Repartidor repartidor, Moto moto)
         {
             if (repartidor != null)
             {

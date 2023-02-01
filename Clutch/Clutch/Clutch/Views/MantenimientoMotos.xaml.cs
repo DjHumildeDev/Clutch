@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clutch.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -65,12 +66,24 @@ namespace Clutch.Views
 
         private void ActualizarLista()
         {
+            //Necesito Corregir la base de datos ya que al crearse el repartidor los cc y la moto asignada tienen que ser null
+
+            Empleado empleado = new Empleado();
             lvMotos.Items.Clear();
             List<Moto> motos = negocio.ObtenerMotos();
             foreach (Moto moto in motos)
             {
+                
+                Repartidor repar = negocio.ObtenerRepartidor_Moto(moto.id);
+                if (repar != null)
+                {
+                    empleado = negocio.ObtenerEmpleado(repar.idEmpleado);
+                }
+
+                MotoListModel motoItem = new MotoListModel { asignada = empleado.nombre + " " + empleado.apellidos, cc = moto.cc, numero = moto.numero, estado = moto.estado, matricula = moto.matricula }; 
+
                 ListViewItem item = new ListViewItem();
-                item.Content = moto;
+                item.Content = motoItem;
                 item.Tag = moto;
 
                 lvMotos.Items.Add(item);
