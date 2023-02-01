@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -117,6 +118,40 @@ namespace Clutch.Views
             if (ventana.ShowDialog() == true)
             {
                 negocio.AsignarMoto(repar, moto);
+            }
+        }
+
+        private GridViewColumnHeader columnaOrdenada;
+        private ListSortDirection sentidoOrden;
+
+        private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+            GridViewColumnHeader columnaClick = (sender as GridViewColumnHeader);
+            string ordenadoPor = columnaClick.Tag.ToString();
+
+            if (columnaOrdenada == null)
+            {
+                columnaOrdenada = columnaClick;
+                sentidoOrden = ListSortDirection.Descending;
+            }
+
+            this.lvMotos.Items.SortDescriptions.Clear();
+
+            if (columnaOrdenada == columnaClick)
+            {
+                if (sentidoOrden == ListSortDirection.Ascending)
+                {
+                    sentidoOrden = ListSortDirection.Descending;
+                }
+                else
+                {
+                    sentidoOrden = ListSortDirection.Ascending;
+                }
+                lvMotos.Items.SortDescriptions.Add(new SortDescription(ordenadoPor, sentidoOrden));
+            }
+            else
+            {
+                columnaOrdenada = null;
             }
         }
     }

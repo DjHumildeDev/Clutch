@@ -23,10 +23,34 @@
         <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Matricula" Width="120" DisplayMemberBinding="{Binding matricula}"/>
-                    <GridViewColumn Header="CC" Width="120" DisplayMemberBinding="{Binding cc}"/>
-                    <GridViewColumn Header="Numero" Width="120" DisplayMemberBinding="{Binding numero}"/>
-                    <GridViewColumn Header="Estado" Width="120" DisplayMemberBinding="{Binding estado}"/>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding matricula}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Matricula" Click="GridViewColumnHeader_Click">
+                                Matricula
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding cc}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="CC" Click="GridViewColumnHeader_Click">
+                                CC
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding numero}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Numero" Click="GridViewColumnHeader_Click">
+                                Numero
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding estado}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Estado" Click="GridViewColumnHeader_Click">
+                                Estado
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
