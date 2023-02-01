@@ -30,7 +30,7 @@
             <DatePicker x:Name="dtPckAlta" SelectedDateChanged="dtPckAlta_SelectedDateChanged"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
         </StackPanel>
-        <ListView Margin="10" x:Name="lvEmpleados" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionChanged="lvJornadas_SelectionChanged">
+        <ListView Margin="10" x:Name="lvEmpleados" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" ContextMenuOpening="lvEmpleados_ContextMenuOpening">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding nombre}"/>
@@ -42,6 +42,13 @@
                     <GridViewColumn Header="Baja" Width="120" DisplayMemberBinding="{Binding baja}"/>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="ctxMenuMotoss">
+                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnJornadasCrear_Click"/>
+                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnJornadasEditar_Click"/>
+                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnJornadasBorrar_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </DockPanel>
 </Window>

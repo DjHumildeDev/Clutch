@@ -87,5 +87,16 @@ namespace Clutch.Views
         {
 
         }
+
+        private void lvEmpleados_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            ctxBorrar.IsEnabled = false;
+            ctxEditar.IsEnabled = false;
+            if (lvEmpleados.SelectedItems.Count == 1)
+            {
+                ctxEditar.IsEnabled = true;
+                ctxBorrar.IsEnabled = true;
+            }
+        }
     }
 }

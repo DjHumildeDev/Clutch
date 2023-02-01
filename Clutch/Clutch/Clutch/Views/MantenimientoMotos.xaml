@@ -20,7 +20,7 @@
                 <MenuItem Header="Asignar Moto" Name="mnMotoAsignar" Click="mnMotoAsignar_Click"/>
             </MenuItem>
         </Menu>
-        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single">
+        <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single" ContextMenuOpening="lvMotos_ContextMenuOpening">
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding matricula}">
@@ -53,6 +53,13 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="ctxMenuMotoss">
+                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnJornadasCrear_Click"/>
+                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnJornadasEditar_Click"/>
+                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnJornadasBorrar_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </DockPanel>
 </Window>

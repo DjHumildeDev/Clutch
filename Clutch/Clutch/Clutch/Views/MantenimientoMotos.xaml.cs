@@ -176,5 +176,16 @@ namespace Clutch.Views
                 columnaOrdenada = null;
             }
         }
+
+        private void lvMotos_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            ctxBorrar.IsEnabled = false;
+            ctxEditar.IsEnabled = false;
+            if (lvMotos.SelectedItems.Count == 1)
+            {
+                ctxEditar.IsEnabled = true;
+                ctxBorrar.IsEnabled = true;
+            }
+        }
     }
 }
