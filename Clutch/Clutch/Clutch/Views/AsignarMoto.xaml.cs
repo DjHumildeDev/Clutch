@@ -29,6 +29,7 @@ namespace Clutch.Views
         public AsignarMoto(Repartidor repartidor,Moto moto,Negocio negocio) 
         {
             InitializeComponent();
+            cmBxMoto.IsEnabled = false;
             this.negocio = negocio;
             this.moto = moto;
             this.repartidor = repartidor;
@@ -42,17 +43,12 @@ namespace Clutch.Views
             foreach (Repartidor rep in repartidores)
             {
                 ComboBoxItem item = new ComboBoxItem();
-                item.Content = 
+                Empleado empleado = negocio.ObtenerEmpleado(rep.idEmpleado);
+                item.Content = empleado.nombre + " " + empleado.apellidos;
                 item.Tag = rep;
                 cmBxEmpleado.Items.Add(item);
             }
-            foreach (Moto moto in motos)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = moto.numero.ToString();
-                item.Tag = moto;
-                cmBxMoto.Items.Add(item);
-            }
+          
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
@@ -79,6 +75,71 @@ namespace Clutch.Views
             this.DialogResult = true;
         }
 
-       
+        private void cmBxMoto_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmBxMoto.SelectedItem != null)
+            {
+                moto = (Moto)((ComboBoxItem)cmBxMoto.SelectedItem).Tag;
+                if (moto.cc.Equals("49"))
+                {
+                    cmBxCentimetros.SelectedIndex = 0;
+                }
+                if (moto.cc.Equals("125"))
+                {
+                    cmBxCentimetros.SelectedIndex = 1;
+                }
+            }
+        }
+
+        private void cmBxCentimetros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmBxCentimetros.SelectedItem != null)
+            {
+                if (cmBxCentimetros.SelectedIndex == 0)
+                {
+                    RellenarMotos("49");
+                }
+                if (cmBxCentimetros.SelectedIndex == 1)
+                {
+                    RellenarMotos("125");
+                }
+            }
+        }
+
+        private void RellenarMotos(string cc)
+        {
+            cmBxMoto.Items.Clear();
+
+            if (cc.Equals("49"))
+            {
+                foreach(Moto moto in motos)
+                {
+                    if (moto.cc.Equals("49"))
+                    {
+                        ComboBoxItem item = new ComboBoxItem();
+                        item.Content = moto.numero.ToString();
+                        item.Tag = moto;
+                        cmBxMoto.Items.Add(item);
+                    }
+                                                   
+                }
+            }
+            if (cc.Equals("125"))
+            {
+                foreach (Moto moto in motos)
+                {
+                    if (moto.cc.Equals("125"))
+                    {
+                        ComboBoxItem item = new ComboBoxItem();
+                        item.Content = moto.numero.ToString();
+                        item.Tag = moto;
+                        cmBxMoto.Items.Add(item);
+                    }
+
+                }
+            }
+
+            cmBxMoto.IsEnabled = true;
+        }
     }
 }

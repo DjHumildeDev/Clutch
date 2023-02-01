@@ -50,7 +50,11 @@ namespace Clutch.Views
             List<Moto> motos = negocio.ObtenerMotos();
             foreach (Moto moto in motos)
             {
-                lvMotos.Items.Add(moto);
+                ListViewItem item = new ListViewItem();
+                item.Content = moto;
+                item.Tag = moto;
+
+                lvMotos.Items.Add(item);
             }
         }
 
@@ -66,11 +70,12 @@ namespace Clutch.Views
                     negocio.EditarMoto(ver);
                     ActualizarLista();
                 }
-                else
-                {
-                    MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            } 
+
+            }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
         }
 
@@ -80,18 +85,18 @@ namespace Clutch.Views
             {
                 //Proceso de identificacion
 
-                MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta  Jornada?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta moto?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.OK)
                 {
                     Moto borrar = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
 
                     if (negocio.BorrarMoto(borrar))
                     {
-                        MessageBox.Show("Se ha borrado la jornada correctamente", "Jornada Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Se ha borrado la moto correctamente", "Moto Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Error al eliminar la jornada", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Error al eliminar la moto", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     ActualizarLista();
 

@@ -23,7 +23,7 @@
         <Label Content="Moto" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1"/>
         <ComboBox x:Name="cmBxEmpleado" VerticalAlignment="Center" Margin="5,0" Grid.Column="1" />
         <ComboBox x:Name="cmBxMoto" VerticalAlignment="Center" Margin="5,0" Grid.Column="1" Grid.Row="1"/>
-        <ComboBox x:Name="cmBxCentimetros" VerticalAlignment="Center" Margin="5,0" Grid.Column="3">
+        <ComboBox x:Name="cmBxCentimetros" VerticalAlignment="Center" Margin="5,0" Grid.Column="3" SelectionChanged="cmBxCentimetros_SelectionChanged">
             <ComboBoxItem Tag="49" Content="49"/>
             <ComboBoxItem Tag="125" Content="125"/>
         </ComboBox>

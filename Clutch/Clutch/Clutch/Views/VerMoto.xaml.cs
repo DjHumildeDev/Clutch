@@ -25,12 +25,49 @@ namespace Clutch.Views
         public VerMoto(Moto moto)
         {
             InitializeComponent();
+            
             this.moto = moto;
+            RellenarCampos();
+
+        }
+
+        private void RellenarCampos()
+        {
+            txtBxMatricula.Text = moto.matricula;
+            txtBxNumero.Text = moto.numero.ToString();
+            if (moto.cc != null)
+            {
+                if (moto.cc.Equals("49"))
+                {
+                    cmbBxCC.SelectedIndex = 0;
+                }
+                if (moto.cc.Equals("125"))
+                {
+                    cmbBxCC.SelectedIndex = 1;
+                }
+
+                switch (moto.estado)
+                {
+                    case "Disponible":
+                        cmbBxEstado.SelectedIndex = 0;
+                        break;
+                    case "Ocupada":
+                        cmbBxEstado.SelectedIndex = 1;
+                        break;
+                    case "En taller":
+                        cmbBxEstado.SelectedIndex = 2;
+                        break;
+                    case "Averiada":
+                        cmbBxEstado.SelectedIndex = 3;
+                        break;
+                }
+            }
+           
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.DialogResult = false;
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
