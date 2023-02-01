@@ -79,9 +79,10 @@ namespace Clutch.Views
 
         private void mnMotosEditar_Click(object sender, RoutedEventArgs e)
         {
-            if (Identificacion())
+
+            if (lvMotos.SelectedItems.Count == 1)
             {
-                if (lvMotos.SelectedItems.Count == 1)
+                if (Identificacion())
                 {
                     Moto ver = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
                     VerMoto ventana = new VerMoto(ver);
@@ -91,13 +92,13 @@ namespace Clutch.Views
                         negocio.EditarMoto(ver);
                         ActualizarLista();
                     }
-
-                }
-                else
-                {
-                    MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
+            else
+            {
+                MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
         }
 
         private void mnMotosBorrar_Click(object sender, RoutedEventArgs e)
@@ -121,7 +122,6 @@ namespace Clutch.Views
                             MessageBox.Show("Error al eliminar la moto", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         ActualizarLista();
-
                     }
                 }        
             }

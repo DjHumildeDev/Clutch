@@ -376,6 +376,22 @@ namespace Clutch
             bd.SaveChanges();
         }
 
+        public incidencia ObtenerIncidencia(int id)
+        {
+            return bd.incidencias.FirstOrDefault(x => x.id == id);
+        }
+
+        public bool BorrarIncidencia(int id)
+        {
+            incidencia borrar = ObtenerIncidencia(id);
+            if (borrar != null)
+            {
+                bd.Jornadas.Remove(borrar);
+                bd.SaveChanges();
+                return true;
+            }
+            return false;
+        }
         //Pedidos
         public void CrearPedido(Pedido pedido, Repartidor repartidor)
         {

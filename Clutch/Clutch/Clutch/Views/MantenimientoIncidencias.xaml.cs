@@ -68,7 +68,22 @@ namespace Clutch.Views
             {
                 if (Identificacion())
                 {
+                    MessageBoxResult result = MessageBox.Show("¿Esta seguro que quiere borrar esta incidencia?", "¡Atencion!", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+                    if (result == MessageBoxResult.OK)
+                    {
+                        incidencia borrar = (incidencia)((ListViewItem)lvIncidencias.SelectedItems[0]).Tag;
 
+                        if (negocio.BorrarIncidencia(borrar.id))
+                        {
+                            MessageBox.Show("Se ha borrado la incidencia correctamente", "Incidencia Borrada", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al eliminar la incidencia", "Algo salio mal", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        ActualizarLista();
+
+                    }
                 }
             }
             else
@@ -83,7 +98,15 @@ namespace Clutch.Views
             {
                 if (Identificacion())
                 {
-
+                    incidencia ver = (incidencia)((ListViewItem)lvIncidencias.SelectedItems[0]).Tag;
+                    Empleado empleado = negocio.ObtenerEmpleado(ver.idEmpleado);
+                    VerIncidencia ventana = new VerIncidencia(ver,empleado);
+                    ventana.Owner = this;
+                    if (ventana.ShowDialog() == true)
+                    {
+                        negocio.EditarIncidencia(ver);
+                        ActualizarLista();
+                    }
                 }
             }
             else
