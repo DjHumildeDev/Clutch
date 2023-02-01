@@ -55,9 +55,11 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu x:Name="ctxMenuMotoss">
-                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnJornadasCrear_Click"/>
-                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnJornadasEditar_Click"/>
-                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnJornadasBorrar_Click"/>
+                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnMotosCrear_Click"/>
+                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnMotosEditar_Click"/>
+                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnMotosBorrar_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Asignar" x:Name="ctxAsignar" Click="ctxAsignar_Click"/>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

@@ -386,7 +386,7 @@ namespace Clutch
             incidencia borrar = ObtenerIncidencia(id);
             if (borrar != null)
             {
-                bd.Jornadas.Remove(borrar);
+                bd.incidencias.Remove(borrar);
                 bd.SaveChanges();
                 return true;
             }

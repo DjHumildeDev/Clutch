@@ -35,7 +35,32 @@ namespace Clutch.Views
             this.repartidor = repartidor;
             repartidores = negocio.ObtenerRepartidores();
             motos = negocio.ObtenerMotos();
-            RellenarCombos();    
+            RellenarCombos();
+            if (moto.estado != null)
+            {
+                if (moto.cc.Equals("49"))
+                {
+                    cmBxCentimetros.SelectedIndex = 0;
+                    RellenarMotos("49");
+                }
+                if (moto.cc.Equals("125"))
+                {
+                    cmBxCentimetros.SelectedIndex = 1;
+                    RellenarMotos("125");
+                }
+
+                foreach(ComboBoxItem item in cmBxMoto.Items)
+                {
+                    if (item.Tag.Equals(moto))
+                    {
+                        cmBxMoto.SelectedItem = item;
+                    }
+                }
+
+            }
+
+
+              
         }
 
         private void RellenarCombos()

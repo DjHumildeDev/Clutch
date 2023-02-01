@@ -181,10 +181,24 @@ namespace Clutch.Views
         {
             ctxBorrar.IsEnabled = false;
             ctxEditar.IsEnabled = false;
+            ctxAsignar.IsEnabled = false;
             if (lvMotos.SelectedItems.Count == 1)
             {
                 ctxEditar.IsEnabled = true;
                 ctxBorrar.IsEnabled = true;
+                ctxAsignar.IsEnabled = true;
+            }
+        }
+
+        private void ctxAsignar_Click(object sender, RoutedEventArgs e)
+        {
+            Repartidor repar = new Repartidor();
+            Moto moto = (Moto)((ListViewItem)lvMotos.SelectedItems[0]).Tag;
+            AsignarMoto ventana = new AsignarMoto(repar, moto, negocio);
+            ventana.Owner = this;
+            if (ventana.ShowDialog() == true)
+            {
+                negocio.AsignarMoto(repar, moto);
             }
         }
     }
