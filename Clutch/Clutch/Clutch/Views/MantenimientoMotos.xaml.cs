@@ -56,6 +56,7 @@ namespace Clutch.Views
 
         private void mnMotosEditar_Click(object sender, RoutedEventArgs e)
         {
+             
 
         }
 
@@ -68,7 +69,7 @@ namespace Clutch.Views
         {
             Repartidor repar = new Repartidor();
             Moto moto = new Moto();
-            AsignarMoto ventana = new AsignarMoto();
+            AsignarMoto ventana = new AsignarMoto(repar,moto,negocio);
             ventana.Owner = this;
             if (ventana.ShowDialog() == true)
             {

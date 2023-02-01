@@ -21,9 +21,12 @@
         <Label Content="Empleado" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <Label Content="Centimetros cubicos" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Column="2"/>
         <Label Content="Moto" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="1"/>
-        <ComboBox x:Name="cmBxEmpleado" VerticalAlignment="Center" Margin="5,0" Grid.Column="1"/>
+        <ComboBox x:Name="cmBxEmpleado" VerticalAlignment="Center" Margin="5,0" Grid.Column="1" />
         <ComboBox x:Name="cmBxMoto" VerticalAlignment="Center" Margin="5,0" Grid.Column="1" Grid.Row="1"/>
-        <ComboBox x:Name="cmBxCentimetros" VerticalAlignment="Center" Margin="5,0" Grid.Column="3"/>
+        <ComboBox x:Name="cmBxCentimetros" VerticalAlignment="Center" Margin="5,0" Grid.Column="3">
+            <ComboBoxItem Tag="49" Content="49"/>
+            <ComboBoxItem Tag="125" Content="125"/>
+        </ComboBox>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="btnCancelar" IsCancel="True" Content="Cancelar" VerticalAlignment="Center" Padding="10,5" Margin="5,10" Click="btnCancelar_Click"/>
             <Button x:Name="btnAceptar"  IsDefault="True" Content="Aceptar" VerticalAlignment="Center" Padding="10,5" Margin="5,10" Click="btnAceptar_Click"/>
