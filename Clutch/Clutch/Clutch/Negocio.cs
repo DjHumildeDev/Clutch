@@ -140,12 +140,15 @@ namespace Clutch
             return repartidor;
         }
 
-        public Repartidor ObtenerRepartidor_Moto(int motoId)
-        {
-            Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
-
-            return repartidor;
-        }
+        //public Repartidor ObtenerRepartidor_Moto(int motoId)
+        //{
+        //    Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
+        //    if (repartidor != null)
+        //    {
+        //        return repartidor;
+        //    }
+        //    return null;
+        //}
         public void CrearCocinero(Empleado empleado, Cocina cocinero)
         {
             if (empleado != null)
