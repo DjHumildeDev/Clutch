@@ -140,15 +140,15 @@ namespace Clutch
             return repartidor;
         }
 
-        //public Repartidor ObtenerRepartidor_Moto(int motoId)
-        //{
-        //    Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
-        //    if (repartidor != null)
-        //    {
-        //        return repartidor;
-        //    }
-        //    return null;
-        //}
+        public Repartidor ObtenerRepartidor_Moto(int motoId)
+        {
+            Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
+            if (repartidor != null)
+            {
+                return repartidor;
+            }
+            return null;
+        }
         public void CrearCocinero(Empleado empleado, Cocina cocinero)
         {
             if (empleado != null)
@@ -521,6 +521,7 @@ namespace Clutch
             {
                 if (moto != null)
                 {
+                    moto.estado = "Ocupada";
                     repartidor.moto = moto.id;
                     bd.SaveChanges();
                 }

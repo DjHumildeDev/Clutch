@@ -73,12 +73,15 @@ namespace Clutch.Views
             List<Moto> motos = negocio.ObtenerMotos();
             foreach (Moto moto in motos)
             {
-                
-                //Repartidor repar = negocio.ObtenerRepartidor_Moto(moto.id);
-                //if (repar != null)
-                //{
-                //    empleado = negocio.ObtenerEmpleado(repar.idEmpleado);
-                //}
+                if (moto.estado == "Ocupada")
+                {
+                    Repartidor repar = negocio.ObtenerRepartidor_Moto(moto.id);
+                    if (repar != null)
+                    {
+                        empleado = negocio.ObtenerEmpleado(repar.idEmpleado);
+                    }
+                }
+               
 
                 MotoListModel motoItem = new MotoListModel { asignada = empleado.nombre + " " + empleado.apellidos, cc = moto.cc, numero = moto.numero, estado = moto.estado, matricula = moto.matricula }; 
 
