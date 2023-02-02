@@ -75,10 +75,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CluchDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CluchDb.Context.tt</DependentUpon>
+    </Compile>
     <Compile Include="CluchDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CluchDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CluchDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CluchDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Cocina.cs">
       <DependentUpon>CluchDb.tt</DependentUpon>
@@ -154,16 +164,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CluchDb.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CluchDb.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CluchDb.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CluchDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -253,10 +253,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="CluchDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CluchDb.Context.cs</LastGenOutput>
       <DependentUpon>CluchDb.edmx</DependentUpon>
+      <LastGenOutput>CluchDb.Context.cs</LastGenOutput>
     </Content>
     <Content Include="CluchDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -264,9 +267,5 @@
       <LastGenOutput>CluchDb.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

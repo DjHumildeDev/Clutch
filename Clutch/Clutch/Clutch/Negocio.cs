@@ -8,7 +8,7 @@ namespace Clutch
 {
     public class Negocio
     {
-        private ClutchDbEntities bd;
+        private CluchDb bd;
         private static int siguienteEmpleadoId = 0;
         private static int siguienteCocineroId = 0;
         private static int siguienteRepartidorId = 0;
@@ -20,7 +20,7 @@ namespace Clutch
 
         public Negocio()
         {
-            bd = new ClutchDbEntities();
+            bd = new CluchDb();
         }
         //Empleado
         public void CrearEmpleado(Empleado empleado)
@@ -408,14 +408,14 @@ namespace Clutch
                 {
                     pedido.id = SiguientePedidoId();
                     pedido.idRepartidor = repartidor.id;
-                    bd.Pedidoes.Add(pedido);
+                    bd.Pedidos.Add(pedido);
                     bd.SaveChanges();
                 }
             }
         }
         public int SiguientePedidoId()
         {
-            var result = (from Pedido in bd.Pedidoes orderby Pedido.id descending select Pedido).FirstOrDefault();
+            var result = (from Pedido in bd.Pedidos orderby Pedido.id descending select Pedido).FirstOrDefault();
 
             if (result != null)
             {
@@ -451,11 +451,11 @@ namespace Clutch
         }
         public Pedido BuscarPedido(int pedidoId)
         {
-            return bd.Pedidoes.FirstOrDefault(x => x.id == pedidoId);
+            return bd.Pedidos.FirstOrDefault(x => x.id == pedidoId);
         }
         public List<Pedido> ObtenerPedidos()
         {
-            List<Pedido> query = bd.Pedidoes.ToList();
+            List<Pedido> query = bd.Pedidos.ToList();
             return query;
         }
 

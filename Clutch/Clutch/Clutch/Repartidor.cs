@@ -16,7 +16,6 @@ namespace Clutch
     {
         public int id { get; set; }
         public int idEmpleado { get; set; }
-        public int moto { get; set; }
-        public string CC { get; set; }
+        public Nullable<int> moto { get; set; }
     }
 }

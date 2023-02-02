@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ClutchDb" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="ClutchDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="Cocina">
     <Key>
       <PropertyRef Name="id" />
@@ -67,12 +67,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="idRepartidor" Type="Int32" Nullable="false" />
+    <Property Name="idRepartidor" Type="Int32" />
     <Property Name="pedido1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="precio" Type="Double" Nullable="false" />
-    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="tlfCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="nombreCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityType Name="Repartidor">
     <Key>
@@ -80,8 +79,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="idEmpleado" Type="Int32" Nullable="false" />
-    <Property Name="moto" Type="Int32" Nullable="false" />
-    <Property Name="CC" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="moto" Type="Int32" />
   </EntityType>
   <Association Name="FK_Cocina_Empleado">
     <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
@@ -131,7 +129,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Repartidor_Empleados">
+  <Association Name="FK_Repartidor_Empleado">
     <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
     <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
     <ReferentialConstraint>
@@ -143,8 +141,8 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Repartidor_Moto">
-    <End Role="Moto" Type="Self.Moto" Multiplicity="1" />
+  <Association Name="FK_Repartidor_moto">
+    <End Role="Moto" Type="Self.Moto" Multiplicity="0..1" />
     <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Moto">
@@ -155,26 +153,26 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Pedido_Repartidor">
-    <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="1" />
-    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+  <Association Name="FK_Pedidos_Repartidor">
+    <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="Self.Pedido" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Repartidor">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="Pedido">
+      <Dependent Role="Pedidos">
         <PropertyRef Name="idRepartidor" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="ClutchDbEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="CluchDb" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Cocinas" EntityType="Self.Cocina" />
     <EntitySet Name="Empleados" EntityType="Self.Empleado" />
     <EntitySet Name="Encargadoes" EntityType="Self.Encargado" />
     <EntitySet Name="incidencias" EntityType="Self.incidencia" />
     <EntitySet Name="Jornadas" EntityType="Self.Jornada" />
     <EntitySet Name="Motoes" EntityType="Self.Moto" />
-    <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
+    <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
     <EntitySet Name="Repartidors" EntityType="Self.Repartidor" />
     <AssociationSet Name="FK_Cocina_Empleado" Association="Self.FK_Cocina_Empleado">
       <End Role="Empleados" EntitySet="Empleados" />
@@ -192,17 +190,17 @@
       <End Role="Empleados" EntitySet="Empleados" />
       <End Role="Jornada" EntitySet="Jornadas" />
     </AssociationSet>
-    <AssociationSet Name="FK_Repartidor_Empleados" Association="Self.FK_Repartidor_Empleados">
+    <AssociationSet Name="FK_Repartidor_Empleado" Association="Self.FK_Repartidor_Empleado">
       <End Role="Empleados" EntitySet="Empleados" />
       <End Role="Repartidor" EntitySet="Repartidors" />
     </AssociationSet>
-    <AssociationSet Name="FK_Repartidor_Moto" Association="Self.FK_Repartidor_Moto">
+    <AssociationSet Name="FK_Repartidor_moto" Association="Self.FK_Repartidor_moto">
       <End Role="Moto" EntitySet="Motoes" />
       <End Role="Repartidor" EntitySet="Repartidors" />
     </AssociationSet>
-    <AssociationSet Name="FK_Pedido_Repartidor" Association="Self.FK_Pedido_Repartidor">
+    <AssociationSet Name="FK_Pedidos_Repartidor" Association="Self.FK_Pedidos_Repartidor">
       <End Role="Repartidor" EntitySet="Repartidors" />
-      <End Role="Pedido" EntitySet="Pedidoes" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

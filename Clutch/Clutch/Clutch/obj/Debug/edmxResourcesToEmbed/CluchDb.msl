@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ClutchDbStoreContainer" CdmEntityContainer="ClutchDbEntities">
+  <EntityContainerMapping StorageEntityContainer="ClutchDbModelStoreContainer" CdmEntityContainer="CluchDb">
     <EntitySetMapping Name="Cocinas">
-      <EntityTypeMapping TypeName="ClutchDb.Cocina">
+      <EntityTypeMapping TypeName="ClutchDbModel.Cocina">
         <MappingFragment StoreEntitySet="Cocina">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Empleados">
-      <EntityTypeMapping TypeName="ClutchDb.Empleado">
+      <EntityTypeMapping TypeName="ClutchDbModel.Empleado">
         <MappingFragment StoreEntitySet="Empleados">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -25,7 +25,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Encargadoes">
-      <EntityTypeMapping TypeName="ClutchDb.Encargado">
+      <EntityTypeMapping TypeName="ClutchDbModel.Encargado">
         <MappingFragment StoreEntitySet="Encargado">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -33,7 +33,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="incidencias">
-      <EntityTypeMapping TypeName="ClutchDb.incidencia">
+      <EntityTypeMapping TypeName="ClutchDbModel.incidencia">
         <MappingFragment StoreEntitySet="incidencias">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
@@ -45,7 +45,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Jornadas">
-      <EntityTypeMapping TypeName="ClutchDb.Jornada">
+      <EntityTypeMapping TypeName="ClutchDbModel.Jornada">
         <MappingFragment StoreEntitySet="Jornada">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Entrada" ColumnName="Entrada" />
@@ -59,7 +59,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Motoes">
-      <EntityTypeMapping TypeName="ClutchDb.Moto">
+      <EntityTypeMapping TypeName="ClutchDbModel.Moto">
         <MappingFragment StoreEntitySet="Moto">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="matricula" ColumnName="matricula" />
@@ -69,26 +69,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Pedidoes">
-      <EntityTypeMapping TypeName="ClutchDb.Pedido">
-        <MappingFragment StoreEntitySet="Pedido">
+    <EntitySetMapping Name="Pedidos">
+      <EntityTypeMapping TypeName="ClutchDbModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedidos">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
           <ScalarProperty Name="pedido1" ColumnName="pedido" />
           <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
-          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Repartidors">
-      <EntityTypeMapping TypeName="ClutchDb.Repartidor">
+      <EntityTypeMapping TypeName="ClutchDbModel.Repartidor">
         <MappingFragment StoreEntitySet="Repartidor">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
           <ScalarProperty Name="moto" ColumnName="moto" />
-          <ScalarProperty Name="CC" ColumnName="CC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -15,11 +15,10 @@ namespace Clutch
     public partial class Pedido
     {
         public int id { get; set; }
-        public int idRepartidor { get; set; }
+        public Nullable<int> idRepartidor { get; set; }
         public string pedido1 { get; set; }
         public double precio { get; set; }
         public string direccion { get; set; }
         public string tlfCliente { get; set; }
-        public string nombreCliente { get; set; }
     }
 }
