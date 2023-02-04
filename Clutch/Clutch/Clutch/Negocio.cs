@@ -142,12 +142,19 @@ namespace Clutch
 
         public Repartidor ObtenerRepartidor_Moto(int motoId)
         {
-            Repartidor repartidor = bd.Repartidors.Where(x => x.moto.Equals(motoId)).FirstOrDefault();
-            if (repartidor != null)
+            int moto = Convert.ToInt32(motoId);
+            List<Repartidor> repartidores = bd.Repartidors.Where(x => x.moto != null).ToList();
+            Repartidor repar = null;
+            foreach (Repartidor r in repartidores)
             {
-                return repartidor;
-            }
+                if (r.moto == motoId)
+                {
+                    repar = r;
+                    return repar;
+                }
+            } 
             return null;
+                   
         }
         public void CrearCocinero(Empleado empleado, Cocina cocinero)
         {
