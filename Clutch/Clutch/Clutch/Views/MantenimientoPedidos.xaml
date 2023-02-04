@@ -17,17 +17,60 @@
                 <MenuItem Header="Borrar" x:Name="mnPedidosBorrar" Click="mnPedidosBorrar_Click"/>
             </MenuItem>
         </Menu>
-        <ListView Margin="10" x:Name="lvPedidos" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+        <ListView Margin="10" x:Name="lvPedidos" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionMode="Single" ContextMenuOpening="lvPedidos_ContextMenuOpening">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Repartidor" Width="120" DisplayMemberBinding="{Binding Repartidor}"/>
-                    <GridViewColumn Header="Precio" Width="120" DisplayMemberBinding="{Binding Precio}"/>
-                    <GridViewColumn Header="Cliente" Width="120" DisplayMemberBinding="{Binding Cliente}"/>
-                    <GridViewColumn Header="Direccion" Width="120" DisplayMemberBinding="{Binding Direccion}"/>
-                    <GridViewColumn Header="Telefono" Width="120" DisplayMemberBinding="{Binding Telefono}"/>
-                    <GridViewColumn Header="Id" Width="120" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Repartidor}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Repartidor" Click="GridViewColumnHeader_Click">
+                                Repartidor
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Precio}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Precio" Click="GridViewColumnHeader_Click">
+                                Precio
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Cliente}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Cliente" Click="GridViewColumnHeader_Click">
+                                Cliente
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Direccion}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Direccion" Click="GridViewColumnHeader_Click">
+                                Direccion
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Telefono}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Telefono" Click="GridViewColumnHeader_Click">
+                                Telefono
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Id}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="Id" Click="GridViewColumnHeader_Click">
+                                Id
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu x:Name="ctxMenuMotoss">
+                    <MenuItem Header="Nueva" x:Name="ctxNueva" Click="mnPedidosCrear_Click"/>
+                    <MenuItem Header="Editar" x:Name="ctxEditar" Click="mnPedidosEditar_Click"/>
+                    <MenuItem Header="Borrar" x:Name="ctxBorrar" Click="mnPedidosBorrar_Click"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
     </DockPanel>
 

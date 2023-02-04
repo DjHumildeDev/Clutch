@@ -83,14 +83,25 @@ namespace Clutch
         {
             if (empleado != null)
             {
-                empleado.vacaciones = true;
-                bd.SaveChanges();
+                if (empleado.vacaciones == false)
+                {
+                    empleado.vacaciones = true;
+                    bd.SaveChanges();
+                }
+                else
+                {
+                    empleado.vacaciones = false;
+                    bd.SaveChanges();
+                }
+               
             }
         }
 
         public void ResetearVacaciones(Empleado empleado)
         {
-
+            Empleado emp = ObtenerEmpleado(empleado.id);
+            emp.diasVacaciones = 30;
+            bd.SaveChanges();
         }
         public void CrearRepartidor(Empleado empleado, Repartidor repartidor)
         {
@@ -410,19 +421,34 @@ namespace Clutch
             return false;
         }
         //Pedidos
-        public void CrearPedido(Pedido pedido, Repartidor repartidor)
+        public void CrearPedido(Pedido pedido)
         {
             if (pedido != null)
-            {
-                if (repartidor != null)
-                {
-                    pedido.id = SiguientePedidoId();
-                    pedido.idRepartidor = repartidor.id;
-                    bd.Pedidos.Add(pedido);
-                    bd.SaveChanges();
-                }
+            {                               
+                pedido.id = SiguientePedidoId();                     
+                bd.Pedidos.Add(pedido);
+                bd.SaveChanges();             
             }
         }
+        public void EditarPedido(Pedido pedido)
+        {
+            Pedido nuevoPedido = BuscarPedido(pedido.id);
+            pedido = nuevoPedido;
+            bd.SaveChanges();
+        }
+        public bool BorrarPedido(int id)
+        {
+            Pedido borrar = BuscarPedido(id);
+            if (borrar != null)
+            {
+                bd.Pedidos.Remove(borrar);
+                bd.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+
         public int SiguientePedidoId()
         {
             var result = (from Pedido in bd.Pedidos orderby Pedido.id descending select Pedido).FirstOrDefault();

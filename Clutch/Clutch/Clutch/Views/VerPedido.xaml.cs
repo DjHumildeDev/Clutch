@@ -19,9 +19,12 @@ namespace Clutch.Views
     /// </summary>
     public partial class VerPedido : Window
     {
-        public VerPedido()
+        private Pedido pedido;
+
+        public VerPedido(Pedido pedido)
         {
             InitializeComponent();
+            this.pedido = pedido;
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
