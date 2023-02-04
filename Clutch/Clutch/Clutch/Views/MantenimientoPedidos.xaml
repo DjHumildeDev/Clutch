@@ -20,45 +20,38 @@
         <ListView Margin="10" x:Name="lvPedidos" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" SelectionMode="Single" ContextMenuOpening="lvPedidos_ContextMenuOpening">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Repartidor}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding repartidor}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Repartidor" Click="GridViewColumnHeader_Click">
                                 Repartidor
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Precio}">
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding precio}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Precio" Click="GridViewColumnHeader_Click">
                                 Precio
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Cliente}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding pedido1}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Cliente" Click="GridViewColumnHeader_Click">
-                                Cliente
+                                Pedido
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Direccion}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding direccion}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Direccion" Click="GridViewColumnHeader_Click">
                                 Direccion
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Telefono}">
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding tlfCliente}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Telefono" Click="GridViewColumnHeader_Click">
                                 Telefono
-                            </GridViewColumnHeader>
-                        </GridViewColumn.Header>
-                    </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Id}">
-                        <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Id" Click="GridViewColumnHeader_Click">
-                                Id
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>

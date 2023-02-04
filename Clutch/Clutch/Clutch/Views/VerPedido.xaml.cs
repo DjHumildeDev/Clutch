@@ -25,6 +25,11 @@ namespace Clutch.Views
         {
             InitializeComponent();
             this.pedido = pedido;
+            txtBxDireccion.Text = pedido.direccion;
+            txtBxPedido.Text = pedido.pedido1;
+            txtBxPrecio.Text = pedido.precio.ToString();
+            txtBxTelefono.Text = pedido.tlfCliente;
+            
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)

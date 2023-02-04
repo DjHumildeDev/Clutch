@@ -13,10 +13,10 @@ namespace Clutch
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CluchDb : DbContext
+    public partial class ClutchDb : DbContext
     {
-        public CluchDb()
-            : base("name=CluchDb")
+        public ClutchDb()
+            : base("name=ClutchDb")
         {
         }
     
@@ -31,7 +31,7 @@ namespace Clutch
         public virtual DbSet<incidencia> incidencias { get; set; }
         public virtual DbSet<Jornada> Jornadas { get; set; }
         public virtual DbSet<Moto> Motoes { get; set; }
-        public virtual DbSet<Pedido> Pedidos { get; set; }
+        public virtual DbSet<Pedido> Pedidoes { get; set; }
         public virtual DbSet<Repartidor> Repartidors { get; set; }
     }
 }

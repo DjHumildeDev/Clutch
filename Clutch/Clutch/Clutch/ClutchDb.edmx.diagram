@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9462321444e040678131224300e7b695" Name="Diagram1">
+      <Diagram DiagramId="7a11aafd9bf245d9989e9f203153ace7" Name="Diagram1">
         <EntityTypeShape EntityType="ClutchDbModel.Cocina" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Empleado" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Encargado" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
@@ -19,7 +19,7 @@
         <AssociationConnector Association="ClutchDbModel.FK_Jornada_Empleado" ManuallyRouted="false" />
         <AssociationConnector Association="ClutchDbModel.FK_Repartidor_Empleado" ManuallyRouted="false" />
         <AssociationConnector Association="ClutchDbModel.FK_Repartidor_moto" ManuallyRouted="false" />
-        <AssociationConnector Association="ClutchDbModel.FK_Pedidos_Repartidor" ManuallyRouted="false" />
+        <AssociationConnector Association="ClutchDbModel.FK_Pedido_Repar" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -8,7 +8,7 @@ namespace Clutch
 {
     public class Negocio
     {
-        private CluchDb bd;
+        private ClutchDb bd;
         private static int siguienteEmpleadoId = 0;
         private static int siguienteCocineroId = 0;
         private static int siguienteRepartidorId = 0;
@@ -20,7 +20,7 @@ namespace Clutch
 
         public Negocio()
         {
-            bd = new CluchDb();
+            bd = new ClutchDb();
         }
         //Empleado
         public void CrearEmpleado(Empleado empleado)
@@ -426,7 +426,7 @@ namespace Clutch
             if (pedido != null)
             {                               
                 pedido.id = SiguientePedidoId();                     
-                bd.Pedidos.Add(pedido);
+                bd.Pedidoes.Add(pedido);
                 bd.SaveChanges();             
             }
         }
@@ -441,7 +441,7 @@ namespace Clutch
             Pedido borrar = BuscarPedido(id);
             if (borrar != null)
             {
-                bd.Pedidos.Remove(borrar);
+                bd.Pedidoes.Remove(borrar);
                 bd.SaveChanges();
                 return true;
             }
@@ -451,7 +451,7 @@ namespace Clutch
 
         public int SiguientePedidoId()
         {
-            var result = (from Pedido in bd.Pedidos orderby Pedido.id descending select Pedido).FirstOrDefault();
+            var result = (from Pedido in bd.Pedidoes orderby Pedido.id descending select Pedido).FirstOrDefault();
 
             if (result != null)
             {
@@ -487,11 +487,11 @@ namespace Clutch
         }
         public Pedido BuscarPedido(int pedidoId)
         {
-            return bd.Pedidos.FirstOrDefault(x => x.id == pedidoId);
+            return bd.Pedidoes.FirstOrDefault(x => x.id == pedidoId);
         }
         public List<Pedido> ObtenerPedidos()
         {
-            List<Pedido> query = bd.Pedidos.ToList();
+            List<Pedido> query = bd.Pedidoes.ToList();
             return query;
         }
 

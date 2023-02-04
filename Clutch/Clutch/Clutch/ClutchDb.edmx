@@ -67,7 +67,7 @@
           <Property Name="numero" Type="int" Nullable="false" />
           <Property Name="estado" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
-        <EntityType Name="Pedidos">
+        <EntityType Name="Pedido">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -75,7 +75,7 @@
           <Property Name="idRepartidor" Type="int" />
           <Property Name="pedido" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="precio" Type="float" Nullable="false" />
-          <Property Name="direccion" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="tlfCliente" Type="nvarchar" MaxLength="9" Nullable="false" />
         </EntityType>
         <EntityType Name="Repartidor">
@@ -134,14 +134,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pedidos_Repartidor">
+        <Association Name="FK_Pedido_Repar">
           <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="0..1" />
-          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Repartidor">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Pedidos">
+            <Dependent Role="Pedido">
               <PropertyRef Name="idRepartidor" />
             </Dependent>
           </ReferentialConstraint>
@@ -177,7 +177,7 @@
           <EntitySet Name="incidencias" EntityType="Self.incidencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jornada" EntityType="Self.Jornada" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Moto" EntityType="Self.Moto" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedido" EntityType="Self.Pedido" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Repartidor" EntityType="Self.Repartidor" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Cocina_Empleado" Association="Self.FK_Cocina_Empleado">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -195,9 +195,9 @@
             <End Role="Empleados" EntitySet="Empleados" />
             <End Role="Jornada" EntitySet="Jornada" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pedidos_Repartidor" Association="Self.FK_Pedidos_Repartidor">
+          <AssociationSet Name="FK_Pedido_Repar" Association="Self.FK_Pedido_Repar">
             <End Role="Repartidor" EntitySet="Repartidor" />
-            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Pedido" EntitySet="Pedido" />
           </AssociationSet>
           <AssociationSet Name="FK_Repartidor_Empleado" Association="Self.FK_Repartidor_Empleado">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -283,7 +283,7 @@
           <Property Name="idRepartidor" Type="Int32" />
           <Property Name="pedido1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="precio" Type="Double" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="tlfCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Repartidor">
@@ -293,7 +293,7 @@
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="idEmpleado" Type="Int32" Nullable="false" />
           <Property Name="moto" Type="Int32" />
-        </EntityType>
+          </EntityType>
         <Association Name="FK_Cocina_Empleado">
           <End Role="Empleados" Type="Self.Empleado" Multiplicity="1" />
           <End Role="Cocina" Type="Self.Cocina" Multiplicity="*" />
@@ -366,26 +366,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pedidos_Repartidor">
+        <Association Name="FK_Pedido_Repar">
           <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="0..1" />
-          <End Role="Pedidos" Type="Self.Pedido" Multiplicity="*" />
+          <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Repartidor">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Pedidos">
+            <Dependent Role="Pedido">
               <PropertyRef Name="idRepartidor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CluchDb" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ClutchDb" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cocinas" EntityType="Self.Cocina" />
           <EntitySet Name="Empleados" EntityType="Self.Empleado" />
           <EntitySet Name="Encargadoes" EntityType="Self.Encargado" />
           <EntitySet Name="incidencias" EntityType="Self.incidencia" />
           <EntitySet Name="Jornadas" EntityType="Self.Jornada" />
           <EntitySet Name="Motoes" EntityType="Self.Moto" />
-          <EntitySet Name="Pedidos" EntityType="Self.Pedido" />
+          <EntitySet Name="Pedidoes" EntityType="Self.Pedido" />
           <EntitySet Name="Repartidors" EntityType="Self.Repartidor" />
           <AssociationSet Name="FK_Cocina_Empleado" Association="Self.FK_Cocina_Empleado">
             <End Role="Empleados" EntitySet="Empleados" />
@@ -411,9 +411,9 @@
             <End Role="Moto" EntitySet="Motoes" />
             <End Role="Repartidor" EntitySet="Repartidors" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pedidos_Repartidor" Association="Self.FK_Pedidos_Repartidor">
+          <AssociationSet Name="FK_Pedido_Repar" Association="Self.FK_Pedido_Repar">
             <End Role="Repartidor" EntitySet="Repartidors" />
-            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Pedido" EntitySet="Pedidoes" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -421,7 +421,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ClutchDbModelStoreContainer" CdmEntityContainer="CluchDb">
+        <EntityContainerMapping StorageEntityContainer="ClutchDbModelStoreContainer" CdmEntityContainer="ClutchDb">
           <EntitySetMapping Name="Cocinas">
             <EntityTypeMapping TypeName="ClutchDbModel.Cocina">
               <MappingFragment StoreEntitySet="Cocina">
@@ -490,9 +490,9 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pedidos">
+          <EntitySetMapping Name="Pedidoes">
             <EntityTypeMapping TypeName="ClutchDbModel.Pedido">
-              <MappingFragment StoreEntitySet="Pedidos">
+              <MappingFragment StoreEntitySet="Pedido">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="idRepartidor" ColumnName="idRepartidor" />
                 <ScalarProperty Name="pedido1" ColumnName="pedido" />

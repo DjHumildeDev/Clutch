@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cluchdb.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("cluchdb.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clutchdb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("clutchdb.tt")]
 
 

@@ -25,6 +25,7 @@ namespace Clutch.Views
         {
             InitializeComponent();
             this.negocio = negocio;
+            ActualizarLista();
         }
         private bool Identificacion()
         {
@@ -60,8 +61,8 @@ namespace Clutch.Views
         private void ActualizarLista()
         {
             lvPedidos.Items.Clear();
-            List<Empleado> empleados = negocio.ObtenerEmpleados();
-            foreach (Empleado x in empleados)
+            List<Pedido> pedidos = negocio.ObtenerPedidos();
+            foreach (Pedido x in pedidos)
             {
                 ListViewItem item = new ListViewItem();
                 item.Content = x;

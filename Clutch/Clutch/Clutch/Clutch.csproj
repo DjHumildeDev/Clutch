@@ -75,51 +75,51 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CluchDb.Context.cs">
+    <Compile Include="ClutchDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CluchDb.Context.tt</DependentUpon>
+      <DependentUpon>ClutchDb.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="CluchDb.cs">
+    <Compile Include="ClutchDb.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="CluchDb.Designer.cs">
+    <Compile Include="ClutchDb.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CluchDb.edmx</DependentUpon>
+      <DependentUpon>ClutchDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Cocina.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Empleado.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Encargado.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Enums\CentimetrosCubicosEnum.cs" />
     <Compile Include="Enums\EstadoMotoEnum.cs" />
     <Compile Include="Enums\RolEnum.cs" />
     <Compile Include="Enums\TipoincidenciaEnum.cs" />
     <Compile Include="incidencia.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Jornada.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JornadaListModel.cs" />
     <Compile Include="Models\MotoListModel.cs" />
     <Compile Include="Moto.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Negocio.cs" />
     <Compile Include="Pedido.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Repartidor.cs">
-      <DependentUpon>CluchDb.tt</DependentUpon>
+      <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Views\AsignarMoto.xaml.cs">
       <DependentUpon>AsignarMoto.xaml</DependentUpon>
@@ -236,12 +236,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="CluchDb.edmx">
+    <EntityDeploy Include="ClutchDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CluchDb.Designer.cs</LastGenOutput>
+      <LastGenOutput>ClutchDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CluchDb.edmx.diagram">
-      <DependentUpon>CluchDb.edmx</DependentUpon>
+    <None Include="ClutchDb.edmx.diagram">
+      <DependentUpon>ClutchDb.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -256,15 +256,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CluchDb.Context.tt">
+    <Content Include="ClutchDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CluchDb.edmx</DependentUpon>
-      <LastGenOutput>CluchDb.Context.cs</LastGenOutput>
+      <DependentUpon>ClutchDb.edmx</DependentUpon>
+      <LastGenOutput>ClutchDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="CluchDb.tt">
+    <Content Include="ClutchDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CluchDb.edmx</DependentUpon>
-      <LastGenOutput>CluchDb.cs</LastGenOutput>
+      <DependentUpon>ClutchDb.edmx</DependentUpon>
+      <LastGenOutput>ClutchDb.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
