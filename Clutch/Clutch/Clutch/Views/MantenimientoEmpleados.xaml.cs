@@ -26,6 +26,8 @@ namespace Clutch.Views
         public MantenimientoEmpleados(Negocio negocio)
         {
             InitializeComponent();
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
+            vista.Filter = FiltroVista;
             this.negocio = negocio;
             ActualizarLista();
         }
@@ -178,7 +180,7 @@ namespace Clutch.Views
         private void dtPckAlta_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             DateTime fechaBuscar = dtPckAlta.SelectedDate.Value;
-            Filtrar();
+        
         }
 
         private bool FiltroVista(object item)
@@ -188,13 +190,13 @@ namespace Clutch.Views
                 return true;
             }
             Empleado empleado = item as Empleado;
+            if (empleado == null)
+            {
+                return false;
+            }
             return empleado.nombre.Contains(this.txtBxNombre.Text);
         }
-        private void Filtrar()
-        {
-           
-        }
-
+      
         private void txtBxNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
