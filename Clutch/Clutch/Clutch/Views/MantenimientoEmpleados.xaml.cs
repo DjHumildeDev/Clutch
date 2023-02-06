@@ -21,6 +21,8 @@ namespace Clutch.Views
     public partial class MantenimientoEmpleados : Window
     {
         private Negocio negocio;
+        private GridViewColumnHeader columnaOrdenada = null;
+        private ListSortDirection sentidoOrden;
         public MantenimientoEmpleados(Negocio negocio)
         {
             InitializeComponent();
@@ -160,21 +162,19 @@ namespace Clutch.Views
             }
         }
 
-        private GridViewColumnHeader columnaOrdenada;
-        private ListSortDirection sentidoOrden;
+        
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader columnaClick = (sender as GridViewColumnHeader);
             string ordenadoPor = columnaClick.Tag.ToString();
-
             if (columnaOrdenada == null)
             {
                 columnaOrdenada = columnaClick;
                 sentidoOrden = ListSortDirection.Descending;
             }
-
+          
             this.lvEmpleados.Items.SortDescriptions.Clear();
-
+           
             if (columnaOrdenada == columnaClick)
             {
                 if (sentidoOrden == ListSortDirection.Ascending)
@@ -191,6 +191,7 @@ namespace Clutch.Views
             {
                 columnaOrdenada = null;
             }
+            lvEmpleados.Items.Refresh();
         }
     }
 }

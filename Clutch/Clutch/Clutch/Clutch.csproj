@@ -93,6 +93,7 @@
     <Compile Include="Cocina.cs">
       <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Converters\VacacionesConverter.cs" />
     <Compile Include="Empleado.cs">
       <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
