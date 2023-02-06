@@ -24,6 +24,8 @@ namespace Clutch.Views
         private Jornada jornada;
         private Empleado empleado;
 
+        public Empleado empleadoSeleccionado { get; set; }
+
         private bool salida,entrada,pedidos;
 
         public VerJornada(Jornada jornada, Empleado empleado, List<Empleado> empleados)
@@ -59,7 +61,9 @@ namespace Clutch.Views
                 {
                     TPickerSalida.Value = jornada.Salida;
                 }
-            }                   
+            }
+
+           
         }
 
         private void InicializarCombo()
@@ -83,7 +87,7 @@ namespace Clutch.Views
             jornada.Entrada = (DateTime)TPickerEntrada.Value;
             jornada.horas = Convert.ToDouble(txtBxHoras.Text);
             jornada.sueldoHoy = Convert.ToDouble(txtBxSueldoHoy.Text);
-            jornada.idEmpleado = empleado.id;
+            
             if (String.IsNullOrEmpty(txtBxPedidos.Text))
             {
                 jornada.pedidos = 0;
@@ -97,6 +101,8 @@ namespace Clutch.Views
             {
                 jornada.Salida = (DateTime)TPickerSalida.Value;
             }
+
+            empleadoSeleccionado = empleado;
 
             this.DialogResult = true;
         }
