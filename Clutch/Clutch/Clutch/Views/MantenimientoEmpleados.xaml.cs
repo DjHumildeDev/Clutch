@@ -126,16 +126,7 @@ namespace Clutch.Views
             }
         }
 
-        private void cmBxNombre_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void cmBxApellidos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+       
         private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -148,6 +139,8 @@ namespace Clutch.Views
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
+            txtBxNombre.Text = String.Empty;
+            txtBxApellidos.Text = String.Empty;
             ActualizarLista();
         }
 
@@ -162,19 +155,20 @@ namespace Clutch.Views
             }
         }
 
-        
+       
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
-            GridViewColumnHeader columnaClick = (sender as GridViewColumnHeader);
+           
+            GridViewColumnHeader columnaClick = sender as GridViewColumnHeader;
             string ordenadoPor = columnaClick.Tag.ToString();
             if (columnaOrdenada == null)
             {
                 columnaOrdenada = columnaClick;
                 sentidoOrden = ListSortDirection.Descending;
             }
-          
-            this.lvEmpleados.Items.SortDescriptions.Clear();
-           
+            //limpiamos los criterios actuales
+            lvEmpleados.Items.SortDescriptions.Clear();
+            //cambiamos el sentido de la columna actual
             if (columnaOrdenada == columnaClick)
             {
                 if (sentidoOrden == ListSortDirection.Ascending)
@@ -189,9 +183,20 @@ namespace Clutch.Views
             }
             else
             {
+                //al pulsar en otra columna desaparecen los criterios de ordenación existentes
                 columnaOrdenada = null;
             }
-            lvEmpleados.Items.Refresh();
+           
+        }
+
+        private void txtBxNombre_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtBxApellidos_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

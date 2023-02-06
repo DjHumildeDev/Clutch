@@ -25,6 +25,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerMoto.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerPedido.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\App.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_Content.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\GeneratedInternalTypeHelper.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_MarkupCompile.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch_MarkupCompile.lref
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.baml
@@ -48,4 +49,3 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyCompl
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\GeneratedInternalTypeHelper.g.cs

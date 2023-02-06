@@ -24,13 +24,9 @@
         </Menu>
         <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
             <Label Content="Nombre: "/>
-            <ComboBox Name="cmBxNombre" SelectedIndex="0" SelectionChanged="cmBxNombre_SelectionChanged">
-                <ComboBoxItem>Nombre Empleado</ComboBoxItem>
-            </ComboBox>
+            <TextBox x:Name="txtBxNombre" Width="120" PreviewKeyDown="txtBxNombre_PreviewKeyDown" VerticalContentAlignment="Center"/>
             <Label Content="Apellidos: "/>
-            <ComboBox Name="cmBxApellidos" SelectedIndex="0" SelectionChanged="cmBxApellidos_SelectionChanged">
-                <ComboBoxItem>Apellidos Empleado</ComboBoxItem>
-            </ComboBox>
+            <TextBox x:Name="txtBxApellidos" Width="120" PreviewKeyDown="txtBxApellidos_PreviewKeyDown"/>
             <Label Margin="20,0" Content="Alta:"/>
             <DatePicker x:Name="dtPckAlta" SelectedDateChanged="dtPckAlta_SelectedDateChanged"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
@@ -40,49 +36,49 @@
                 <GridView>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding nombre}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Nombre" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="nombre" Click="GridViewColumnHeader_Click">
                                     Nombre
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding apellidos}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Apellidos" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="apellidos" Click="GridViewColumnHeader_Click">
                                 Apellidos
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding dni}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="DNI" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="dni" Click="GridViewColumnHeader_Click">
                                 DNI
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn Width="120" DisplayMemberBinding="{Binding vacaciones,Converter={StaticResource VacacionesConverter}}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Vacaciones" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="vacaciones" Click="GridViewColumnHeader_Click">
                                 Vacaciones
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding diasVacaciones}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="DiasVacaciones" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="diasVacaciones" Click="GridViewColumnHeader_Click">
                                 Dias de Vacaciones
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding alta}">
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding alta, StringFormat='dd/MM/yyyy'}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Alta" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="alta" Click="GridViewColumnHeader_Click">
                                 Alta
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding baja}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding baja, StringFormat='dd/MM/yyyy'}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Tag="Baja" Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="baja" Click="GridViewColumnHeader_Click">
                                 Baja
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
