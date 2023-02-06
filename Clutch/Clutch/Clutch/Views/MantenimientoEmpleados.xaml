@@ -24,9 +24,9 @@
         </Menu>
         <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
             <Label Content="Nombre: "/>
-            <TextBox x:Name="txtBxNombre" Width="120" PreviewKeyDown="txtBxNombre_PreviewKeyDown" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="txtBxNombre" Width="120" TextChanged="txtBxNombre_TextChanged" VerticalContentAlignment="Center"/>
             <Label Content="Apellidos: "/>
-            <TextBox x:Name="txtBxApellidos" Width="120" PreviewKeyDown="txtBxApellidos_PreviewKeyDown"/>
+            <TextBox x:Name="txtBxApellidos" TextChanged="txtBxApellidos_TextChanged" Width="120"/>
             <Label Margin="20,0" Content="Alta:"/>
             <DatePicker x:Name="dtPckAlta" SelectedDateChanged="dtPckAlta_SelectedDateChanged"/>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>

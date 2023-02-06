@@ -124,19 +124,8 @@ namespace Clutch.Views
             {
                 MessageBox.Show("Necesitas seleccionar un elemento", "No hay seleccion", MessageBoxButton.OK, MessageBoxImage.Information);
             }
-        }
-
-       
-        private void lvJornadas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void dtPckAlta_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+        }      
+         
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
             txtBxNombre.Text = String.Empty;
@@ -154,7 +143,6 @@ namespace Clutch.Views
                 ctxBorrar.IsEnabled = true;
             }
         }
-
        
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
         {
@@ -185,16 +173,35 @@ namespace Clutch.Views
             {
                 //al pulsar en otra columna desaparecen los criterios de ordenación existentes
                 columnaOrdenada = null;
+            }           
+        }
+        private void dtPckAlta_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime fechaBuscar = dtPckAlta.SelectedDate.Value;
+            Filtrar();
+        }
+
+        private bool FiltroVista(object item)
+        {
+            if (string.IsNullOrEmpty(this.txtBxNombre.Text))
+            {
+                return true;
             }
+            Empleado empleado = item as Empleado;
+            return empleado.nombre.Contains(this.txtBxNombre.Text);
+        }
+        private void Filtrar()
+        {
            
         }
 
-        private void txtBxNombre_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void txtBxNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
+            vista.Filter = FiltroVista;
         }
 
-        private void txtBxApellidos_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void txtBxApellidos_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
