@@ -73,17 +73,22 @@ namespace Clutch.Views
             List<Moto> motos = negocio.ObtenerMotos();
             foreach (Moto moto in motos)
             {
+                MotoListModel motoItem = new MotoListModel();
                 if (moto.estado == "Ocupada")
                 {
                     Repartidor repar = negocio.ObtenerRepartidor_Moto(moto.id);
                     if (repar != null)
                     {
                         empleado = negocio.ObtenerEmpleado(repar.idEmpleado);
+                        motoItem.asignada = empleado.nombre + " " + empleado.apellidos;
                     }
                 }
-               
 
-                MotoListModel motoItem = new MotoListModel { asignada = empleado.nombre + " " + empleado.apellidos, cc = moto.cc, numero = moto.numero, estado = moto.estado, matricula = moto.matricula }; 
+
+                motoItem.cc = moto.cc;
+                motoItem.estado = moto.estado;
+                motoItem.matricula = moto.matricula;
+                motoItem.numero = moto.numero;
 
                 ListViewItem item = new ListViewItem();
                 item.Content = motoItem;
@@ -214,7 +219,9 @@ namespace Clutch.Views
             ventana.Owner = this;
             if (ventana.ShowDialog() == true)
             {
+                repar = ventana.repartidor;
                 negocio.AsignarMoto(repar, moto);
+                ActualizarLista();
             }
         }
 

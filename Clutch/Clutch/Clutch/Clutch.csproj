@@ -110,6 +110,7 @@
     <Compile Include="Jornada.cs">
       <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\IncidenciaListModel.cs" />
     <Compile Include="Models\JornadaListModel.cs" />
     <Compile Include="Models\MotoListModel.cs" />
     <Compile Include="Moto.cs">

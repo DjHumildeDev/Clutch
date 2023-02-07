@@ -23,7 +23,7 @@ namespace Clutch.Views
         private List<Repartidor> repartidores;
         private List<Moto> motos;
         private Moto moto;
-        private Repartidor repartidor;
+        public Repartidor repartidor { get; set; }
         private string cc;
 
         public AsignarMoto(Repartidor repartidor,Moto moto,Negocio negocio) 
@@ -75,6 +75,12 @@ namespace Clutch.Views
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
+       
+            this.DialogResult = false;
+        }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
             if (cmBxCentimetros.SelectedItem != null)
             {
                 cc = (string)((ComboBoxItem)cmBxCentimetros.SelectedItem).Tag;
@@ -88,12 +94,6 @@ namespace Clutch.Views
             {
                 repartidor = (Repartidor)((ComboBoxItem)cmBxEmpleado.SelectedItem).Tag;
             }
-            this.DialogResult = false;
-        }
-
-        private void btnAceptar_Click(object sender, RoutedEventArgs e)
-        {       
-           
             this.DialogResult = true;
         }
 

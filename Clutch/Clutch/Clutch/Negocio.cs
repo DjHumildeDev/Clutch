@@ -154,7 +154,7 @@ namespace Clutch
         public Repartidor ObtenerRepartidor_Moto(int motoId)
         {
             int moto = Convert.ToInt32(motoId);
-            List<Repartidor> repartidores = bd.Repartidors.Where(x => x.moto != null).ToList();
+            List<Repartidor> repartidores = bd.Repartidors.ToList();
             Repartidor repar = null;
             foreach (Repartidor r in repartidores)
             {
@@ -554,8 +554,10 @@ namespace Clutch
             {
                 if (moto != null)
                 {
-                    moto.estado = "Ocupada";
-                    repartidor.moto = moto.id;
+                    Repartidor repar = ObtenerRepartidor(repartidor.idEmpleado);
+                    Moto motoActual = BuscarMoto(moto.id);
+                    motoActual.estado = "Ocupada";
+                    repar.moto = moto.id;
                     bd.SaveChanges();
                 }
             }
