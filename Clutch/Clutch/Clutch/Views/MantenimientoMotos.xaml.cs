@@ -227,17 +227,70 @@ namespace Clutch.Views
 
         private void txtBxMatricula_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvMotos.Items);
+            vista.Filter = MaticulaFilter;
+            vista.Refresh();
+        }
 
+        private bool MaticulaFilter(object item)
+        {
+            ListViewItem moto = (ListViewItem)item;
+            if (String.IsNullOrEmpty(txtBxMatricula.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return ((moto.Tag as Moto).matricula.IndexOf(txtBxMatricula.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
         }
 
         private void cmBxcc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvMotos.Items);
+            vista.Filter = CCFilter;
+            vista.Refresh();
+        }
 
+        private bool CCFilter(object item)
+        {
+            ListViewItem moto = (ListViewItem)item;
+            ComboBoxItem cmbItem = (ComboBoxItem)cmBxCC.SelectedItem;
+            if (String.IsNullOrEmpty(cmbItem.Tag.ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                return (moto.Tag as Moto).cc.Equals(cmbItem.Tag);
+            }
         }
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
+            txtBxMatricula.Text = String.Empty;
+            ActualizarLista();
+        }
 
+        private void cmBxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvMotos.Items);
+            vista.Filter = EstadoFilter;
+            vista.Refresh();
+        }
+
+        private bool EstadoFilter(object item)
+        {
+            ListViewItem moto = (ListViewItem)item;
+            ComboBoxItem cmbItem = (ComboBoxItem)cmBxEstado.SelectedItem;
+            if (String.IsNullOrEmpty(cmbItem.Tag.ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                return ((moto.Tag as Moto).estado.IndexOf(cmbItem.Tag.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
+            }
         }
     }
 }

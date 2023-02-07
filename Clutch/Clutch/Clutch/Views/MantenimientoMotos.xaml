@@ -30,10 +30,10 @@
                 <ComboBoxItem Tag="Otros">Otros</ComboBoxItem>
             </ComboBox>
             <Label Margin="10,0" Content="Estado:"/>
-            <ComboBox Name="cmBxEstado"  SelectionChanged="cmBxcc_SelectionChanged">
+            <ComboBox Name="cmBxEstado"  SelectionChanged="cmBxEstado_SelectionChanged">
                 <ComboBoxItem Tag="Disponible">Disponible</ComboBoxItem>
                 <ComboBoxItem Tag="Ocupada">Ocupada</ComboBoxItem>
-                <ComboBoxItem Tag="EnTaller">EnTaller</ComboBoxItem>
+                <ComboBoxItem Tag="En Taller">En Taller</ComboBoxItem>
                 <ComboBoxItem Tag="Averiada">Averiada</ComboBoxItem>
             </ComboBox>
             <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
