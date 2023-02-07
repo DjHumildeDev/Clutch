@@ -217,5 +217,20 @@ namespace Clutch.Views
                 negocio.AsignarMoto(repar, moto);
             }
         }
+
+        private void txtBxMatricula_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void cmBxcc_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

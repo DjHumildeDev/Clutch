@@ -20,6 +20,24 @@
                 <MenuItem Header="Asignar Moto" Name="mnMotoAsignar" Click="mnMotoAsignar_Click"/>
             </MenuItem>
         </Menu>
+        <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
+            <Label Content="Matricula: "/>
+            <TextBox Name="txtBxMatricula" TextChanged="txtBxMatricula_TextChanged" Width="140"/>
+            <Label Margin="10,0" Content="Tipo:"/>
+            <ComboBox Name="cmBxCC"  SelectionChanged="cmBxcc_SelectionChanged">
+                <ComboBoxItem Tag="49">49</ComboBoxItem>
+                <ComboBoxItem Tag="125">125</ComboBoxItem>
+                <ComboBoxItem Tag="Otros">Otros</ComboBoxItem>
+            </ComboBox>
+            <Label Margin="10,0" Content="Estado:"/>
+            <ComboBox Name="cmBxEstado"  SelectionChanged="cmBxcc_SelectionChanged">
+                <ComboBoxItem Tag="Disponible">Disponible</ComboBoxItem>
+                <ComboBoxItem Tag="Ocupada">Ocupada</ComboBoxItem>
+                <ComboBoxItem Tag="EnTaller">EnTaller</ComboBoxItem>
+                <ComboBoxItem Tag="Averiada">Averiada</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnLimpiar" Content="Limpiar" Margin="15,0" Padding="10,0" Click="btnLimpiar_Click"/>
+        </StackPanel>
         <ListView Margin="10" x:Name="lvMotos" ScrollViewer.VerticalScrollBarVisibility="Visible" SelectionMode="Single" ContextMenuOpening="lvMotos_ContextMenuOpening">
             <ListView.View>
                 <GridView>

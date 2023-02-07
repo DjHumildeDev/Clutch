@@ -24,7 +24,7 @@
             <ComboBox Name="cmBxTipo"  SelectionChanged="cmBxTipo_SelectionChanged">
                 <ComboBoxItem Tag="Moto">Moto</ComboBoxItem>
                 <ComboBoxItem Tag="Cocina">Cocina</ComboBoxItem>
-                <ComboBoxItem Tag="Otros">Otros</ComboBoxItem>
+                <ComboBoxItem Tag="Moto">Otros</ComboBoxItem>
             </ComboBox>
             <Label Margin="10,0" Content="Fecha:"/>
             <DatePicker x:Name="dtPckFecha" SelectedDateChanged="dtPckFecha_SelectedDateChanged"/>

@@ -260,6 +260,5 @@ namespace Clutch.Views
             }
         }
 
-       
     }
 }
