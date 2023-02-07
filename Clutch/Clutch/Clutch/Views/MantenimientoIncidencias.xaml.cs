@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clutch.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -32,11 +33,21 @@ namespace Clutch.Views
         {
             lvIncidencias.Items.Clear();
             List<incidencia> incidencias = negocio.ObtenerIncidencias();
+            IncidenciaListModel incidencia = new IncidenciaListModel();
             foreach(incidencia inci in incidencias)
             {
+                incidencia.id = inci.id;
+                incidencia.fecha = inci.fecha;
+                incidencia.idEmpleado = inci.idEmpleado;
+                incidencia.incidencia1 = inci.incidencia1;
+                incidencia.tipo = inci.tipo;
+                incidencia.resuelta = inci.resuelta;
+                Empleado emp = negocio.ObtenerEmpleado(inci.idEmpleado);
+                incidencia.Empleado = emp.nombre + " " + emp.apellidos;
+
                 ListViewItem item = new ListViewItem();
-                item.Content = inci;
-                item.Tag = inci;
+                item.Content = incidencia;
+                item.Tag = incidencia;
                 lvIncidencias.Items.Add(item);              
             }
         }
