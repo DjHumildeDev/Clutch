@@ -33,21 +33,10 @@ namespace Clutch.Views
             InitializeComponent();
             this.negocio = negocio;
             empleados = negocio.ObtenerEmpleados();
-            ActualizarLista();
-            RellenarCombo();
+            ActualizarLista();       
         }
 
-        private void RellenarCombo()
-        {
-            cmBxEmpleado.Items.Add("Seleccionar Empleado");
-            foreach (Empleado emp in empleados)
-            {
-                ComboBoxItem item = new ComboBoxItem();
-                item.Content = emp.nombre + " " + emp.apellidos;
-                item.Tag = emp;
-                cmBxEmpleado.Items.Add(item);
-            }
-        }
+     
 
         private void ActualizarLista()
         {
@@ -185,7 +174,7 @@ namespace Clutch.Views
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
-            cmBxEmpleado.SelectedIndex = 0;
+            txtBxEmpleado.Text = String.Empty;
             ActualizarLista();
         }
         private void lvJornadas_ContextMenuOpening(object sender, ContextMenuEventArgs e)
@@ -197,11 +186,6 @@ namespace Clutch.Views
                 ctxEditar.IsEnabled = true;
                 ctxBorrar.IsEnabled = true;
             }
-        }
-
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void GridViewColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -232,6 +216,67 @@ namespace Clutch.Views
             else
             {
                 columnaOrdenada = null;
+            }
+        }
+
+        private void txtBxEmpleado_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvJornadas.Items);
+            vista.Filter = NombreFilter;
+            vista.Refresh();
+        }
+
+        private bool NombreFilter(object item)
+        {
+            ListViewItem jornada = (ListViewItem)item;
+            if (String.IsNullOrEmpty(txtBxEmpleado.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return ((jornada.Tag as JornadaListModel).NombreCompleto.IndexOf(txtBxEmpleado.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+        }
+
+        private void dtPckSalida_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvJornadas.Items);
+            vista.Filter = SalidaFilter;
+            vista.Refresh();
+        }
+
+        private bool SalidaFilter(object item)
+        {
+            ListViewItem jornada = (ListViewItem)item;
+            if (dtPckSalida.SelectedDate == null)
+            {
+                return true;
+            }
+            else
+            {
+                return ((jornada.Tag as JornadaListModel).Salida.ToString().IndexOf(dtPckSalida.SelectedDate.Value.ToShortDateString(),StringComparison.OrdinalIgnoreCase)>=0);
+            }
+        }
+
+        private void dtPckEntrada_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvJornadas.Items);
+            vista.Filter = EntradaFilter;
+            vista.Refresh();
+        }
+
+        private bool EntradaFilter(object item)
+        {
+
+            ListViewItem jornada = (ListViewItem)item;
+            if (dtPckEntrada.SelectedDate == null)
+            {
+                return true;
+            }
+            else
+            {
+                return ((jornada.Tag as JornadaListModel).Entrada.ToShortDateString()).Equals(dtPckSalida.SelectedDate.Value.ToShortDateString());
             }
         }
     }

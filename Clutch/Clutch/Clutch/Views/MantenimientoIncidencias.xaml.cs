@@ -43,23 +43,77 @@ namespace Clutch.Views
 
         private void dtPckFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvIncidencias.Items);
+            vista.Filter = FechaFilter;
+            vista.Refresh();
+        }
 
+        private bool FechaFilter(object item)
+        {
+            ListViewItem inci = (ListViewItem)item;
+            if (dtPckFecha.SelectedDate == null)
+            {
+                return true;
+            }
+            else
+            {
+                return ((inci.Tag as Empleado).alta.ToShortDateString().Equals(dtPckFecha.SelectedDate.Value.ToShortDateString()));
+            }
         }
 
         private void chBxResuelta_Click(object sender, RoutedEventArgs e)
         {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvIncidencias.Items);
+            vista.Filter = ResueltaFilter;
+            vista.Refresh();
+        }
 
+        private bool ResueltaFilter(object item)
+        {
+            ListViewItem inci = (ListViewItem)item;                            
+            return (inci.Tag as incidencia).resuelta.Equals(chBxResuelta.IsChecked);       
         }
 
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvIncidencias.Items);
+            vista.Filter = TipoFilter;
+            vista.Refresh();
         }
 
-
-        private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private bool TipoFilter(object item)
         {
+           ListViewItem inci = (ListViewItem)item;
+           ComboBoxItem cmbItem = (ComboBoxItem)cmBxTipo.SelectedItem;
+            if (String.IsNullOrEmpty(cmbItem.Tag.ToString()))
+            {
+                return true;
+            }
+            else
+            {
+                return (inci.Tag as incidencia).tipo.Equals(cmbItem.Tag);
+            }
+        }
 
+        private void txtBxEmpleado_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvIncidencias.Items);
+            vista.Filter = EmpleadoFilter;
+            vista.Refresh();
+        }
+
+        private bool EmpleadoFilter(object item)
+        {
+            ListViewItem incidencia = (ListViewItem)item;
+            if (String.IsNullOrEmpty(txtBxEmpleado.Text))
+            {
+                return true;
+            }
+            else
+            {
+                // return ((incidencia.Tag as incidencia)..IndexOf(txtBxEmpleado.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return false;
+            }
         }
 
         private void mnIncidenciasBorrar_Click(object sender, RoutedEventArgs e)
@@ -159,6 +213,7 @@ namespace Clutch.Views
 
         private void btnLimpiar_Click(object sender, RoutedEventArgs e)
         {
+            txtBxEmpleado.Text = String.Empty;
             ActualizarLista();
         }
         private void lvIncidencias_ContextMenuOpening(object sender, ContextMenuEventArgs e)
@@ -204,5 +259,7 @@ namespace Clutch.Views
                 columnaOrdenada = null;
             }
         }
+
+       
     }
 }

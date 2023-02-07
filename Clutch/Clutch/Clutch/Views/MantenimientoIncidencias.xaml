@@ -19,12 +19,12 @@
         </Menu>
         <StackPanel Margin="10" DockPanel.Dock="Top" Orientation="Horizontal">
             <Label Content="Empleado: "/>
-            <ComboBox Name="cmBxEmpleado" SelectedIndex="0" SelectionChanged="cmBxEmpleado_SelectionChanged">
-                <ComboBoxItem>Nombre Empleado</ComboBoxItem>
-            </ComboBox>
+            <TextBox Name="txtBxEmpleado" TextChanged="txtBxEmpleado_TextChanged" Width="140"/>
             <Label Margin="10,0" Content="Tipo:"/>
-            <ComboBox Name="cmBxTipo" SelectedIndex="0" SelectionChanged="cmBxTipo_SelectionChanged">
-                <ComboBoxItem>Tipo</ComboBoxItem>
+            <ComboBox Name="cmBxTipo"  SelectionChanged="cmBxTipo_SelectionChanged">
+                <ComboBoxItem Tag="Moto">Moto</ComboBoxItem>
+                <ComboBoxItem Tag="Cocina">Cocina</ComboBoxItem>
+                <ComboBoxItem Tag="Otros">Otros</ComboBoxItem>
             </ComboBox>
             <Label Margin="10,0" Content="Fecha:"/>
             <DatePicker x:Name="dtPckFecha" SelectedDateChanged="dtPckFecha_SelectedDateChanged"/>
