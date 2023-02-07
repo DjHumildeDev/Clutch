@@ -68,7 +68,7 @@ namespace Clutch.Views
             }
             else
             {
-                return ((inci.Tag as Empleado).alta.ToShortDateString().Equals(dtPckFecha.SelectedDate.Value.ToShortDateString()));
+                return ((inci.Content as IncidenciaListModel).fecha.ToShortDateString().Equals(dtPckFecha.SelectedDate.Value.ToShortDateString()));
             }
         }
 
@@ -82,7 +82,7 @@ namespace Clutch.Views
         private bool ResueltaFilter(object item)
         {
             ListViewItem inci = (ListViewItem)item;                            
-            return (inci.Tag as incidencia).resuelta.Equals(chBxResuelta.IsChecked);       
+            return (inci.Content as IncidenciaListModel).resuelta.Equals(chBxResuelta.IsChecked);       
         }
 
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -102,7 +102,7 @@ namespace Clutch.Views
             }
             else
             {
-                return (inci.Tag as incidencia).tipo.Equals(cmbItem.Tag);
+                return (inci.Content as IncidenciaListModel).tipo.Equals(cmbItem.Tag);
             }
         }
 
