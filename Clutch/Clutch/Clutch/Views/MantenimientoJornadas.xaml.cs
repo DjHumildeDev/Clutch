@@ -72,7 +72,7 @@ namespace Clutch.Views
                 ListViewItem item = new ListViewItem();
 
                 item.Content = jornadaItem;
-                item.Tag = jornada;
+                item.Tag = jornadaItem;
                 lvJornadas.Items.Add(item);
             }
         }

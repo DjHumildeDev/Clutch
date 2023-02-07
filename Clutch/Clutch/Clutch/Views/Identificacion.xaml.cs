@@ -114,7 +114,15 @@ namespace Clutch.Views
             float horas = float.Parse(Convert.ToString(result.TotalHours));
 
             jornadaHoy.horas = horas;
-            jornadaHoy.sueldoHoy = (double)(jornadaHoy.sueldo * horas + jornadaHoy.pedidos);
+            if (jornadaHoy.pedidos != null)
+            {
+                jornadaHoy.sueldoHoy = (double)(jornadaHoy.sueldo * horas + jornadaHoy.pedidos);
+            }
+            else
+            {
+                jornadaHoy.sueldoHoy = (double)(jornadaHoy.sueldo * horas);
+            }
+           
             jornadaHoy.Salida = DateTime.Now;
 
             negocio.EditarJornada(jornadaHoy);
