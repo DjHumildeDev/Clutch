@@ -47,7 +47,7 @@ namespace Clutch.Views
 
                 ListViewItem item = new ListViewItem();
                 item.Content = incidencia;
-                item.Tag = incidencia;
+                item.Tag = inci;
                 lvIncidencias.Items.Add(item);              
             }
         }
@@ -122,8 +122,7 @@ namespace Clutch.Views
             }
             else
             {
-                // return ((incidencia.Tag as incidencia)..IndexOf(txtBxEmpleado.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-                return false;
+                 return ((incidencia.Content as IncidenciaListModel).Empleado.IndexOf(txtBxEmpleado.Text, StringComparison.OrdinalIgnoreCase) >= 0);               
             }
         }
 

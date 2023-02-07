@@ -63,6 +63,13 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Empleado}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                                Empleado
+                            </GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>
