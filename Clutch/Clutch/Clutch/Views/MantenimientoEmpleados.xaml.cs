@@ -27,7 +27,7 @@ namespace Clutch.Views
         {
             InitializeComponent();
             CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
-            vista.Filter = FiltroVista;
+            vista.Filter = NombreFilter;
             this.negocio = negocio;
             ActualizarLista();
         }
@@ -179,33 +179,64 @@ namespace Clutch.Views
         }
         private void dtPckAlta_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            DateTime fechaBuscar = dtPckAlta.SelectedDate.Value;
-        
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
+            vista.Filter = AltaFilter;
+            vista.Refresh();
+
         }
 
-        private bool FiltroVista(object item)
+        private bool AltaFilter(object item)
         {
-            if (string.IsNullOrEmpty(this.txtBxNombre.Text))
+            ListViewItem emp = (ListViewItem)item;
+            if (dtPckAlta.SelectedDate == null)
             {
                 return true;
             }
-            Empleado empleado = item as Empleado;
-            if (empleado == null)
+            else
             {
-                return false;
+                return ((emp.Tag as Empleado).alta.ToShortDateString().Equals(dtPckAlta.SelectedDate.Value.ToShortDateString()));
             }
-            return empleado.nombre.Contains(this.txtBxNombre.Text);
         }
-      
-        private void txtBxNombre_TextChanged(object sender, TextChangedEventArgs e)
+
+        private bool NombreFilter(object item)
         {
-            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
-            vista.Filter = FiltroVista;
+            ListViewItem emp = (ListViewItem)item;
+            if(String.IsNullOrEmpty(txtBxNombre.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return ((emp.Tag as Empleado).nombre.IndexOf(txtBxNombre.Text,StringComparison.OrdinalIgnoreCase)>=0);
+            }
+       
+        }
+        private bool ApellidoFilter(object item)
+        {
+            ListViewItem emp = (ListViewItem)item;
+            if (String.IsNullOrEmpty(txtBxApellidos.Text))
+            {
+                return true;
+            }
+            else
+            {
+                return ((emp.Tag as Empleado).apellidos.IndexOf(txtBxApellidos.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+
+        }
+
+        private void txtBxNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {           
+           CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
+           vista.Filter = NombreFilter;
+           vista.Refresh();
         }
 
         private void txtBxApellidos_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            CollectionView vista = (CollectionView)CollectionViewSource.GetDefaultView(lvEmpleados.Items);
+            vista.Filter = ApellidoFilter;
+            vista.Refresh();
         }
     }
 }
