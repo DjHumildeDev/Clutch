@@ -93,7 +93,6 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHS\Microsoft.Report
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe.config
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\AsignarMoto.g.cs
@@ -103,6 +102,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoInci
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoMotos.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoPedidos.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\ReportViewer.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerEmpleado.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerIncidencia.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerJornada.g.cs
@@ -121,6 +121,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoInci
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoJornadas.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoMotos.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\MantenimientoPedidos.baml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\ReportViewer.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerEmpleado.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerIncidencia.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerJornada.baml
@@ -129,6 +130,8 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\VerPedido.baml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.g.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.Properties.Resources.resources
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.GenerateResource.cache
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\RdlCompile.cache
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\RdlCompile.compiled
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompileInputs.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe

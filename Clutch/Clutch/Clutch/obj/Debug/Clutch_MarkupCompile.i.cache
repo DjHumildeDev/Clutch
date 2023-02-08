@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\App.xaml
-13-426901043
+14-761080683
 7-1307789467
-40-1382984771
-27-913075220
-MainWindow.xaml;Views\AsignarMoto.xaml;Views\Identificacion.xaml;Views\MantenimientoEmpleados.xaml;Views\MantenimientoIncidencias.xaml;Views\MantenimientoJornadas.xaml;Views\MantenimientoMotos.xaml;Views\MantenimientoPedidos.xaml;Views\VerEmpleado.xaml;Views\VerIncidencia.xaml;Views\VerJornada.xaml;Views\VerMoto.xaml;Views\VerPedido.xaml;
+44-968295505
+311548889924
+MainWindow.xaml;Views\AsignarMoto.xaml;Views\Identificacion.xaml;Views\MantenimientoEmpleados.xaml;Views\MantenimientoIncidencias.xaml;Views\MantenimientoJornadas.xaml;Views\MantenimientoMotos.xaml;Views\MantenimientoPedidos.xaml;Views\ReportViewer.xaml;Views\VerEmpleado.xaml;Views\VerIncidencia.xaml;Views\VerJornada.xaml;Views\VerMoto.xaml;Views\VerPedido.xaml;
 
-True
+False
 

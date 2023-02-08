@@ -1,4 +1,5 @@
 ﻿using Clutch.Views;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,6 +94,11 @@ namespace Clutch
                 }
             }
           
+        }
+
+        private void mnRptInci_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

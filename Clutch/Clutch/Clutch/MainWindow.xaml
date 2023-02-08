@@ -12,6 +12,7 @@
                 <MenuItem x:Name="mnMenuSalir" Header="salir" Click="mnMenuSalir_Click"/>
             </MenuItem>
             <MenuItem Header="Ver">
+                <MenuItem Name="mnRptInci" Header="Informe Incidencias" Click="mnRptInci_Click"/>
             </MenuItem>
             <MenuItem Header="Mantenimiento">
                 <MenuItem x:Name="mnMantEmpleados" Header="Empleados" Click="mnMantEmpleados_Click"/>

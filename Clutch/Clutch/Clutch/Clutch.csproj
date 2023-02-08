@@ -73,8 +73,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,9 +86,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -107,6 +111,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClutchDb.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ClutchDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClutchDbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Cocina.cs">
       <DependentUpon>ClutchDb.tt</DependentUpon>
@@ -142,6 +151,8 @@
     <Compile Include="Repartidor.cs">
       <DependentUpon>ClutchDb.tt</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Generador.cs" />
+    <Compile Include="Reports\IncidenciaWr.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Views\AsignarMoto.xaml.cs">
       <DependentUpon>AsignarMoto.xaml</DependentUpon>
@@ -163,6 +174,9 @@
     </Compile>
     <Compile Include="Views\MantenimientoPedidos.xaml.cs">
       <DependentUpon>MantenimientoPedidos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportViewer.xaml.cs">
+      <DependentUpon>ReportViewer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VerEmpleado.xaml.cs">
       <DependentUpon>VerEmpleado.xaml</DependentUpon>
@@ -219,6 +233,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ReportViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\VerEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -258,6 +276,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptIncidencia.rdlc" />
     <EntityDeploy Include="ClutchDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ClutchDb.Designer.cs</LastGenOutput>
@@ -265,7 +284,19 @@
     <None Include="ClutchDb.edmx.diagram">
       <DependentUpon>ClutchDb.edmx</DependentUpon>
     </None>
+    <None Include="ClutchDbDataSet.xsc">
+      <DependentUpon>ClutchDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ClutchDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ClutchDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClutchDbDataSet.xss">
+      <DependentUpon>ClutchDbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Clutch.Reports.IncidenciaWr.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
