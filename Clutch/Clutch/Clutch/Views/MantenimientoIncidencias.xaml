@@ -41,35 +41,35 @@
                 <GridView>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding fecha}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="fecha" Click="GridViewColumnHeader_Click">
                                 Fecha
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding tipo}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="tipo" Click="GridViewColumnHeader_Click">
                                 Tipo
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="450" DisplayMemberBinding="{Binding incidencia1}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="incidencia1" Click="GridViewColumnHeader_Click">
                                 Incidencia
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding resuelta, Converter={StaticResource ResueltaConverter}}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="resuelta" Click="GridViewColumnHeader_Click">
                                 Resuelta
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
                     <GridViewColumn  Width="120" DisplayMemberBinding="{Binding Empleado}">
                         <GridViewColumn.Header>
-                            <GridViewColumnHeader Click="GridViewColumnHeader_Click">
+                            <GridViewColumnHeader Tag="Empleado" Click="GridViewColumnHeader_Click">
                                 Empleado
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>

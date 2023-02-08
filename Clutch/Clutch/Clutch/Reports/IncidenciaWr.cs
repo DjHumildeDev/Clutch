@@ -11,8 +11,8 @@ namespace Clutch.Reports
         public string Empleado { get; set; }
         public string Tipo { get; set; }
         public string incidencia { get; set; }
-        public string Fecha { get; set; }
+        public DateTime Fecha { get; set; }
 
-        public string resuelta { get; set; }
+        public bool resuelta { get; set; }
     }
 }

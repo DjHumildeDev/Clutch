@@ -9,7 +9,7 @@
         Title="ReportViewer" Height="450" Width="800">
     <DockPanel>
         <WindowsFormsHost>
-            <rv:ReportViewer x:Name="rptViewer"/>
+            <rv:ReportViewer x:Name="rptViewer" />
         </WindowsFormsHost>
     </DockPanel>
 </Window>

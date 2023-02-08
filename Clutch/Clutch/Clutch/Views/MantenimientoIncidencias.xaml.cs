@@ -33,24 +33,26 @@ namespace Clutch.Views
         {
             lvIncidencias.Items.Clear();
             List<incidencia> incidencias = negocio.ObtenerIncidencias();
-            IncidenciaListModel incidencia = new IncidenciaListModel();
-            foreach(incidencia inci in incidencias)
+           
+            foreach (incidencia inci in incidencias)
             {
-                incidencia.id = inci.id;
-                incidencia.fecha = inci.fecha;
-                incidencia.idEmpleado = inci.idEmpleado;
-                incidencia.incidencia1 = inci.incidencia1;
-                incidencia.tipo = inci.tipo;
-                incidencia.resuelta = inci.resuelta;
                 Empleado emp = negocio.ObtenerEmpleado(inci.idEmpleado);
-                incidencia.Empleado = emp.nombre + " " + emp.apellidos;
+                IncidenciaListModel incidenciaItem = new IncidenciaListModel();
+                incidenciaItem.Empleado = emp.nombre + " " + emp.apellidos;
+                incidenciaItem.id = inci.id;
+                incidenciaItem.fecha = inci.fecha;
+                incidenciaItem.idEmpleado = inci.idEmpleado;
+                incidenciaItem.incidencia1 = inci.incidencia1;
+                incidenciaItem.tipo = inci.tipo;
+                incidenciaItem.resuelta = inci.resuelta;
 
                 ListViewItem item = new ListViewItem();
-                item.Content = incidencia;
+                item.Content = incidenciaItem;
                 item.Tag = inci;
-                lvIncidencias.Items.Add(item);              
+                lvIncidencias.Items.Add(item);
             }
         }
+
 
         private void dtPckFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
