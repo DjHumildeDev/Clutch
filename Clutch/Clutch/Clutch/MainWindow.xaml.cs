@@ -98,7 +98,8 @@ namespace Clutch
 
         private void mnRptInci_Click(object sender, RoutedEventArgs e)
         {
-
+            Views.ReportViewer ventana = new Views.ReportViewer();
+            ventana.Show();
         }
     }
 }

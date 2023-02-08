@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clutch.Reports;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,11 @@ namespace Clutch.Views
     /// </summary>
     public partial class ReportViewer : Window
     {
+        private Generador generador;
         public ReportViewer()
         {
             InitializeComponent();
+            generador = new Generador();
             rptViewer.Load += ReportViewer_Load;
         }
 
@@ -29,23 +32,7 @@ namespace Clutch.Views
 
         private void ReportViewer_Load(object sender, EventArgs e)
         {
-            if (!_isReportVieweLoaded)
-            {
-                Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-                ClutchDbDataSet dataset = new ClutchDbDataSet();
-
-                dataset.BeginInit();
-                
-                reportDataSource1.Name = "DataSetIncidencias"; //Name of the report dataset in our .RDLC file
-                reportDataSource1.Value = dataset.incidencias;
-                this.rptViewer.LocalReport.DataSources.Add(reportDataSource1);
-                this.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptIncidencia.rdlc";
-
-                dataset.EndInit();
-                
-                rptViewer.RefreshReport();
-                _isReportVieweLoaded = true;
-            }
+            generador.GenerarInformeIncidencias();
         }
     }
 }
