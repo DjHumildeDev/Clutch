@@ -39,7 +39,7 @@
         <ListView Margin="10" x:Name="lvIncidencias" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"  SelectionMode="Single" ContextMenuOpening="lvIncidencias_ContextMenuOpening">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding fecha}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding fecha,StringFormat='{}{0:dd/MM/yyyy  h:mm tt}'}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="fecha" Click="GridViewColumnHeader_Click">
                                 Fecha

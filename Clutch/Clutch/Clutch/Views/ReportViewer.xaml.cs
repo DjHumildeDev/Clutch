@@ -23,16 +23,15 @@ namespace Clutch.Views
         private Generador generador;
         public ReportViewer()
         {
-            InitializeComponent();
-            generador = new Generador();
+            InitializeComponent();                       
             rptViewer.Load += ReportViewer_Load;
         }
 
-        private bool _isReportVieweLoaded;
+
 
         private void ReportViewer_Load(object sender, EventArgs e)
-        {
-            generador.GenerarInformeIncidencias();
+        {          
+            this.rptViewer.RefreshReport();
         }
     }
 }
