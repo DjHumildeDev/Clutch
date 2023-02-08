@@ -26,8 +26,10 @@ namespace Clutch.Views
         public VerIncidencia(incidencia nueva,Empleado empleado)
         {          
             InitializeComponent();
+            
             this.incidencia = nueva;
             this.empleado = empleado;
+            this.dtPckFecha.SelectedDate = DateTime.Today;
            
             RellenarCampos();
         }
@@ -36,9 +38,11 @@ namespace Clutch.Views
         {
             txtBxDescripcionIncidencia.Text = incidencia.incidencia1;
             chBxResuelta.IsChecked = incidencia.resuelta;
-            dtPckFecha.SelectedDate = incidencia.fecha;
-            txtBxEmpleado.Text = empleado.nombre;
-
+            if (incidencia.fecha != DateTime.MinValue)
+            {
+                dtPckFecha.SelectedDate = incidencia.fecha;
+                txtBxEmpleado.Text = empleado.nombre;
+            }          
             if (incidencia.tipo == "Moto")
             {
                 cmBxTipo.SelectedIndex = 0;

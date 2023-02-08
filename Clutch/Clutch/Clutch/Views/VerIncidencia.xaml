@@ -33,7 +33,7 @@
             <ComboBoxItem Content="Otros" Tag="Otros"/>
         </ComboBox>
         <CheckBox x:Name="chBxResuelta" Click="chBxResuelta_Click" VerticalAlignment="Center" Grid.Column="3"/>
-        <DatePicker x:Name="dtPckFecha" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center"/>
+        <DatePicker x:Name="dtPckFecha" Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" />
         <StackPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal"  HorizontalAlignment="Right">
             <Button x:Name="btnCancelar" FontSize="15" Content="Cancelar" Padding="20,5" VerticalAlignment="Center" Margin="20,0" IsCancel="True" Click="btnCancelar_Click" />
             <Button x:Name="btnAceptar" FontSize="15" Content="Aceptar" Padding="20,5" VerticalAlignment="Center" Margin="20,0" IsDefault="True" Click="btnAceptar_Click"/>

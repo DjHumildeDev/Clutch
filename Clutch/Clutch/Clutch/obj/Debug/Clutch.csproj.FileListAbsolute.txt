@@ -10,6 +10,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.SqlServer.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Syncfusion.SfInput.WPF.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Syncfusion.Shared.WPF.xml
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\AsignarMoto.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\Identificacion.g.cs
@@ -48,4 +49,3 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache

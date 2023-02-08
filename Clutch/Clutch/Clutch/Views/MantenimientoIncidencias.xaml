@@ -3,9 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Converters="clr-namespace:Clutch.Converters"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
         Title="MantenimientoIncidencias" Height="450" Width="900">
+    <Window.Resources>
+        <Converters:ResueltaConverter x:Key="ResueltaConverter"/>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Menu">
@@ -56,7 +60,7 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding resuelta}">
+                    <GridViewColumn  Width="120" DisplayMemberBinding="{Binding resuelta, Converter={StaticResource ResueltaConverter}}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Click="GridViewColumnHeader_Click">
                                 Resuelta
