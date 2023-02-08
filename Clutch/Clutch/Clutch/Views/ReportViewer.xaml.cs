@@ -42,7 +42,6 @@ namespace Clutch.Views
                 this.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptIncidencia.rdlc";
 
                 dataset.EndInit();
-
                 
                 rptViewer.RefreshReport();
                 _isReportVieweLoaded = true;
