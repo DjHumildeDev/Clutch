@@ -154,6 +154,15 @@
     <Compile Include="Reports\Generador.cs" />
     <Compile Include="Reports\IncidenciaWr.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UserControls\PedidosRepartiendoUC.xaml.cs">
+      <DependentUpon>PedidosRepartiendoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\PedidoUC.xaml.cs">
+      <DependentUpon>PedidoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RepartidorActivoUC.xaml.cs">
+      <DependentUpon>RepartidorActivoUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AsignarMoto.xaml.cs">
       <DependentUpon>AsignarMoto.xaml</DependentUpon>
     </Compile>
@@ -205,6 +214,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\PedidosRepartiendoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\PedidoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RepartidorActivoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AsignarMoto.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

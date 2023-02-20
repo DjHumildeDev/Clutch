@@ -72,6 +72,7 @@
     <Property Name="precio" Type="float" Nullable="false" />
     <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="tlfCliente" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Entregado" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="Repartidor">
     <Key>

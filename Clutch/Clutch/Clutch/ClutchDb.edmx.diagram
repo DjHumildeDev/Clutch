@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7a11aafd9bf245d9989e9f203153ace7" Name="Diagram1">
+      <Diagram DiagramId="6eb5d9689acb4d698a05993aa2677a45" Name="Diagram1">
         <EntityTypeShape EntityType="ClutchDbModel.Cocina" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Empleado" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Encargado" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.incidencia" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Jornada" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Moto" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ClutchDbModel.Pedido" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ClutchDbModel.Pedido" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ClutchDbModel.Repartidor" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
         <AssociationConnector Association="ClutchDbModel.FK_Cocina_Empleado" ManuallyRouted="false" />
         <AssociationConnector Association="ClutchDbModel.FK_Encargado_Empleados" ManuallyRouted="false" />

@@ -77,6 +77,7 @@
           <Property Name="precio" Type="float" Nullable="false" />
           <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="tlfCliente" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Entregado" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Repartidor">
           <Key>
@@ -285,6 +286,7 @@
           <Property Name="precio" Type="Double" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="tlfCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Entregado" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Repartidor">
           <Key>
@@ -499,6 +501,7 @@
                 <ScalarProperty Name="precio" ColumnName="precio" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
                 <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
+                <ScalarProperty Name="Entregado" ColumnName="Entregado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

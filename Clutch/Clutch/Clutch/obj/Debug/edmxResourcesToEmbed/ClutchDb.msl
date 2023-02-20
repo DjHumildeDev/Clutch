@@ -78,6 +78,7 @@
           <ScalarProperty Name="precio" ColumnName="precio" />
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
+          <ScalarProperty Name="Entregado" ColumnName="Entregado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

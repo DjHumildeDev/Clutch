@@ -20,5 +20,6 @@ namespace Clutch
         public double precio { get; set; }
         public string direccion { get; set; }
         public string tlfCliente { get; set; }
+        public bool Entregado { get; set; }
     }
 }

@@ -72,6 +72,7 @@
     <Property Name="precio" Type="Double" Nullable="false" />
     <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="tlfCliente" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Entregado" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Repartidor">
     <Key>
