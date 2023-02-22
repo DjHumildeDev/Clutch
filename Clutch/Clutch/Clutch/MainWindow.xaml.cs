@@ -29,7 +29,7 @@ namespace Clutch
 
         List<Empleado> repartidoresActivos;
         Negocio negocio;
-        List<Jornada> jornadas;
+        
         List<Pedido> pedidos;
         public MainWindow()
         {
