@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -24,6 +25,8 @@ namespace Clutch
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static Timer aTimer;
+
         List<Empleado> repartidoresActivos;
         Negocio negocio;
         List<Jornada> jornadas;
@@ -35,21 +38,32 @@ namespace Clutch
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
             ActualizarListaPedidos();
+
+            aTimer = new Timer(60000);
+
+            aTimer.Elapsed += RepetirPedidos();
+            aTimer.Enabled = true;
         }
 
-        private void ActualizarListaPedidos()
+        private ElapsedEventHandler RepetirPedidos()
+        {
+            return (sender, e) => { ActualizarListaPedidos(); };
+        }
+        public void ActualizarListaPedidos()
         {
             pedidos = negocio.ObtenerPedidos();
-            PedidosPanel.Children.Clear();
+            Dispatcher.Invoke(() => {
+                PedidosPanel.Children.Clear();
 
-            foreach(Pedido ped in pedidos)
-            {
-                PedidoUC ucPedido = new PedidoUC();
-                ucPedido.pedido = ped;
-                ucPedido.ComnpleatarCampos();
+                foreach (Pedido ped in pedidos)
+                {
+                    PedidoUC ucPedido = new PedidoUC();
+                    ucPedido.pedido = ped;
+                    ucPedido.ComnpleatarCampos();
 
-                PedidosPanel.Children.Add(ucPedido);
-            }
+                    PedidosPanel.Children.Add(ucPedido);
+                }
+            });
         }
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
