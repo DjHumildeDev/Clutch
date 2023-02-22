@@ -40,14 +40,14 @@
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Vertical" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray">
                     
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray">
 
                 </StackPanel>
             </Grid>
-            <WrapPanel Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <WrapPanel Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" x:Name="RepartidoresPanel" Margin="5" Background="Gray">
                 
             </WrapPanel>
         </Grid>

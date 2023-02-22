@@ -27,8 +27,6 @@ namespace Clutch.Views
             rptViewer.Load += ReportViewer_Load;
         }
 
-
-
         private void ReportViewer_Load(object sender, EventArgs e)
         {          
             this.rptViewer.RefreshReport();

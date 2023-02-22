@@ -1,4 +1,5 @@
 ﻿using Clutch.Reports;
+using Clutch.UserControls;
 using Clutch.Views;
 using Microsoft.Reporting.WinForms;
 using System;
@@ -23,12 +24,14 @@ namespace Clutch
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Empleado> repartidoresActivos;
         Negocio negocio;
         List<Jornada> jornadas;
         public MainWindow()
         {
             InitializeComponent();
             negocio = new Negocio();
+            repartidoresActivos = new List<Empleado>();
         }
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
@@ -76,6 +79,46 @@ namespace Clutch
             Identificacion identificacion = new Identificacion(negocio,true);
             identificacion.Owner = this;
             identificacion.ShowDialog();
+           
+
+            if (identificacion.Cerrar == true)
+            {
+                Empleado borrar = identificacion.empleado;
+                EliminarRepartidor(borrar);
+            }
+
+            if (negocio.ObtenerRepartidor(identificacion.empleado.id) != null)
+            {
+                this.repartidoresActivos.Add(identificacion.empleado);
+                
+                if (identificacion.Cerrar == false)
+                {
+                    addRepartidorUC();
+                }                          
+
+            }
+        }
+
+        private void EliminarRepartidor(Empleado borrar)
+        {
+            this.repartidoresActivos.Remove(borrar);
+            addRepartidorUC(); 
+        }
+
+        private void addRepartidorUC()
+        {
+            RepartidoresPanel.Children.Clear();
+            foreach (Empleado em in repartidoresActivos)
+            {
+                RepartidorActivoUC repar = new RepartidorActivoUC();
+                repar.empleado = em;
+                repar.negocio = this.negocio;
+                repar.nombre = em.nombre;
+                repar.apellidos = em.apellidos;
+                repar.AsignarValores();
+
+                RepartidoresPanel.Children.Add(repar);
+            }
         }
 
         private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
@@ -90,7 +133,6 @@ namespace Clutch
                 ventana.Owner = this;
                 if (ventana.ShowDialog() == true)
                 {
-
                     negocio.CrearIncidencia(empleado, nueva);
                 }
             }

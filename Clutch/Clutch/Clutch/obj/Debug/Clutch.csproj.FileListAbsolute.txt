@@ -93,6 +93,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHS\Microsoft.Report
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe.config
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\MainWindow.g.cs
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\UserControls\PedidosRepartiendoUC.g.cs

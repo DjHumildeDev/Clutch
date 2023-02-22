@@ -20,9 +20,10 @@ namespace Clutch.Views
     public partial class Identificacion : Window
     {
         private Negocio negocio;
-        private Empleado empleado;
+        public Empleado empleado { get; set; }
         private Jornada jornadaHoy;
         private bool fichar;
+        public bool Cerrar { get; set; }
         private bool Encargado;
         public Empleado EmpleadoSeleccionado { get; set; }
         public Identificacion()
@@ -56,13 +57,14 @@ namespace Clutch.Views
                         if (jornadaHoy != null)
                         {
                             CerrarJornada(jornadaHoy);
-
+                            Cerrar = true;
                             MessageBox.Show("Hasta pronto! " + empleado.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
                             this.Close();
                         }
                     }
                     else
                     {
+                        Cerrar = false;
                         Jornada jornada = new Jornada();
                         jornada.Entrada = DateTime.Now;
                         negocio.CrearJornada(empleado, jornada);
@@ -133,7 +135,7 @@ namespace Clutch.Views
             List<Empleado> empleados = negocio.ObtenerEmpleados();
             foreach (Empleado empleado in empleados)
             {
-                if (empleado.dni.Equals(usuario))
+                if (empleado.dni.Equals(usuario,StringComparison.OrdinalIgnoreCase))
                 {
                     if (empleado.contraseña.Equals(pass))
                     {

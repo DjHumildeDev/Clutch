@@ -20,9 +20,23 @@ namespace Clutch.UserControls
     /// </summary>
     public partial class RepartidorActivoUC : UserControl
     {
+        public Empleado empleado { get; set; }
+        public Negocio negocio { get; set; }
+
+        public string nombre { get; set; }
+        public string apellidos {get ;set; }
+        
         public RepartidorActivoUC()
         {
-            InitializeComponent();
+            InitializeComponent();                     
+        }
+        public void AsignarValores()
+        {
+            this.lblNombre.Content = nombre + " " + apellidos;
+        }
+        private void btnEmpleadoUC_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
