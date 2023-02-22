@@ -20,9 +20,21 @@ namespace Clutch.UserControls
     /// </summary>
     public partial class PedidoUC : UserControl
     {
+        public Pedido pedido { get; set; }
+
         public PedidoUC()
         {
             InitializeComponent();
+        }
+        public void ComnpleatarCampos()
+        {
+            lblNumero.Content = pedido.id.ToString();
+            lblDireccion.Content = pedido.direccion;
+        }
+
+        private void btnPedidoUC_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

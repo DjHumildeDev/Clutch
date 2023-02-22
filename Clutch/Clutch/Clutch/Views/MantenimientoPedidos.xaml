@@ -27,7 +27,7 @@
                             </GridViewColumnHeader>
                         </GridViewColumn.Header>
                     </GridViewColumn>
-                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding precio}">
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding precio, StringFormat={}{0:#,0.00}€}">
                         <GridViewColumn.Header>
                             <GridViewColumnHeader Tag="Precio" Click="GridViewColumnHeader_Click">
                                 Precio

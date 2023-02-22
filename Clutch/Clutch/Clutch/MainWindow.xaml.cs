@@ -27,11 +27,29 @@ namespace Clutch
         List<Empleado> repartidoresActivos;
         Negocio negocio;
         List<Jornada> jornadas;
+        List<Pedido> pedidos;
         public MainWindow()
         {
             InitializeComponent();
             negocio = new Negocio();
             repartidoresActivos = new List<Empleado>();
+            pedidos = new List<Pedido>();
+            ActualizarListaPedidos();
+        }
+
+        private void ActualizarListaPedidos()
+        {
+            pedidos = negocio.ObtenerPedidos();
+            PedidosPanel.Children.Clear();
+
+            foreach(Pedido ped in pedidos)
+            {
+                PedidoUC ucPedido = new PedidoUC();
+                ucPedido.pedido = ped;
+                ucPedido.ComnpleatarCampos();
+
+                PedidosPanel.Children.Add(ucPedido);
+            }
         }
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)

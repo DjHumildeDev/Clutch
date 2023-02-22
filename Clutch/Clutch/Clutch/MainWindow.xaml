@@ -40,9 +40,11 @@
                     <ColumnDefinition Width="5"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Vertical" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray">
-                    
-                </StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel Orientation="Vertical" Margin="5" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray" Name="PedidosPanel">
+
+                    </StackPanel>
+                </ScrollViewer>
                 <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray">
 
                 </StackPanel>
