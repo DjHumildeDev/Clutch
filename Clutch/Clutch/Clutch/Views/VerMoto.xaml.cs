@@ -86,17 +86,35 @@ namespace Clutch.Views
         private bool ComprobarCampos()
         {
             int numero;
-            if(int.TryParse(txtBxNumero.Text,out numero))
-            {
-                return true;
-            }
-            else
+            if(!(int.TryParse(txtBxNumero.Text,out numero)))           
             {
                 MessageBox.Show("El numero de moto no puede contener letras vuelva a introducirlo","Error en un campo",MessageBoxButton.OK,MessageBoxImage.Error);
                 txtBxNumero.Text = String.Empty;
                 txtBxNumero.Focus();
                 return false;
+                
             }
+            if (txtBxMatricula.Text.Equals(String.Empty)||txtBxMatricula.Text.Length!=7)
+            {
+                MessageBox.Show("Introduzca una matricula correcta", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxMatricula.Text = String.Empty;
+                txtBxMatricula.Focus();
+                return false;
+            }
+            if (cmbBxCC.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione una cilindrada", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);              
+                cmbBxCC.Focus();
+                return false;
+            }
+            if (cmbBxEstado.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione el estado", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+                cmbBxEstado.Focus();
+                return false;
+            }
+            return true;
         }
 
         private void cmbBxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
