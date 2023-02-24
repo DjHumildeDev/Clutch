@@ -57,11 +57,19 @@ namespace Clutch
 
                 foreach (Pedido ped in pedidos)
                 {
-                    PedidoUC ucPedido = new PedidoUC();
-                    ucPedido.pedido = ped;
-                    ucPedido.ComnpleatarCampos();
+                    if (ped.Entregado != false)
+                    {
+                        if (ped.idRepartidor == null)
+                        {
+                            PedidoUC ucPedido = new PedidoUC();
+                            ucPedido.pedido = ped;
 
-                    PedidosPanel.Children.Add(ucPedido);
+                            ucPedido.ComnpleatarCampos();
+
+                            PedidosPanel.Children.Add(ucPedido);
+                        }                   
+                    }
+                 
                 }
             });
         }
@@ -127,7 +135,6 @@ namespace Clutch
                 {
                     addRepartidorUC();
                 }                          
-
             }
         }
 
@@ -167,8 +174,7 @@ namespace Clutch
                 {
                     negocio.CrearIncidencia(empleado, nueva);
                 }
-            }
-          
+            }       
         }
 
         private void mnRptInci_Click(object sender, RoutedEventArgs e)

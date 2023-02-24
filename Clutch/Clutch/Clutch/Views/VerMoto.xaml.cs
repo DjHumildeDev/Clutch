@@ -72,15 +72,33 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            moto.matricula = txtBxMatricula.Text;
-            moto.numero = Convert.ToInt32(txtBxNumero.Text);
-            moto.cc = cc;
-            moto.estado = estado;
+            if (ComprobarCampos())
+            {
+                moto.matricula = txtBxMatricula.Text;
+                moto.numero = Convert.ToInt32(txtBxNumero.Text);
+                moto.cc = cc;
+                moto.estado = estado;
 
-            this.DialogResult = true;
+                this.DialogResult = true;
+            }         
         }
 
-      
+        private bool ComprobarCampos()
+        {
+            int numero;
+            if(int.TryParse(txtBxNumero.Text,out numero))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("El numero de moto no puede contener letras vuelva a introducirlo","Error en un campo",MessageBoxButton.OK,MessageBoxImage.Error);
+                txtBxNumero.Text = String.Empty;
+                txtBxNumero.Focus();
+                return false;
+            }
+        }
+
         private void cmbBxEstado_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox combo = (ComboBox)sender;

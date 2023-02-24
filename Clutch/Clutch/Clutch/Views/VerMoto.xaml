@@ -23,7 +23,7 @@
             <Label Grid.Row="1" Content="Número:" HorizontalAlignment="Right"/>
             <Label Grid.Column="2" Content="Centimetros Cubicos:" HorizontalAlignment="Right"/>
             <Label Grid.Row="1" Grid.Column="2" Content="Estado:" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" VerticalAlignment="Center" x:Name="txtBxMatricula"/>
+            <TextBox Grid.Column="1" VerticalAlignment="Center" x:Name="txtBxMatricula" MaxLength="7"/>
             <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" x:Name="txtBxNumero"/>
             <ComboBox Grid.Column="3" Grid.Row="1" VerticalAlignment="Center" x:Name="cmbBxEstado" SelectionChanged="cmbBxEstado_SelectionChanged">
                 <ComboBoxItem Content="Disponible" Tag="Disponible"/>
