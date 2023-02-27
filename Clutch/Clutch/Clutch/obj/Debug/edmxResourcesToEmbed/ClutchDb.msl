@@ -79,6 +79,7 @@
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="tlfCliente" ColumnName="tlfCliente" />
           <ScalarProperty Name="Entregado" ColumnName="Entregado" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

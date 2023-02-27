@@ -153,6 +153,8 @@
     </Compile>
     <Compile Include="Reports\Generador.cs" />
     <Compile Include="Reports\IncidenciaWr.cs" />
+    <Compile Include="Reports\PedidosWr.cs" />
+    <Compile Include="Reports\TrabajadoresWr.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="UserControls\PedidosRepartiendoUC.xaml.cs">
       <DependentUpon>PedidosRepartiendoUC.xaml</DependentUpon>
@@ -298,6 +300,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncidencia.rdlc" />
+    <EmbeddedResource Include="Reports\rptTrabajadores.rdlc" />
     <EntityDeploy Include="ClutchDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ClutchDb.Designer.cs</LastGenOutput>

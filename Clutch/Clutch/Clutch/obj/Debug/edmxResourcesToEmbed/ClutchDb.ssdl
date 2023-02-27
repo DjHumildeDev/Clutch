@@ -73,6 +73,7 @@
     <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="tlfCliente" Type="nvarchar" MaxLength="9" Nullable="false" />
     <Property Name="Entregado" Type="bit" Nullable="false" />
+    <Property Name="Fecha" Type="datetime2" Precision="7" Nullable="false" />
   </EntityType>
   <EntityType Name="Repartidor">
     <Key>
@@ -130,7 +131,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Pedido_Repar">
+  <Association Name="FK_Pedido_Repartidor">
     <End Role="Repartidor" Type="Self.Repartidor" Multiplicity="0..1" />
     <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
     <ReferentialConstraint>
@@ -191,7 +192,7 @@
       <End Role="Empleados" EntitySet="Empleados" />
       <End Role="Jornada" EntitySet="Jornada" />
     </AssociationSet>
-    <AssociationSet Name="FK_Pedido_Repar" Association="Self.FK_Pedido_Repar">
+    <AssociationSet Name="FK_Pedido_Repartidor" Association="Self.FK_Pedido_Repartidor">
       <End Role="Repartidor" EntitySet="Repartidor" />
       <End Role="Pedido" EntitySet="Pedido" />
     </AssociationSet>

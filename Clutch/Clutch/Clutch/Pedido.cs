@@ -21,5 +21,6 @@ namespace Clutch
         public string direccion { get; set; }
         public string tlfCliente { get; set; }
         public bool Entregado { get; set; }
+        public System.DateTime Fecha { get; set; }
     }
 }
