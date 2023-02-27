@@ -47,63 +47,82 @@ namespace Clutch.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (ComprobarIdentificacion(txtBxUser.Text.ToString(), txtBxPass.Password.ToString()))
+            if (ValidarCampos())
             {
-                if (fichar)
+                if (ComprobarIdentificacion(txtBxUser.Text.ToString(), txtBxPass.Password.ToString()))
                 {
-                    if (YaFichado(empleado))
+                    if (fichar)
                     {
-                        if (jornadaHoy != null)
+                        if (YaFichado(empleado))
                         {
-                            CerrarJornada(jornadaHoy);
-                            Cerrar = true;
-                            MessageBox.Show("Hasta pronto! " + empleado.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
-                            this.Close();
+                            if (jornadaHoy != null)
+                            {
+                                CerrarJornada(jornadaHoy);
+                                Cerrar = true;
+                                MessageBox.Show("Hasta pronto! " + empleado.nombre, "Has acabado tu Jornada", MessageBoxButton.OK, MessageBoxImage.Information);
+                                this.Close();
+                            }
+                        }
+                        else
+                        {
+                            Cerrar = false;
+                            Jornada jornada = new Jornada();
+                            jornada.Entrada = DateTime.Now;
+                            negocio.CrearJornada(empleado, jornada);
+                            MessageBox.Show("Buenos dias " + empleado.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.DialogResult = true;
                         }
                     }
                     else
                     {
-                        Cerrar = false;
-                        Jornada jornada = new Jornada();
-                        jornada.Entrada = DateTime.Now;
-                        negocio.CrearJornada(empleado, jornada);
-                        MessageBox.Show("Buenos dias " + empleado.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.DialogResult = true;
+                        if (Encargado == true)
+                        {
+                            EmpleadoSeleccionado = empleado;
+                            Encargado encargado = negocio.ObtenerEncargado(EmpleadoSeleccionado.id);
+                            if (encargado != null)
+                            {
+                                MessageBox.Show("Identificacion correcta " + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                                this.DialogResult = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Este usuario no es encargado", "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }
+                        }
+                        else
+                        {
+                            EmpleadoSeleccionado = empleado;
+
+
+                            MessageBox.Show("Identificacion correcta" + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
+                            this.DialogResult = true;
+                        }
+
+
                     }
                 }
                 else
                 {
-                    if (Encargado == true)
-                    {
-                        EmpleadoSeleccionado = empleado;
-                        Encargado encargado = negocio.ObtenerEncargado(EmpleadoSeleccionado.id);
-                        if (encargado != null)
-                        {
-                            MessageBox.Show("Identificacion correcta " + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
-                            this.DialogResult = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Este usuario no es encargado" , "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
-                        }
-                    }
-                    else
-                    {
-                        EmpleadoSeleccionado = empleado;
-
-
-                        MessageBox.Show("Identificacion correcta" + empleado.nombre, "Identificado", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.DialogResult = true;
-                    }
-                    
-                    
-                }       
+                    MessageBox.Show("Alguno de los campos no es correcto", "Error en la identificacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Alguno de los campos no es correcto", "Error en la identificacion", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Hay algun campo incompleto", "Error en la identificacion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }          
+        }
+
+        private bool ValidarCampos()
+        {
+            if (String.IsNullOrEmpty(txtBxUser.Text))
+            {
+                return false;
             }
+            if (String.IsNullOrEmpty(txtBxPass.Password))
+            {
+                return false;
+            }
+            return true;
         }
 
         private void CerrarJornada(Jornada jornadaHoy)
