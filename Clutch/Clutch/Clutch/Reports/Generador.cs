@@ -11,6 +11,8 @@ namespace Clutch.Reports
     public class Generador
     {
         public Negocio negocio;
+
+
         public void GenerarInformeIncidencias()
         {
             this.negocio = new Negocio();
@@ -41,7 +43,7 @@ namespace Clutch.Reports
 
         public void GenerarInformeTrabajadoresGrafico()
         {
-
+            CultureInfo culture = new CultureInfo("es-ES");
             this.negocio = new Negocio();
             Views.ReportViewer visor = new Views.ReportViewer();
             visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadoresGrafico.rdlc";
@@ -57,7 +59,7 @@ namespace Clutch.Reports
             {
                 if (trabajador.mes != null)
                 {
-                    trabajador.mesString = new DateTimeFormatInfo().GetMonthName(trabajador.mes.Value);
+                    trabajador.mesString = culture.DateTimeFormat.GetMonthName(trabajador.mes.Value).ToUpper();
                 }
                
             }
