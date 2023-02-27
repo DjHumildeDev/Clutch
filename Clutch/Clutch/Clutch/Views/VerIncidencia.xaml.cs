@@ -65,13 +65,46 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            incidencia.incidencia1 = txtBxDescripcionIncidencia.Text;
-            incidencia.fecha = dtPckFecha.SelectedDate.Value;
+            if (ValidarCampos())
+            {
+                incidencia.incidencia1 = txtBxDescripcionIncidencia.Text;
+                incidencia.fecha = dtPckFecha.SelectedDate.Value;
 
-            incidencia.tipo = tipo;
-            this.DialogResult = true;
+                incidencia.tipo = tipo;
+                this.DialogResult = true;
+            }     
         }
-  
+
+        private bool ValidarCampos()
+        {
+            if (cmBxTipo.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione un tipo", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);               
+                cmBxTipo.Focus();
+                return false;
+            }
+            if(dtPckFecha.SelectedDate== DateTime.MinValue || dtPckFecha.SelectedDate == DateTime.MaxValue)
+            {
+                MessageBox.Show("Seleccione una fecha valida", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                dtPckFecha.Focus();
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtBxDescripcionIncidencia.Text))
+            {
+                MessageBox.Show("Por favor Rellene la incidencia", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxDescripcionIncidencia.Focus();
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtBxEmpleado.Text))
+            {
+                MessageBox.Show("Por favor rellene el empleado", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxEmpleado.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
         private void cmBxTipo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox combo = (ComboBox)sender;

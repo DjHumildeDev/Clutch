@@ -84,27 +84,43 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            jornada.Entrada = (DateTime)TPickerEntrada.Value;
-            jornada.horas = Convert.ToDouble(txtBxHoras.Text);
-            jornada.sueldoHoy = Convert.ToDouble(txtBxSueldoHoy.Text);
-            
-            if (String.IsNullOrEmpty(txtBxPedidos.Text))
+            if (ValidarCampos())
             {
-                jornada.pedidos = 0;
-            }
-            else
+                jornada.Entrada = (DateTime)TPickerEntrada.Value;
+                jornada.horas = Convert.ToDouble(txtBxHoras.Text);
+                jornada.sueldoHoy = Convert.ToDouble(txtBxSueldoHoy.Text);
+
+                if (String.IsNullOrEmpty(txtBxPedidos.Text))
+                {
+                    jornada.pedidos = 0;
+                }
+                else
+                {
+                    jornada.pedidos = Convert.ToInt32(txtBxPedidos.Text);
+                }
+
+                if (TPickerSalida.IsEnabled == true)
+                {
+                    jornada.Salida = (DateTime)TPickerSalida.Value;
+                }
+
+                empleadoSeleccionado = empleado;
+
+                this.DialogResult = true;
+            }         
+        }
+
+        private bool ValidarCampos()
+        {
+            if (cmBxEmpleado.SelectedItem == null)
             {
-                jornada.pedidos = Convert.ToInt32(txtBxPedidos.Text);
+                MessageBox.Show("Seleccione un empleado", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+                cmBxEmpleado.Focus();
+                return false;
             }
            
-            if (TPickerSalida.IsEnabled == true)
-            {
-                jornada.Salida = (DateTime)TPickerSalida.Value;
-            }
-
-            empleadoSeleccionado = empleado;
-
-            this.DialogResult = true;
+            return true;
         }
 
         private void cmBxEmpleado_SelectionChanged(object sender, SelectionChangedEventArgs e)
