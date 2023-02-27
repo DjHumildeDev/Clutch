@@ -37,5 +37,35 @@ namespace Clutch.Reports
 
             visor.Show();
         }
+
+
+        /* Informe mensual trabajadores
+         * 
+         * SELECT e.id, e.nombre, 
+       MONTH(j.Entrada) AS mes,
+       SUM(j.horas) AS total_horas_trabajadas, 
+       COUNT(p.id) AS total_pedidos,
+       (SUM(j.horas)*j.sueldo) AS sueldo
+       FROM empleados e
+       LEFT JOIN Jornada j ON e.id = j.idEmpleado
+       LEFT JOIN pedido p ON e.id = p.idRepartidor AND MONTH(j.Entrada) = MONTH(j.Entrada)
+       GROUP BY e.id, e.nombre, MONTH(j.Entrada), j.sueldo
+       ORDER BY e.id, MONTH(j.Entrada)
+
+
+         */
+
+        /*
+        SELECT e.id, e.nombre, e.apellidos, e.dni, 
+        MONTH(p.Fecha) AS mes,
+        p.id AS pedido,
+        p.precio,p.pedido,p.direccion
+        FROM empleados e
+        JOIN repartidor r ON e.id = r.idEmpleado
+        JOIN pedido p ON r.id = p.idRepartidor
+        ORDER BY e.id, mes
+
+
+         */
     }
 }

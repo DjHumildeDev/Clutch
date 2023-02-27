@@ -182,5 +182,10 @@ namespace Clutch
             Generador generador = new Generador();
             generador.GenerarInformeIncidencias();
         }
+
+        private void mnDoc_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -27,7 +27,8 @@
                 <MenuItem x:Name="mnFichar" Header="Fichar" Click="mnFichar_Click"/>
                 <MenuItem x:Name="mnGenIncidencia" Header="Generar Incidencia" Click="mnGenIncidencia_Click"/>
             </MenuItem>
-            <MenuItem Header="Ventana">
+            <MenuItem Header="Mas...">
+                <MenuItem x:Name="mnDoc" Header="Documentacion" Click="mnDoc_Click"/>
             </MenuItem>
         </Menu>
         <Grid>
