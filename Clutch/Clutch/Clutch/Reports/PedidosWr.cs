@@ -17,4 +17,4 @@ namespace Clutch.Reports
         public string direccion { get; set; }
     }
 }
-}
+
