@@ -302,6 +302,7 @@
     <EmbeddedResource Include="Reports\rptIncidencia.rdlc" />
     <EmbeddedResource Include="Reports\rptPedidos.rdlc" />
     <EmbeddedResource Include="Reports\rptTrabajadores.rdlc" />
+    <EmbeddedResource Include="Reports\rptTrabajadoresGrafico.rdlc" />
     <EntityDeploy Include="ClutchDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ClutchDb.Designer.cs</LastGenOutput>
@@ -322,6 +323,8 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Clutch.Reports.IncidenciaWr.datasource" />
+    <None Include="Properties\DataSources\Clutch.Reports.PedidosWr.datasource" />
+    <None Include="Properties\DataSources\Clutch.Reports.TrabajadoresWr.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

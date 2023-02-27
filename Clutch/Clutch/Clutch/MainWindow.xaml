@@ -13,8 +13,11 @@
             </MenuItem>
             <MenuItem Header="Ver">
                 <MenuItem Name="mnRptInci" Header="Informe Incidencias" Click="mnRptInci_Click"/>
-                <MenuItem Name="mnRptJornadas" Header="Informe Mensual Empleados" Click="mnRptInci_Click"/>
-                <MenuItem Name="mnRptPedidos" Header="Informe Pedidos por Repartidor" Click="mnRptInci_Click"/>
+                <MenuItem Name="mnRptJornadas" Header="Informe Mensual Empleados" >
+                    <MenuItem x:Name="mbRptJornadasNormal" Header="Tabla" Click="mbRptJornadasNormal_Click"/>
+                    <MenuItem x:Name="mbRptJornadasGrafica" Header="Grafica" Click="mbRptJornadasGrafica_Click"/>
+                </MenuItem>
+                <MenuItem Name="mnRptPedidos" Header="Informe Pedidos por Repartidor" Click="mnRptPedidos_Click"/>
             </MenuItem>
             <MenuItem Header="Mantenimiento">
                 <MenuItem x:Name="mnMantEmpleados" Header="Empleados" Click="mnMantEmpleados_Click"/>

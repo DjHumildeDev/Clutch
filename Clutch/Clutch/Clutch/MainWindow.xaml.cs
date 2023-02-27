@@ -187,5 +187,23 @@ namespace Clutch
         {
 
         }
+     
+        private void mnRptPedidos_Click(object sender, RoutedEventArgs e)
+        {
+            Generador generador = new Generador();
+            generador.GenerarInformePedidos();
+        }
+
+        private void mbRptJornadasNormal_Click(object sender, RoutedEventArgs e)
+        {
+            Generador generador = new Generador();
+            generador.GenerarInformeTrabajadores();
+        }
+
+        private void mbRptJornadasGrafica_Click(object sender, RoutedEventArgs e)
+        {
+            Generador generador = new Generador();
+            generador.GenerarInformeTrabajadoresGrafico();
+        }
     }
 }

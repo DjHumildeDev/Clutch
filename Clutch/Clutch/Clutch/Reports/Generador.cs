@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,41 @@ namespace Clutch.Reports
             visor.Show();
         }
 
+        public void GenerarInformeTrabajadoresGrafico()
+        {
+
+            this.negocio = new Negocio();
+            Views.ReportViewer visor = new Views.ReportViewer();
+            visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadoresGrafico.rdlc";
+
+            string consulta = "SELECT e.id, e.nombre,e.apellidos,MONTH(j.Entrada) AS mes,SUM(j.horas) AS total_horas_trabajadas," +
+                " COUNT(p.id) AS total_pedidos,(SUM(j.horas)*j.sueldo) AS sueldo FROM empleados e LEFT JOIN Jornada j ON e.id = " +
+                "j.idEmpleado LEFT JOIN pedido p ON e.id = p.idRepartidor AND MONTH(j.Entrada) = MONTH(j.Entrada) GROUP BY e.id, e.nombre," +
+                " MONTH(j.Entrada), j.sueldo,e.apellidos ORDER BY e.id, MONTH(j.Entrada),e.apellidos";
+
+            ClutchDb ctx = new ClutchDb();
+            List<TrabajadoresWr> listaTrabajadores = ctx.Database.SqlQuery<TrabajadoresWr>(consulta, new object[0]).ToList();
+            foreach (TrabajadoresWr trabajador in listaTrabajadores)
+            {
+                if (trabajador.mes != null)
+                {
+                    trabajador.mesString = new DateTimeFormatInfo().GetMonthName(trabajador.mes.Value);
+                }
+               
+            }
+
+            ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaTrabajadores);
+
+            visor.rptViewer.LocalReport.DataSources.Add(fuenteDatos);
+
+            visor.rptViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            visor.rptViewer.RefreshReport();
+
+
+            visor.Show();
+
+        }
+
         public void GenerarInformeTrabajadores()
         {
 
@@ -51,13 +87,13 @@ namespace Clutch.Reports
                 " MONTH(j.Entrada), j.sueldo,e.apellidos ORDER BY e.id, MONTH(j.Entrada),e.apellidos";
 
             ClutchDb ctx = new ClutchDb();
-            List<TrabajadoresWr> listaIncidencias = ctx.Database.SqlQuery<TrabajadoresWr>(consulta, new object[0]).ToList();
-            foreach (TrabajadoresWr trabajador in listaIncidencias)
+            List<TrabajadoresWr> listaTrabajadores = ctx.Database.SqlQuery<TrabajadoresWr>(consulta, new object[0]).ToList();
+            foreach (TrabajadoresWr trabajador in listaTrabajadores)
             {
-              
+
             }
 
-            ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaIncidencias);
+            ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaTrabajadores);
 
             visor.rptViewer.LocalReport.DataSources.Add(fuenteDatos);
 
@@ -80,13 +116,13 @@ namespace Clutch.Reports
                 "ORDER BY e.id, mes";
 
             ClutchDb ctx = new ClutchDb();
-            List<PedidosWr> listaIncidencias = ctx.Database.SqlQuery<PedidosWr>(consulta, new object[0]).ToList();
-            foreach (PedidosWr pedido in listaIncidencias)
+            List<PedidosWr> listaPedidos = ctx.Database.SqlQuery<PedidosWr>(consulta, new object[0]).ToList();
+            foreach (PedidosWr pedido in listaPedidos)
             {
 
             }
 
-            ReportDataSource fuenteDatos = new ReportDataSource("DataSetPedidos", listaIncidencias);
+            ReportDataSource fuenteDatos = new ReportDataSource("DataSetPedidos", listaPedidos);
 
             visor.rptViewer.LocalReport.DataSources.Add(fuenteDatos);
 
