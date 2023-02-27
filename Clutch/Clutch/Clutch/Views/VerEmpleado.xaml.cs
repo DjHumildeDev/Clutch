@@ -95,30 +95,63 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            empleado.nombre = txtBxNombre.Text;
-            empleado.apellidos = txtBxApellidos.Text;
-            empleado.dni = txtBxDNI.Text;
-            string pass = empleado.dni.Substring(4, 4);
-            empleado.contraseña = pass;
-            empleado.alta = DateTime.Today;
-
-            switch (rol)
+            if (ValidacionCampos())
             {
-                case "Encargado":
-                    Encargado nuevo = new Encargado();
-                    negocio.CrearEncargado(empleado, nuevo);
-                    break;
-                case "Repartidor":
-                    Repartidor repar = new Repartidor();
-                    negocio.CrearRepartidor(empleado, repar);
-                    break;
-                case "Cocinero":
-                    Cocina cocinero = new Cocina();
-                    negocio.CrearCocinero(empleado, cocinero);
-                    break;
-            }
+                empleado.nombre = txtBxNombre.Text;
+                empleado.apellidos = txtBxApellidos.Text;
+                empleado.dni = txtBxDNI.Text;
+                string pass = empleado.dni.Substring(4, 4);
+                empleado.contraseña = pass;
+                empleado.alta = DateTime.Today;
 
-            this.DialogResult = true;
+                switch (rol)
+                {
+                    case "Encargado":
+                        Encargado nuevo = new Encargado();
+                        negocio.CrearEncargado(empleado, nuevo);
+                        break;
+                    case "Repartidor":
+                        Repartidor repar = new Repartidor();
+                        negocio.CrearRepartidor(empleado, repar);
+                        break;
+                    case "Cocinero":
+                        Cocina cocinero = new Cocina();
+                        negocio.CrearCocinero(empleado, cocinero);
+                        break;
+                }
+
+                this.DialogResult = true;
+            }
+          
+        }
+
+        private bool ValidacionCampos()
+        {
+            if (String.IsNullOrEmpty(txtBxNombre.Text))
+            {
+                MessageBox.Show("Rellene el campo nombre", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxNombre.Focus();
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtBxApellidos.Text))
+            {
+                MessageBox.Show("Rellene el campo apellidos", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxApellidos.Focus();
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtBxDNI.Text))
+            {
+                MessageBox.Show("Rellene el campo dni", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtBxDNI.Focus();
+                return false;
+            }
+            if (cmBxTipo.SelectedItem == null)
+            {               
+               MessageBox.Show("Rellene el campo tipo", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+               cmBxTipo.Focus();
+               return false;                
+            }
+            return true;
         }
     }
 }
