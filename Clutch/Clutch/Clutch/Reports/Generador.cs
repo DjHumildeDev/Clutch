@@ -41,37 +41,61 @@ namespace Clutch.Reports
         public void GenerarInformeTrabajadores()
         {
 
-            /* Informe mensual trabajadores
-             * 
-             * SELECT e.id, e.nombre,e.apellidos, 
-           MONTH(j.Entrada) AS mes,
-           SUM(j.horas) AS total_horas_trabajadas, 
-           COUNT(p.id) AS total_pedidos,
-           (SUM(j.horas)*j.sueldo) AS sueldo
-           FROM empleados e
-           LEFT JOIN Jornada j ON e.id = j.idEmpleado
-           LEFT JOIN pedido p ON e.id = p.idRepartidor AND MONTH(j.Entrada) = MONTH(j.Entrada)
-           GROUP BY e.id, e.nombre, MONTH(j.Entrada), j.sueldo,e.apellidos
-           ORDER BY e.id, MONTH(j.Entrada),e.apellidos
+            this.negocio = new Negocio();
+            Views.ReportViewer visor = new Views.ReportViewer();
+            visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadores.rdlc";
+
+            string consulta = "SELECT e.id, e.nombre,e.apellidos,MONTH(j.Entrada) AS mes,SUM(j.horas) AS total_horas_trabajadas," +
+                " COUNT(p.id) AS total_pedidos,(SUM(j.horas)*j.sueldo) AS sueldo FROM empleados e LEFT JOIN Jornada j ON e.id = " +
+                "j.idEmpleado LEFT JOIN pedido p ON e.id = p.idRepartidor AND MONTH(j.Entrada) = MONTH(j.Entrada) GROUP BY e.id, e.nombre," +
+                " MONTH(j.Entrada), j.sueldo,e.apellidos ORDER BY e.id, MONTH(j.Entrada),e.apellidos";
+
+            ClutchDb ctx = new ClutchDb();
+            List<TrabajadoresWr> listaIncidencias = ctx.Database.SqlQuery<TrabajadoresWr>(consulta, new object[0]).ToList();
+            foreach (TrabajadoresWr trabajador in listaIncidencias)
+            {
+              
+            }
+
+            ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaIncidencias);
+
+            visor.rptViewer.LocalReport.DataSources.Add(fuenteDatos);
+
+            visor.rptViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            visor.rptViewer.RefreshReport();
 
 
-             */
+            visor.Show();
+
         }
 
         public void GenerarInformePedidos()
         {
-            /*
-      SELECT e.id, e.nombre, e.apellidos, e.dni, 
-      MONTH(p.Fecha) AS mes,
-      p.id AS pedido,
-      p.precio,p.pedido,p.direccion
-      FROM empleados e
-      JOIN repartidor r ON e.id = r.idEmpleado
-      JOIN pedido p ON r.id = p.idRepartidor
-      ORDER BY e.id, mes
+            this.negocio = new Negocio();
+            Views.ReportViewer visor = new Views.ReportViewer();
+            visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadores.rdlc";
+
+            string consulta = "SELECT e.id, e.nombre, e.apellidos, e.dni, MONTH(p.Fecha) AS mes,p.id AS pedido,p.precio,p.pedido,p.direccion" +
+                " FROM empleados e JOIN repartidor r ON e.id = r.idEmpleado JOIN pedido p ON r.id = p.idRepartidor " +
+                "ORDER BY e.id, mes";
+
+            ClutchDb ctx = new ClutchDb();
+            List<PedidosWr> listaIncidencias = ctx.Database.SqlQuery<PedidosWr>(consulta, new object[0]).ToList();
+            foreach (PedidosWr pedido in listaIncidencias)
+            {
+
+            }
+
+            ReportDataSource fuenteDatos = new ReportDataSource("DataSetPedidos", listaIncidencias);
+
+            visor.rptViewer.LocalReport.DataSources.Add(fuenteDatos);
+
+            visor.rptViewer.SetDisplayMode(DisplayMode.PrintLayout);
+            visor.rptViewer.RefreshReport();
 
 
-       */
+            visor.Show();
+
         }
 
 
