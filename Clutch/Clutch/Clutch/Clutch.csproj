@@ -300,6 +300,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptIncidencia.rdlc" />
+    <EmbeddedResource Include="Reports\rptPedidos.rdlc" />
     <EmbeddedResource Include="Reports\rptTrabajadores.rdlc" />
     <EntityDeploy Include="ClutchDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
