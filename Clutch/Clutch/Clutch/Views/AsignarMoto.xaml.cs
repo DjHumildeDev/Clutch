@@ -81,20 +81,50 @@ namespace Clutch.Views
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            if (cmBxCentimetros.SelectedItem != null)
+            if (ValidarCampos())
             {
-                cc = (string)((ComboBoxItem)cmBxCentimetros.SelectedItem).Tag;
-            }
-            if (cmBxMoto.SelectedItem != null)
-            {
-                moto = (Moto)((ComboBoxItem)cmBxMoto.SelectedItem).Tag;
-            }
+                if (cmBxCentimetros.SelectedItem != null)
+                {
+                    cc = (string)((ComboBoxItem)cmBxCentimetros.SelectedItem).Tag;
+                }
+                if (cmBxMoto.SelectedItem != null)
+                {
+                    moto = (Moto)((ComboBoxItem)cmBxMoto.SelectedItem).Tag;
+                }
 
-            if (cmBxEmpleado.SelectedItem != null)
-            {
-                repartidor = (Repartidor)((ComboBoxItem)cmBxEmpleado.SelectedItem).Tag;
+                if (cmBxEmpleado.SelectedItem != null)
+                {
+                    repartidor = (Repartidor)((ComboBoxItem)cmBxEmpleado.SelectedItem).Tag;
+                }
+                this.DialogResult = true;
             }
-            this.DialogResult = true;
+           
+        }
+
+        private bool ValidarCampos()
+        {
+            if (cmBxCentimetros.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione la cilindrada", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                cmBxCentimetros.Focus();
+                return false;
+            }
+            if (cmBxEmpleado.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione el empleado", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                cmBxEmpleado.Focus();
+                return false;
+            }
+            if(cmBxMoto.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccione la moto", "Error en un campo", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                cmBxMoto.Focus();
+                return false;
+            }
+            return true;
         }
 
         private void cmBxMoto_SelectionChanged(object sender, SelectionChangedEventArgs e)
