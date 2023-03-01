@@ -111,9 +111,10 @@ namespace Clutch.Reports
 
         public void GenerarInformePedidos()
         {
+            CultureInfo culture = new CultureInfo("es-ES");
             this.negocio = new Negocio();
             Views.ReportViewer visor = new Views.ReportViewer();
-            visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadores.rdlc";
+            visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptPedidos.rdlc";
 
             string consulta = "SELECT e.id, e.nombre, e.apellidos, e.dni, MONTH(p.Fecha) AS mes,p.id AS pedido,p.precio,p.pedido,p.direccion" +
                 " FROM empleados e JOIN repartidor r ON e.id = r.idEmpleado JOIN pedido p ON r.id = p.idRepartidor " +
@@ -123,7 +124,10 @@ namespace Clutch.Reports
             List<PedidosWr> listaPedidos = ctx.Database.SqlQuery<PedidosWr>(consulta, new object[0]).ToList();
             foreach (PedidosWr pedido in listaPedidos)
             {
-
+                if (pedido.mes != 0)
+                {
+                    pedido.mesString = culture.DateTimeFormat.GetMonthName(pedido.mes.Value).ToUpper();
+                }
             }
 
             ReportDataSource fuenteDatos = new ReportDataSource("DataSetPedidos", listaPedidos);

@@ -37,7 +37,7 @@ namespace Clutch
             negocio = new Negocio();
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
-            ActualizarListaPedidos();
+            ActualizarListaPedidosINI();
 
             aTimer = new Timer(60000);
 
@@ -73,6 +73,31 @@ namespace Clutch
                 }
             });
         }
+
+        public void ActualizarListaPedidosINI()
+        {
+            pedidos = negocio.ObtenerPedidos();
+            PedidosPanel.Children.Clear();
+
+            foreach (Pedido ped in pedidos)
+            {
+                if (ped.Entregado != false)
+                {
+                    if (ped.idRepartidor == null)
+                    {
+                        PedidoUC ucPedido = new PedidoUC();
+                        ucPedido.pedido = ped;
+
+                        ucPedido.ComnpleatarCampos();
+
+                        PedidosPanel.Children.Add(ucPedido);
+                    }
+                }
+
+            }
+            
+        }
+
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
         {

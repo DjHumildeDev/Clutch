@@ -1,4 +1,3 @@
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -47,6 +46,7 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Microsoft.Build.Utiliti
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Microsoft.Build.Framework.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\VSLangProj2.dll
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.SqlServer.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Syncfusion.SfInput.WPF.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Syncfusion.Shared.WPF.xml

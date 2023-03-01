@@ -163,7 +163,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!nombre.Value</Value>
+                              <Value>=Fields!nombre.Value + Fields!apellidos.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -307,7 +307,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>mes String</Value>
+                            <Value />
                             <Style />
                           </TextRun>
                         </TextRuns>
