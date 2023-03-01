@@ -195,7 +195,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!sueldo.Value</Value>
+                              <Value>=Fields!sueldo.Value +" €"</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -248,6 +248,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

@@ -327,7 +327,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!precio.Value</Value>
+                              <Value>=Fields!precio.Value +" €"</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -348,6 +348,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

@@ -20,11 +20,13 @@ namespace Clutch.UserControls
     /// </summary>
     public partial class RepartidorActivoUC : UserControl
     {
-        public Empleado empleado { get; set; }
-        public Negocio negocio { get; set; }
+        public Empleado Empleado { get; set; }
+        public Negocio Negocio { get; set; }
 
-        public string nombre { get; set; }
-        public string apellidos {get ;set; }
+        public bool Ocupado { get; set; }
+
+        public string Nombre { get; set; }
+        public string Apellidos {get ;set; }
         
         public RepartidorActivoUC()
         {
@@ -32,11 +34,8 @@ namespace Clutch.UserControls
         }
         public void AsignarValores()
         {
-            this.lblNombre.Content = nombre + " " + apellidos;
+            this.lblNombre.Content = Nombre + " " + Apellidos;
         }
-        private void btnEmpleadoUC_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+
     }
 }

@@ -19,23 +19,20 @@ namespace Clutch.UserControls
     /// Lógica de interacción para PedidoUC.xaml
     /// </summary>
     public partial class PedidoUC : UserControl
-    {
-        public Pedido pedido { get; set; }
+    {     
+        public Pedido Pedido { get; set; }
+        public bool Seleccionado { get; set; }
 
         public PedidoUC()
         {
             InitializeComponent();
+            Seleccionado = false;
         }
         public void ComnpleatarCampos()
         {
-            lblNumero.Content = pedido.id.ToString();
-            lblDireccion.Content = pedido.direccion;
-            lblTelefono.Content = pedido.tlfCliente;
-        }
-
-        private void btnPedidoUC_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+            lblNumero.Content = Pedido.id.ToString();
+            lblDireccion.Content = Pedido.direccion;
+            lblTelefono.Content = Pedido.tlfCliente;
+        }     
     }
 }

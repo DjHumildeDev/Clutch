@@ -26,6 +26,8 @@ namespace Clutch
     public partial class MainWindow : Window
     {
         private static Timer aTimer;
+        List<Pedido> pedidosSeleccionados;
+        Empleado empleadoSeleccionado;
 
         List<Empleado> repartidoresActivos;
         Negocio negocio;
@@ -34,6 +36,7 @@ namespace Clutch
         public MainWindow()
         {
             InitializeComponent();
+            pedidosSeleccionados = new List<Pedido>();
             negocio = new Negocio();
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
@@ -42,7 +45,7 @@ namespace Clutch
             aTimer = new Timer(60000);
 
             aTimer.Elapsed += RepetirPedidos();
-            aTimer.Enabled = true;
+            aTimer.Enabled = true;       
         }
 
         private ElapsedEventHandler RepetirPedidos()
@@ -60,10 +63,10 @@ namespace Clutch
                     if (ped.idRepartidor == null)
                     {
                         PedidoUC ucPedido = new PedidoUC();
-                        ucPedido.pedido = ped;
+                        ucPedido.Pedido = ped;
 
                         ucPedido.ComnpleatarCampos();
-
+                        ucPedido.btnPedidoUC.Click += PedidoUC_MyEvent;
                         PedidosPanel.Children.Add(ucPedido);                                          
                     }             
                 }
@@ -76,14 +79,13 @@ namespace Clutch
             PedidosPanel.Children.Clear();
 
             foreach (Pedido ped in pedidos)
-            {
-               
+            {              
                 if (ped.idRepartidor == null)
                 {
                     PedidoUC ucPedido = new PedidoUC();
-                    ucPedido.pedido = ped;
+                    ucPedido.Pedido = ped;
                     ucPedido.ComnpleatarCampos();
-
+                    ucPedido.btnPedidoUC.Click += PedidoUC_MyEvent;
                     PedidosPanel.Children.Add(ucPedido);
                 }                
             }
@@ -167,14 +169,20 @@ namespace Clutch
             foreach (Empleado em in repartidoresActivos)
             {
                 RepartidorActivoUC repar = new RepartidorActivoUC();
-                repar.empleado = em;
-                repar.negocio = this.negocio;
-                repar.nombre = em.nombre;
-                repar.apellidos = em.apellidos;
+                repar.Empleado = em;
+                repar.Negocio = this.negocio;
+                repar.Nombre = em.nombre;
+                repar.Apellidos = em.apellidos;
                 repar.AsignarValores();
+                repar.btnEmpleadoUC.Click += RepartidorUC_MyEvent;
 
                 RepartidoresPanel.Children.Add(repar);
             }
+        }
+
+        private void addPedidoEnRepartoUC()
+        {
+
         }
 
         private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
@@ -221,6 +229,76 @@ namespace Clutch
         {
             Generador generador = new Generador();
             generador.GenerarInformeTrabajadoresGrafico();
+        }
+
+        private void PedidoUC_MyEvent(object sender, EventArgs e)
+        {
+            PedidoUC pedido = (PedidoUC)sender;
+
+            if (pedido.Seleccionado)
+            {
+
+                foreach (Pedido ped in pedidosSeleccionados)
+                {
+                    if (pedido.Pedido.Equals(ped))
+                    {
+                        pedidosSeleccionados.Remove(ped);
+                    }
+                }
+
+                pedido.Seleccionado = false;
+                pedido.btnPedidoUC.Foreground = Brushes.AliceBlue;
+            }
+            else
+            {
+                pedido.btnPedidoUC.Foreground = Brushes.CadetBlue;
+                pedidosSeleccionados.Add(pedido.Pedido);
+                pedido.Seleccionado = true;
+            }
+
+        }
+
+        private void RepartidorUC_MyEvent(object sender,EventArgs e)
+        {
+            RepartidorActivoUC repartidor = (RepartidorActivoUC)sender;
+
+            if (repartidor.Ocupado)
+            {
+                repartidor.Ocupado = false;
+            }
+            else
+            {
+                if (pedidosSeleccionados.Count != 0)
+                {
+                    empleadoSeleccionado = repartidor.Empleado;
+                    AsignarPedido();
+                }
+                else
+                {
+                    MessageBox.Show("No hay pedidos seleccionados", "Sin pedidos Seleccionados", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                repartidor.Ocupado = true;
+            }
+        }
+
+        private void AsignarPedido()
+        {
+            Repartidor repar = negocio.ObtenerRepartidor(empleadoSeleccionado.id);
+            foreach(Pedido ped in pedidosSeleccionados)
+            {
+                negocio.RecogerPedido(ped, repar);
+            }
+            addPedidoEnRepartoUC();
+        }
+
+        private void CerrarPedido()
+        {
+
+        }
+
+        private void PedidoEnReparto_Event(object sender,EventArgs e)
+        {
+
         }
     }
 }
