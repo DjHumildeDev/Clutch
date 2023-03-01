@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="300">
     <WrapPanel Background="Gray"  VerticalAlignment="Center">
-        <Button Click="btnPedidoUC_Click" Background="AliceBlue" x:Name="btnPedidoUC">
+        <Button Background="AliceBlue" x:Name="btnPedidoUC">
             <StackPanel Orientation="Vertical">
                 <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="18" Content="Telefono" x:Name="lblTelefono"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
                 <StackPanel Orientation="Horizontal">

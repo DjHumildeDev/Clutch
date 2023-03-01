@@ -8,7 +8,7 @@
              d:DesignHeight="200" d:DesignWidth="200">
     <Grid>
         <WrapPanel Background="Gray"  VerticalAlignment="Center">
-            <Button Click="btnEmpleadoUC_Click" x:Name="btnEmpleadoUC">
+            <Button  Background="AliceBlue" x:Name="btnEmpleadoUC">
                 <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="20" Content="NOMBRE APELLIDO1 APELLIDO2" x:Name="lblNombre"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="20" />
             </Button>
         </WrapPanel>

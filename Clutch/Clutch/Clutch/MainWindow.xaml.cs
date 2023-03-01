@@ -66,6 +66,7 @@ namespace Clutch
                         ucPedido.Pedido = ped;
 
                         ucPedido.ComnpleatarCampos();
+                        ucPedido.btnPedidoUC.Tag = ucPedido;
                         ucPedido.btnPedidoUC.Click += PedidoUC_MyEvent;
                         PedidosPanel.Children.Add(ucPedido);                                          
                     }             
@@ -85,13 +86,29 @@ namespace Clutch
                     PedidoUC ucPedido = new PedidoUC();
                     ucPedido.Pedido = ped;
                     ucPedido.ComnpleatarCampos();
+                    ucPedido.btnPedidoUC.Tag = ucPedido;
                     ucPedido.btnPedidoUC.Click += PedidoUC_MyEvent;
                     PedidosPanel.Children.Add(ucPedido);
                 }                
             }
             
         }
-
+        private void addPedidoEnRepartoUC()
+        {
+            EnRepartoPanel.Children.Clear();
+            foreach (Pedido ped in pedidosSeleccionados)
+            {
+                PedidosRepartiendoUC enRepartoUC = new PedidosRepartiendoUC();
+                enRepartoUC.Empleado = empleadoSeleccionado;
+                enRepartoUC.Pedido = ped;
+                EnRepartoPanel.Children.Add(enRepartoUC);
+                enRepartoUC.btnEnReparto.Tag = enRepartoUC;
+                enRepartoUC.btnEnReparto.Click += PedidoEnReparto_Event;
+            }
+            empleadoSeleccionado = null;
+            pedidosSeleccionados.Clear();
+            ActualizarListaPedidosINI();
+        }
 
         private void mnMenuSalir_Click(object sender, RoutedEventArgs e)
         {
@@ -174,16 +191,14 @@ namespace Clutch
                 repar.Nombre = em.nombre;
                 repar.Apellidos = em.apellidos;
                 repar.AsignarValores();
+                repar.btnEmpleadoUC.Tag = repar;
                 repar.btnEmpleadoUC.Click += RepartidorUC_MyEvent;
 
                 RepartidoresPanel.Children.Add(repar);
             }
         }
 
-        private void addPedidoEnRepartoUC()
-        {
-
-        }
+    
 
         private void mnGenIncidencia_Click(object sender, RoutedEventArgs e)
         {
@@ -233,7 +248,10 @@ namespace Clutch
 
         private void PedidoUC_MyEvent(object sender, EventArgs e)
         {
-            PedidoUC pedido = (PedidoUC)sender;
+
+            Button Btnpedido = (Button)sender;
+            PedidoUC pedido = (PedidoUC)Btnpedido.Tag;
+            Pedido borrar = null;
 
             if (pedido.Seleccionado)
             {
@@ -242,16 +260,19 @@ namespace Clutch
                 {
                     if (pedido.Pedido.Equals(ped))
                     {
-                        pedidosSeleccionados.Remove(ped);
+                        borrar = ped;
                     }
                 }
-
+                if (borrar != null)
+                {
+                    pedidosSeleccionados.Remove(borrar);
+                }           
                 pedido.Seleccionado = false;
-                pedido.btnPedidoUC.Foreground = Brushes.AliceBlue;
+                pedido.btnPedidoUC.Background = Brushes.AliceBlue;
             }
             else
             {
-                pedido.btnPedidoUC.Foreground = Brushes.CadetBlue;
+                pedido.btnPedidoUC.Background = Brushes.DarkBlue;
                 pedidosSeleccionados.Add(pedido.Pedido);
                 pedido.Seleccionado = true;
             }
@@ -260,11 +281,16 @@ namespace Clutch
 
         private void RepartidorUC_MyEvent(object sender,EventArgs e)
         {
-            RepartidorActivoUC repartidor = (RepartidorActivoUC)sender;
+            Button btnRepartidor = (Button)sender;
+            RepartidorActivoUC repartidor = (RepartidorActivoUC)btnRepartidor.Tag;
 
             if (repartidor.Ocupado)
             {
                 repartidor.Ocupado = false;
+                CerrarPedido(repartidor);
+
+
+                repartidor.Background = Brushes.AliceBlue;
             }
             else
             {
@@ -278,6 +304,7 @@ namespace Clutch
                     MessageBox.Show("No hay pedidos seleccionados", "Sin pedidos Seleccionados", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 repartidor.Ocupado = true;
+                repartidor.Background = Brushes.DarkBlue;
             }
         }
 
@@ -291,9 +318,14 @@ namespace Clutch
             addPedidoEnRepartoUC();
         }
 
-        private void CerrarPedido()
+      
+
+        private void CerrarPedido(RepartidorActivoUC repartidor)
         {
 
+            //Tengo que pasar los pedidos en reparto que hay puestos en lños UC para cogerlos de manera comoda
+
+            //SacarVentana del tiempo tardado
         }
 
         private void PedidoEnReparto_Event(object sender,EventArgs e)

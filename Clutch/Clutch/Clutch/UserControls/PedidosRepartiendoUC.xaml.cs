@@ -20,9 +20,17 @@ namespace Clutch.UserControls
     /// </summary>
     public partial class PedidosRepartiendoUC : UserControl
     {
+        public Pedido Pedido {get;set;}
+        public Empleado Empleado { get; set; }
         public PedidosRepartiendoUC()
         {
             InitializeComponent();
+            RellenarCampos();
+        }
+
+        private void RellenarCampos()
+        {
+            
         }
     }
 }

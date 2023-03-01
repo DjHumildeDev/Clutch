@@ -51,7 +51,7 @@
 
                     </StackPanel>
                 </ScrollViewer>
-                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray">
+                <StackPanel Orientation="Vertical" Margin="5" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="Gray" x:Name="EnRepartoPanel">
 
                 </StackPanel>
             </Grid>
