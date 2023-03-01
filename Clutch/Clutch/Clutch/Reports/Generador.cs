@@ -61,7 +61,6 @@ namespace Clutch.Reports
                 {
                     trabajador.mesString = culture.DateTimeFormat.GetMonthName(trabajador.mes.Value).ToUpper();
                 }
-               
             }
 
             ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaTrabajadores);
@@ -78,7 +77,7 @@ namespace Clutch.Reports
 
         public void GenerarInformeTrabajadores()
         {
-
+            CultureInfo culture = new CultureInfo("es-ES");
             this.negocio = new Negocio();
             Views.ReportViewer visor = new Views.ReportViewer();
             visor.rptViewer.LocalReport.ReportEmbeddedResource = "Clutch.Reports.rptTrabajadores.rdlc";
@@ -92,7 +91,10 @@ namespace Clutch.Reports
             List<TrabajadoresWr> listaTrabajadores = ctx.Database.SqlQuery<TrabajadoresWr>(consulta, new object[0]).ToList();
             foreach (TrabajadoresWr trabajador in listaTrabajadores)
             {
-
+                if (trabajador.mes != null)
+                {
+                    trabajador.mesString = culture.DateTimeFormat.GetMonthName(trabajador.mes.Value).ToUpper();
+                }
             }
 
             ReportDataSource fuenteDatos = new ReportDataSource("DataSetTrabajadores", listaTrabajadores);

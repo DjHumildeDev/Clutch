@@ -20,7 +20,7 @@ namespace Clutch.Views
     /// </summary>
     public partial class ReportViewer : Window
     {
-        private Generador generador;
+        
         public ReportViewer()
         {
             InitializeComponent();                       
