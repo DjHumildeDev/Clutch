@@ -8,9 +8,12 @@
              d:DesignHeight="80" d:DesignWidth="300">
     <WrapPanel Background="Gray"  VerticalAlignment="Center">
         <Button Click="btnPedidoUC_Click" x:Name="btnPedidoUC">
-            <StackPanel Orientation="Horizontal">
-                <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="30" Content="Nº pedido" x:Name="lblNumero"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
-                <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="20" Content="Direccionssssssssssssssssssssssssssssss" x:Name="lblDireccion"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
+            <StackPanel Orientation="Vertical">
+                <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="18" Content="Telefono" x:Name="lblTelefono"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
+                <StackPanel Orientation="Horizontal">
+                    <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="18" Content="Nº pedido" x:Name="lblNumero"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
+                    <Label FontFamily="Calibri" Foreground="Red" FontWeight="Bold" FontSize="18" Content="Direccionssssssssssssssssssssssssssssss" x:Name="lblDireccion"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5" />
+                </StackPanel>
             </StackPanel>
         </Button>
     </WrapPanel>

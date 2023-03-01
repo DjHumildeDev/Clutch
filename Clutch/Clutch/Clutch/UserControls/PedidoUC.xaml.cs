@@ -30,6 +30,7 @@ namespace Clutch.UserControls
         {
             lblNumero.Content = pedido.id.ToString();
             lblDireccion.Content = pedido.direccion;
+            lblTelefono.Content = pedido.tlfCliente;
         }
 
         private void btnPedidoUC_Click(object sender, RoutedEventArgs e)

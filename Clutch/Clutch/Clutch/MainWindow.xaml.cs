@@ -56,20 +56,16 @@ namespace Clutch
                 PedidosPanel.Children.Clear();
 
                 foreach (Pedido ped in pedidos)
-                {
-                    if (ped.Entregado != false)
+                {   
+                    if (ped.idRepartidor == null)
                     {
-                        if (ped.idRepartidor == null)
-                        {
-                            PedidoUC ucPedido = new PedidoUC();
-                            ucPedido.pedido = ped;
+                        PedidoUC ucPedido = new PedidoUC();
+                        ucPedido.pedido = ped;
 
-                            ucPedido.ComnpleatarCampos();
+                        ucPedido.ComnpleatarCampos();
 
-                            PedidosPanel.Children.Add(ucPedido);
-                        }                   
-                    }
-                 
+                        PedidosPanel.Children.Add(ucPedido);                                          
+                    }             
                 }
             });
         }
@@ -81,19 +77,15 @@ namespace Clutch
 
             foreach (Pedido ped in pedidos)
             {
-                if (ped.Entregado != false)
+               
+                if (ped.idRepartidor == null)
                 {
-                    if (ped.idRepartidor == null)
-                    {
-                        PedidoUC ucPedido = new PedidoUC();
-                        ucPedido.pedido = ped;
+                    PedidoUC ucPedido = new PedidoUC();
+                    ucPedido.pedido = ped;
+                    ucPedido.ComnpleatarCampos();
 
-                        ucPedido.ComnpleatarCampos();
-
-                        PedidosPanel.Children.Add(ucPedido);
-                    }
-                }
-
+                    PedidosPanel.Children.Add(ucPedido);
+                }                
             }
             
         }
