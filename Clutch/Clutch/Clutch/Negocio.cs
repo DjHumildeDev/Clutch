@@ -385,23 +385,20 @@ namespace Clutch
             }
         }
 
-        public Jornada ObtenerJornadaAbierta(Empleado empleado)
+        public List<Jornada> ObtenerJornadasAbierta()
         {
             List<Jornada> jornadas = new List<Jornada>();
-            jornadas = ObtenerJornadas();
+            
             
 
-            foreach (Jornada item in jornadas)
+            foreach (Jornada item in ObtenerJornadas())
             {
-                if (item.idEmpleado.Equals(empleado.id))
+                if (item.Salida == null)
                 {
-                    if(item.Salida == null)
-                    {
-                        return item;
-                    }
+                    jornadas.Add(item);
                 }
             }
-            return null;
+            return jornadas;
         }
 
         public int SiguienteIncidenciaId()

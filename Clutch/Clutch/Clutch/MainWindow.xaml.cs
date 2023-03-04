@@ -42,12 +42,30 @@ namespace Clutch
             negocio = new Negocio();
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
+            ComprobarJornadasAbiertas();
+
+
             ActualizarListaPedidosINI();
 
             aTimer = new Timer(60000);
 
             aTimer.Elapsed += RepetirPedidos();
             aTimer.Enabled = true;       
+        }
+
+        private void ComprobarJornadasAbiertas()
+        {            
+            List<Jornada> jornadas = negocio.ObtenerJornadasAbierta();
+            if (jornadas != null)
+            {
+                Empleado repartidor = new Empleado();
+                foreach (Jornada item in jornadas)
+                {
+                    repartidor = negocio.ObtenerEmpleado(item.idEmpleado);
+                    repartidoresActivos.Add(repartidor);
+                }
+                addRepartidorUC();
+            }          
         }
 
         private ElapsedEventHandler RepetirPedidos()
