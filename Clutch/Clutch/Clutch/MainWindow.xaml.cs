@@ -357,6 +357,11 @@ namespace Clutch
 
         private void PedidoEnReparto_Event(object sender,EventArgs e)
         {
+            Button btnPedido = (Button)sender;
+            PedidosRepartiendoUC pedido = (PedidosRepartiendoUC)btnPedido.Tag;
+
+            InfoReparto info = new InfoReparto(pedido);
+            info.Show();
 
         }
     }

@@ -143,3 +143,5 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\InfoReparto.g.cs
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Views\InfoReparto.baml
