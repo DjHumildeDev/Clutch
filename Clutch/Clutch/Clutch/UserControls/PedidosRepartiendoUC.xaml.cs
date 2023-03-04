@@ -22,15 +22,17 @@ namespace Clutch.UserControls
     {
         public Pedido Pedido {get;set;}
         public Empleado Empleado { get; set; }
+
+        public DateTime HoraSalida { get; set; }
+
         public PedidosRepartiendoUC()
         {
-            InitializeComponent();
-            RellenarCampos();
+            InitializeComponent();         
         }
 
-        private void RellenarCampos()
+        public void RellenarCampos()
         {
-            
+            lblEnReparto.Content = Pedido.direccion;
         }
     }
 }

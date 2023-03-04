@@ -26,6 +26,7 @@ namespace Clutch
     public partial class MainWindow : Window
     {
         private static Timer aTimer;
+        public List<PedidosRepartiendoUC> pedidosEnReparto;
         List<Pedido> pedidosSeleccionados;
         Empleado empleadoSeleccionado;
 
@@ -37,6 +38,7 @@ namespace Clutch
         {
             InitializeComponent();
             pedidosSeleccionados = new List<Pedido>();
+            pedidosEnReparto = new List<PedidosRepartiendoUC>();
             negocio = new Negocio();
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
@@ -98,12 +100,19 @@ namespace Clutch
             EnRepartoPanel.Children.Clear();
             foreach (Pedido ped in pedidosSeleccionados)
             {
-                PedidosRepartiendoUC enRepartoUC = new PedidosRepartiendoUC();
-                enRepartoUC.Empleado = empleadoSeleccionado;
-                enRepartoUC.Pedido = ped;
-                EnRepartoPanel.Children.Add(enRepartoUC);
-                enRepartoUC.btnEnReparto.Tag = enRepartoUC;
-                enRepartoUC.btnEnReparto.Click += PedidoEnReparto_Event;
+                if (ped.Entregado==false)
+                {
+                    PedidosRepartiendoUC enRepartoUC = new PedidosRepartiendoUC();
+                    enRepartoUC.Empleado = empleadoSeleccionado;
+                    enRepartoUC.Pedido = ped;
+                    enRepartoUC.HoraSalida = DateTime.UtcNow;
+                    EnRepartoPanel.Children.Add(enRepartoUC);
+                    enRepartoUC.btnEnReparto.Tag = enRepartoUC;
+                    enRepartoUC.btnEnReparto.Click += PedidoEnReparto_Event;
+                    enRepartoUC.RellenarCampos();
+                    pedidosEnReparto.Add(enRepartoUC);
+                }
+              
             }
             empleadoSeleccionado = null;
             pedidosSeleccionados.Clear();
@@ -233,7 +242,7 @@ namespace Clutch
             Generador generador = new Generador();
             generador.GenerarInformePedidos();
         }
-
+        
         private void mbRptJornadasNormal_Click(object sender, RoutedEventArgs e)
         {
             Generador generador = new Generador();
@@ -318,10 +327,28 @@ namespace Clutch
             addPedidoEnRepartoUC();
         }
 
-      
-
         private void CerrarPedido(RepartidorActivoUC repartidor)
         {
+            Empleado empleado = repartidor.Empleado;
+
+            
+
+            foreach (PedidosRepartiendoUC item in pedidosEnReparto)
+            {
+                if (item.Empleado.Equals(empleado))
+                {
+                    Jornada jornada =negocio.ObtenerJornadaAbierta(empleado);
+                    if (jornada != null)
+                    {
+                        negocio.EntregarPedido(item.Pedido,jornada);
+                        TimeSpan diferencia =  DateTime.UtcNow - item.HoraSalida ;
+                        int Tiempo = Convert.ToInt32(diferencia.TotalMinutes);
+                        MessageBox.Show("Tiempo Tardado: " + Tiempo + " minutos", "Pedido entregado", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+            }
+            addPedidoEnRepartoUC();
+
 
             //Tengo que pasar los pedidos en reparto que hay puestos en lños UC para cogerlos de manera comoda
 

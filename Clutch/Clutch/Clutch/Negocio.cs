@@ -277,6 +277,7 @@ namespace Clutch
                     {
                         empleado.vacaciones = false;
                     }
+                    
                     jornada.idEmpleado = empleado.id;
                     jornada.id = SiguienteJornadaId();
                     jornada.sueldo = 12.5;
@@ -349,7 +350,7 @@ namespace Clutch
         {
             if (jornada != null)
             {
-                jornada.pedidos++;
+                jornada.pedidos = jornada.pedidos + 1;
                 bd.SaveChanges();
             }
         }
@@ -368,6 +369,26 @@ namespace Clutch
                 }
             }
         }
+
+        public Jornada ObtenerJornadaAbierta(Empleado empleado)
+        {
+            List<Jornada> jornadas = new List<Jornada>();
+            jornadas = ObtenerJornadas();
+            
+
+            foreach (Jornada item in jornadas)
+            {
+                if (item.idEmpleado.Equals(empleado.id))
+                {
+                    if(item.Salida == null)
+                    {
+                        return item;
+                    }
+                }
+            }
+            return null;
+        }
+
         public int SiguienteIncidenciaId()
         {
             var result = (from incidencia in bd.incidencias orderby incidencia.id descending select incidencia).FirstOrDefault();
@@ -480,7 +501,7 @@ namespace Clutch
                 if (jornada != null)
                 {
                     SumarPedido(jornada);
-                    //pedido.entregado = true
+                    pedido.Entregado = true;
                     bd.SaveChanges();
                 }
             }

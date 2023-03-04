@@ -68,6 +68,7 @@ namespace Clutch.Views
                             Cerrar = false;
                             Jornada jornada = new Jornada();
                             jornada.Entrada = DateTime.Now;
+                            jornada.pedidos = 0;
                             negocio.CrearJornada(empleado, jornada);
                             MessageBox.Show("Buenos dias " + empleado.nombre, "Has iniciado sesion", MessageBoxButton.OK, MessageBoxImage.Information);
                             this.DialogResult = true;
