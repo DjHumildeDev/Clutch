@@ -105,7 +105,7 @@ namespace Clutch
                     PedidosRepartiendoUC enRepartoUC = new PedidosRepartiendoUC();
                     enRepartoUC.Empleado = empleadoSeleccionado;
                     enRepartoUC.Pedido = ped;
-                    enRepartoUC.HoraSalida = DateTime.UtcNow;
+                    enRepartoUC.HoraSalida = DateTime.Now;
                     EnRepartoPanel.Children.Add(enRepartoUC);
                     enRepartoUC.btnEnReparto.Tag = enRepartoUC;
                     enRepartoUC.btnEnReparto.Click += PedidoEnReparto_Event;

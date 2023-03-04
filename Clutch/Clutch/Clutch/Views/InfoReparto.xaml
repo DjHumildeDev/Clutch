@@ -22,9 +22,9 @@
         <Label Content="Pedido:" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="Arial"/>
         <TextBox x:Name="txtBxPedido" VerticalAlignment="Center" Margin="3" Grid.Column="1" IsReadOnly="True" />
         <Label Content="Hora de Salida:" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox x:Name="txtBxHora" VerticalAlignment="Center" Margin="3"  Grid.Column="3" IsReadOnly="True" />
+        <TextBox x:Name="txtBxHora" VerticalAlignment="Center" Margin="3"  Grid.Column="3" IsReadOnly="True"/>
         <Label Content="Tiempo Transcurrido:" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBox x:Name="txtBxTiempo" VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="1" IsReadOnly="True" />
+        <TextBox x:Name="txtBxTiempo" VerticalAlignment="Center" Grid.Row="1" Margin="3" Grid.Column="1" IsReadOnly="True"  />
         <Label Content="Direccion:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBox x:Name="txtBxDireccion"  Grid.Row="2" Margin="10,12" Grid.Column="1" Grid.ColumnSpan="3" IsReadOnly="True" />
         <Label Content="Repartidor:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>

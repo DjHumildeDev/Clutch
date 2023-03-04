@@ -4,25 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// Nombre del proyecto:  Clutch
+/// </summary>
 namespace Clutch
 {
     public class Negocio
     {
         private ClutchDb bd;
-        private static int siguienteEmpleadoId = 0;
-        private static int siguienteCocineroId = 0;
-        private static int siguienteRepartidorId = 0;
-        private static int siguienteEncargadoId = 0;
-        private static int siguienteJornadaId = 0;
-        private static int siguienteIncidenciaId = 0;
-        private static int siguienteMotoId = 0;
-        private static int siguientePedidoId = 0;
 
         public Negocio()
         {
             bd = new ClutchDb();
         }
         //Empleado
+
+        /// <summary>
+        /// Funcio Para crear un empleado
+        /// </summary>
+        /// <param name="empleado"></param>
         public void CrearEmpleado(Empleado empleado)
         {
             if (empleado != null)
@@ -32,10 +32,20 @@ namespace Clutch
                 bd.SaveChanges();
             }
         }
+
+        /// <summary>
+        /// Funcion para obtener un empleado por su id
+        /// </summary>
+        /// <param name="empleadoId"></param>
+        /// <returns>Objeto de la clase Empleado</returns>
         public Empleado ObtenerEmpleado(int empleadoId)
         {
             return bd.Empleados.FirstOrDefault(x => x.id == empleadoId);
         }
+        /// <summary>
+        /// Ibtiene el id del empleado que se va ha crear
+        /// </summary>
+        /// <returns>Id de empleado</returns>
         public int SiguienteEmpleadoId()
         {
             var result = (from Empleado in bd.Empleados orderby Empleado.id descending select Empleado).FirstOrDefault();
@@ -49,6 +59,11 @@ namespace Clutch
                 return 0;
             }
         }
+
+        /// <summary>
+        /// Da de baja un Empleado
+        /// </summary>
+        /// <param name="empleado"></param>
         public void DarDeBajaEmpleado(Empleado empleado)
         {
             if (empleado != null)

@@ -20,28 +20,30 @@ namespace Clutch.Views
     /// </summary>
     public partial class InfoReparto : Window
     {
-        public Empleado Empleado {get;set;}
+        public Empleado Empleado { get; set; }
         public Pedido Pedido { get; set; }
 
-        PedidosRepartiendoUC pedidoUC;
+
+        public PedidosRepartiendoUC PedidoUc { get; set; }
         public InfoReparto(PedidosRepartiendoUC pedido)
         {
             InitializeComponent();
-            this.pedidoUC = pedido;
+            this.PedidoUc = pedido;
             this.Pedido = pedido.Pedido;
             this.Empleado = pedido.Empleado;
+
             CompletarCampos();
         }
 
         private void CompletarCampos()
         {
-            TimeSpan diferencia = DateTime.UtcNow - pedidoUC.HoraSalida;
+            TimeSpan diferencia = DateTime.UtcNow - PedidoUc.HoraSalida;
             int Tiempo = Convert.ToInt32(diferencia.TotalMinutes);
 
             txtBxPedido.Text = Pedido.id.ToString();
-            txtBxHora.Text = pedidoUC.HoraSalida.TimeOfDay.ToString();
+            txtBxHora.Text = string.Format("{0:hh\\:mm}", PedidoUc.HoraSalida);
             txtBxRepartidor.Text = Empleado.nombre + " " + Empleado.apellidos;
-            txtBxTiempo.Text = Tiempo.ToString() +" Mins";
+            txtBxTiempo.Text = Tiempo.ToString() + " Mins";
             txtBxDireccion.Text = Pedido.direccion;
         }
     }
