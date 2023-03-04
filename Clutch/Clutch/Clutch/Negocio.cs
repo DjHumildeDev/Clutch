@@ -20,7 +20,7 @@ namespace Clutch
         //Empleado
 
         /// <summary>
-        /// Funcio Para crear un empleado
+        /// Crear un empleado en la base de datos
         /// </summary>
         /// <param name="empleado"></param>
         public void CrearEmpleado(Empleado empleado)
@@ -43,7 +43,7 @@ namespace Clutch
             return bd.Empleados.FirstOrDefault(x => x.id == empleadoId);
         }
         /// <summary>
-        /// Ibtiene el id del empleado que se va ha crear
+        /// Obtiene el id del empleado que se va ha crear
         /// </summary>
         /// <returns>Id de empleado</returns>
         public int SiguienteEmpleadoId()
@@ -72,6 +72,11 @@ namespace Clutch
                 bd.SaveChanges();
             }
         }
+        /// <summary>
+        /// Borra el empleado de la base de datos
+        /// </summary>
+        /// <param name="empleadoId"></param>
+        /// <returns>bool</returns>
         public bool BorrarEmpleado(int empleadoId)
         {
             Empleado borrar = ObtenerEmpleado(empleadoId);
@@ -83,17 +88,30 @@ namespace Clutch
             }
             return false;
         }
+
+        /// <summary>
+        /// Edita el empleado en la base de datos
+        /// </summary>
+        /// <param name="empleado"></param>
         public void EditarEmpleado(Empleado empleado)
         {
             Empleado nuevoEmpleado = ObtenerEmpleado(empleado.id);
             empleado = nuevoEmpleado;
             bd.SaveChanges();
         }
+        /// <summary>
+        /// Obtiene todos los empleados de la base de datos
+        /// </summary>
+        /// <returns>Lista de Empleados</returns>
         public List<Empleado> ObtenerEmpleados()
         {
             List<Empleado> query = bd.Empleados.ToList();
             return query;
         }
+        /// <summary>
+        /// Activa el modo vacaciones en el empleado
+        /// </summary>
+        /// <param name="empleado"></param>
         public void Vacaciones(Empleado empleado)
         {
             if (empleado != null)
@@ -111,13 +129,19 @@ namespace Clutch
                
             }
         }
-
+        //Resetea las vacaciones cuando acaba el año laboral
         public void ResetearVacaciones(Empleado empleado)
         {
             Empleado emp = ObtenerEmpleado(empleado.id);
             emp.diasVacaciones = 30;
             bd.SaveChanges();
         }
+
+        /// <summary>
+        /// Crear un Repartidor en la base de datos
+        /// </summary>
+        /// <param name="empleado">Empleado que es repartidor</param>
+        /// <param name="repartidor"></param>
         public void CrearRepartidor(Empleado empleado, Repartidor repartidor)
         {
             if (empleado != null)
@@ -132,6 +156,10 @@ namespace Clutch
                 }
             }
         }
+        /// <summary>
+        /// Obtiene el id del Repartidor que se va ha crear
+        /// </summary>
+        /// <returns>Id de repartidor</returns>
         public int SiguienteRepartidorId()
         {
             var result = (from Repartidor in bd.Repartidors orderby Repartidor.id descending select Repartidor).FirstOrDefault();
@@ -145,6 +173,10 @@ namespace Clutch
                 return 0;
             }
         }
+        /// <summary>
+        /// Obtiene todos los repartidores de la base de datos
+        /// </summary>
+        /// <returns>Lista de Repartidores</returns>
         public List<Repartidor> ObtenerRepartidores()
         {
             List<Repartidor> query = bd.Repartidors.ToList();
@@ -158,7 +190,11 @@ namespace Clutch
             }
             
         }
-
+        /// <summary>
+        /// Obtiene un Repartidor de la base de datos a partir del id de empleado
+        /// </summary>
+        /// <param name="empleadoId"></param>
+        /// <returns>Objeto de la clase Repartidor</returns>
         public Repartidor ObtenerRepartidor(int empleadoId)
         {
             Repartidor repartidor = bd.Repartidors.Where(x => x.idEmpleado.Equals(empleadoId)).FirstOrDefault();
@@ -166,6 +202,11 @@ namespace Clutch
             return repartidor;
         }
 
+        /// <summary>
+        /// Obtiene el repartidor asignado a una moto de la base de datos
+        /// </summary>
+        /// <param name="motoId"></param>
+        /// <returns>Objeto de la clase repartidor</returns>
         public Repartidor ObtenerRepartidor_Moto(int motoId)
         {
             int moto = Convert.ToInt32(motoId);
