@@ -29,6 +29,6 @@
         <TextBox x:Name="txtBxDireccion"  Grid.Row="2" Margin="10,12" Grid.Column="1" Grid.ColumnSpan="3" IsReadOnly="True" />
         <Label Content="Repartidor:" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         <TextBox x:Name="txtBxRepartidor" VerticalAlignment="Center" Margin="3" Grid.Column="3" Grid.Row="1" IsReadOnly="True" />
-        <Button x:Name="btnAceptar" Content="Aceptar" IsDefault="True" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15,7" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
+        <Button x:Name="btnAceptar" Click="btnAceptar_Click" Content="Aceptar" IsDefault="True" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="15,7" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
     </Grid>
 </Window>

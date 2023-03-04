@@ -327,6 +327,10 @@ namespace Clutch
             addPedidoEnRepartoUC();
         }
 
+        /// <summary>
+        /// Cierra el pedido cuando pulsas en el UC del repartidor con reparto activo
+        /// </summary>
+        /// <param name="repartidor">RepartidorActivoUC</param>
         private void CerrarPedido(RepartidorActivoUC repartidor)
         {
             Empleado empleado = repartidor.Empleado;
@@ -355,13 +359,21 @@ namespace Clutch
             //SacarVentana del tiempo tardado
         }
 
+        /// <summary>
+        /// Evento Click del UCPedidoEnReparto
+        /// </summary>
+        /// <param name="sender">btnEnReparto</param>
+        /// <param name="e">EventArgs</param>
         private void PedidoEnReparto_Event(object sender,EventArgs e)
         {
             Button btnPedido = (Button)sender;
             PedidosRepartiendoUC pedido = (PedidosRepartiendoUC)btnPedido.Tag;
 
             InfoReparto info = new InfoReparto(pedido);
-            info.Show();
+            if (info.ShowDialog() == true)
+            {
+
+            }
 
         }
     }

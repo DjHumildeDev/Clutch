@@ -35,16 +35,35 @@ namespace Clutch.Views
             CompletarCampos();
         }
 
+        /// <summary>
+        /// Completa los cascos de la ventana de info de reparto
+        /// </summary>
         private void CompletarCampos()
         {
-            TimeSpan diferencia = DateTime.UtcNow - PedidoUc.HoraSalida;
-            int Tiempo = Convert.ToInt32(diferencia.TotalMinutes);
+            try
+            {
+                TimeSpan diferencia = DateTime.Now - PedidoUc.HoraSalida;
+                int Tiempo = Convert.ToInt32(diferencia.TotalMinutes);
 
-            txtBxPedido.Text = Pedido.id.ToString();
-            txtBxHora.Text = string.Format("{0:hh\\:mm}", PedidoUc.HoraSalida);
-            txtBxRepartidor.Text = Empleado.nombre + " " + Empleado.apellidos;
-            txtBxTiempo.Text = Tiempo.ToString() + " Mins";
-            txtBxDireccion.Text = Pedido.direccion;
+                txtBxPedido.Text = Pedido.id.ToString();
+
+                txtBxHora.Text = string.Format("{0:HH\\:mm}", PedidoUc.HoraSalida);
+                txtBxRepartidor.Text = Empleado.nombre + " " + Empleado.apellidos;
+                txtBxTiempo.Text = Tiempo.ToString() + " Mins";
+                txtBxDireccion.Text = Pedido.direccion;
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocurrio algun error inesperado", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.DialogResult = false;
+            }
+           
+        }
+
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult =true;
         }
     }
 }
