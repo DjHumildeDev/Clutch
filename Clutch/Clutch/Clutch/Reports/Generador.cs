@@ -8,11 +8,16 @@ using System.Threading.Tasks;
 
 namespace Clutch.Reports
 {
+    /// <summary>
+    /// Clase generador de informes
+    /// </summary>
     public class Generador
     {
         public Negocio negocio;
 
-
+        /// <summary>
+        /// Funcion para generar el informe de incidencias
+        /// </summary>
         public void GenerarInformeIncidencias()
         {
             this.negocio = new Negocio();
@@ -40,7 +45,9 @@ namespace Clutch.Reports
 
             visor.Show();
         }
-
+        /// <summary>
+        /// Funcion para generar un informe con un grafico sobre los Empleados
+        /// </summary>
         public void GenerarInformeTrabajadoresGrafico()
         {
             CultureInfo culture = new CultureInfo("es-ES");
@@ -75,6 +82,9 @@ namespace Clutch.Reports
 
         }
 
+        /// <summary>
+        /// Funcion para generar un informe con una tabla sobre los Empleados
+        /// </summary>
         public void GenerarInformeTrabajadores()
         {
             CultureInfo culture = new CultureInfo("es-ES");
@@ -108,7 +118,9 @@ namespace Clutch.Reports
             visor.Show();
 
         }
-
+        /// <summary>
+        /// Funcion para generar un informe sobre los pedidos+
+        /// </summary>
         public void GenerarInformePedidos()
         {
             CultureInfo culture = new CultureInfo("es-ES");

@@ -28,7 +28,7 @@ namespace Clutch.UserControls
             InitializeComponent();
             Seleccionado = false;
         }
-        public void ComnpleatarCampos()
+        public void CompletarCampos()
         {
             lblNumero.Content = Pedido.id.ToString();
             lblDireccion.Content = Pedido.direccion;

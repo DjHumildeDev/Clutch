@@ -8,6 +8,9 @@ using System.Windows.Data;
 
 namespace Clutch.Converters
 {
+    /// <summary>
+    /// Funcion que convierte el booleano del campo Incidencia.Resuelta en un string a partir de la herencia IValueConverter
+    /// </summary>
     public class ResueltaConverter : IValueConverter
     {
         private string Resuelta = "Resuelta";

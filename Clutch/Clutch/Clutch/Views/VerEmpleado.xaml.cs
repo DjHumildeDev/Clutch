@@ -124,7 +124,10 @@ namespace Clutch.Views
             }
           
         }
-
+        /// <summary>
+        /// Valida los campos introducidos en el empleado
+        /// </summary>
+        /// <returns></returns>
         private bool ValidacionCampos()
         {
             if (String.IsNullOrEmpty(txtBxNombre.Text))

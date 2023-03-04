@@ -170,7 +170,9 @@ namespace Clutch.Views
                 RellenarHorasSueldo();
             }
         }
-
+        /// <summary>
+        /// Se rellenan los campos autocalculados de la jornada
+        /// </summary>
         private void RellenarHorasSueldo()
         {
             double horas = 0, sueldo = 0;

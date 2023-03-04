@@ -82,7 +82,10 @@ namespace Clutch.Views
                 this.DialogResult = true;
             }         
         }
-
+        /// <summary>
+        /// Valida que los campos introducidos en la moto son correctos
+        /// </summary>
+        /// <returns></returns>
         private bool ComprobarCampos()
         {
             int numero;

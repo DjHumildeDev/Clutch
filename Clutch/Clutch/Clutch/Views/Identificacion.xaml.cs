@@ -113,6 +113,10 @@ namespace Clutch.Views
             }          
         }
 
+        /// <summary>
+        /// Comprueba que los datos introducidos en los textbox sean validos
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarCampos()
         {
             if (String.IsNullOrEmpty(txtBxUser.Text))
@@ -125,7 +129,10 @@ namespace Clutch.Views
             }
             return true;
         }
-
+        /// <summary>
+        /// Funcion encargada de cerrar la jornada al hacer el fichaje de cierre
+        /// </summary>
+        /// <param name="jornadaHoy"></param>
         private void CerrarJornada(Jornada jornadaHoy)
         {
             //calcular sueldo y horas
@@ -149,7 +156,12 @@ namespace Clutch.Views
 
             negocio.EditarJornada(jornadaHoy);
         }
-
+        /// <summary>
+        /// Funcion que comprueba que el campo usuario y la contraseña sean correctos de cada trabajador
+        /// </summary>
+        /// <param name="usuario">usuario</param>
+        /// <param name="pass">Contraseña</param>
+        /// <returns>Booleano en funcion de si es correcto el inicio de sesion o no</returns>
         private bool ComprobarIdentificacion(string usuario, string pass)
         {
             List<Empleado> empleados = negocio.ObtenerEmpleados();
@@ -168,7 +180,11 @@ namespace Clutch.Views
             }
             return false;
         }
-
+        /// <summary>
+        /// Funcion que se encarga de comprobar si el fichaje es de salida o de entrada
+        /// </summary>
+        /// <param name="empleado"></param>
+        /// <returns></returns>
         private bool YaFichado(Empleado empleado)
         {
             List<Jornada> jornadas = negocio.ObtenerJornadas();

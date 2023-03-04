@@ -74,7 +74,10 @@ namespace Clutch.Views
                 this.DialogResult = true;
             }     
         }
-
+        /// <summary>
+        /// Valida los campos intrducidos en la incidencia
+        /// </summary>
+        /// <returns></returns>
         private bool ValidarCampos()
         {
             if (cmBxTipo.SelectedItem == null)

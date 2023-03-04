@@ -8,6 +8,9 @@ using System.Windows.Data;
 
 namespace Clutch.Converters
 {
+    /// <summary>
+    /// Funcion que convierte el booleano del campo Empleado.vacaciones en un string a partir de la herencia IValueConverter
+    /// </summary>
     public class VacacionesConverter : IValueConverter
     {
         private string DeVacaciones = "De vacaciones";
