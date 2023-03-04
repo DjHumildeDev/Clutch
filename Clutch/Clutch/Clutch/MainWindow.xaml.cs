@@ -55,7 +55,7 @@ namespace Clutch
 
         private void ComprobarJornadasAbiertas()
         {            
-            List<Jornada> jornadas = negocio.ObtenerJornadasAbierta();
+            List<Jornada> jornadas = negocio.ObtenerJornadasAbiertas();
             if (jornadas != null)
             {
                 Empleado repartidor = new Empleado();
@@ -351,9 +351,7 @@ namespace Clutch
         /// <param name="repartidor">RepartidorActivoUC</param>
         private void CerrarPedido(RepartidorActivoUC repartidor)
         {
-            Empleado empleado = repartidor.Empleado;
-
-            
+            Empleado empleado = repartidor.Empleado;            
 
             foreach (PedidosRepartiendoUC item in pedidosEnReparto)
             {
