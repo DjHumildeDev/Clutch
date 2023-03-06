@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="VerMoto" Height="150" Width="500" ResizeMode="NoResize">
+        Title="VerMoto" Height="150" Width="500" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown">
 
     <DockPanel>
         <Grid DockPanel.Dock="Top" Margin="8">

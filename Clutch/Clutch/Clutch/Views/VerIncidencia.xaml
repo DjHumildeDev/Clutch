@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="VerIncidencia" Height="300" Width="550">
+        Title="VerIncidencia" Height="300" Width="550" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

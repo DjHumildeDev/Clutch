@@ -131,5 +131,13 @@ namespace Clutch.Views
             ComboBox combo = (ComboBox)sender;
             cc = (string)((ComboBoxItem)combo.SelectedItem).Tag;
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                System.Diagnostics.Process.Start(@"Documentation.chm");
+            }
+        }
     }
 }

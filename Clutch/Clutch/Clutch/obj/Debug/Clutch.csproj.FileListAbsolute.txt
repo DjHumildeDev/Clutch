@@ -1,10 +1,9 @@
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
-B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Clutch.exe.config
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\ClutchDocs.xml
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Clutch.pdb
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\EntityFramework.dll
@@ -64,6 +63,8 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\ru\Microsoft.ReportView
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
@@ -144,3 +145,5 @@ B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CoreCompi
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csproj.CopyComplete
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.exe
 B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.pdb
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\bin\Debug\Documentation.chm
+B:\Proyecto_Clutch\Clutch\Clutch\Clutch\Clutch\obj\Debug\Clutch.csprojAssemblyReference.cache

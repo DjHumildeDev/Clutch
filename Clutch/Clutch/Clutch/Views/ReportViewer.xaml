@@ -6,7 +6,7 @@
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms" 
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="ReportViewer" Height="450" Width="800">
+        Title="ReportViewer" Height="450" Width="800" PreviewKeyDown="Window_PreviewKeyDown">
     <DockPanel>
         <WindowsFormsHost>
             <rv:ReportViewer x:Name="rptViewer"/>

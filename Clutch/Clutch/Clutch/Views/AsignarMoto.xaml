@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="AsignarMoto" Height="150" Width="500">
+        Title="AsignarMoto" Height="150" Width="500" PreviewKeyDown="Window_PreviewKeyDown">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

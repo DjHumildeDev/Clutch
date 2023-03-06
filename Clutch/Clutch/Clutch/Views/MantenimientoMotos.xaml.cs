@@ -292,5 +292,13 @@ namespace Clutch.Views
                 return ((moto.Tag as Moto).estado.IndexOf(cmbItem.Tag.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
             }
         }
+
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                System.Diagnostics.Process.Start(@"Documentation.chm");
+            }
+        }
     }
 }

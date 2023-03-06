@@ -1,0 +1,1010 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Clutch</name>
+    </assembly>
+    <members>
+        <member name="T:Clutch.ClutchDbDataSet">
+             <summary>
+            Represents a strongly typed in-memory cache of data.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.EmpleadosDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.incidenciasDataTable">
+             <summary>
+            Represents the strongly named DataTable class.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.EmpleadosRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.incidenciasRow">
+             <summary>
+            Represents strongly named DataRow class.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.EmpleadosRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSet.incidenciasRowChangeEvent">
+             <summary>
+            Row event argument class
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSetTableAdapters.EmpleadosTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSetTableAdapters.incidenciasTableAdapter">
+             <summary>
+            Represents the connection and commands used to retrieve and save data.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager">
+             <summary>
+            TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+            </summary>
+        </member>
+        <member name="M:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Clutch.ClutchDbDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Update rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Clutch.ClutchDbDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Insert rows in top-down order.
+            </summary>
+        </member>
+        <member name="M:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Clutch.ClutchDbDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Delete rows in bottom-up order.
+            </summary>
+        </member>
+        <member name="M:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+             <summary>
+            Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+            </summary>
+        </member>
+        <member name="M:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.UpdateAll(Clutch.ClutchDbDataSet)">
+             <summary>
+            Update all changes to the dataset.
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+             <summary>
+            Update Order Option
+            </summary>
+        </member>
+        <member name="T:Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+             <summary>
+            Used to sort self-referenced table's rows
+            </summary>
+        </member>
+        <member name="T:Clutch.Converters.ResueltaConverter">
+            <summary>
+            Funcion que convierte el booleano del campo Incidencia.Resuelta en un string a partir de la herencia IValueConverter
+            </summary>
+        </member>
+        <member name="T:Clutch.Converters.VacacionesConverter">
+            <summary>
+            Funcion que convierte el booleano del campo Empleado.vacaciones en un string a partir de la herencia IValueConverter
+            </summary>
+        </member>
+        <member name="M:Clutch.Negocio.CrearEmpleado(Clutch.Empleado)">
+            <summary>
+            Crear un empleado en la base de datos
+            </summary>
+            <param name="empleado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerEmpleado(System.Int32)">
+            <summary>
+            Funcion para obtener un empleado por su id
+            </summary>
+            <param name="empleadoId"></param>
+            <returns>Objeto de la clase Empleado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteEmpleadoId">
+            <summary>
+            Obtiene el id del empleado que se va ha crear
+            </summary>
+            <returns>Id de empleado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.DarDeBajaEmpleado(Clutch.Empleado)">
+            <summary>
+            Da de baja un Empleado
+            </summary>
+            <param name="empleado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BorrarEmpleado(System.Int32)">
+            <summary>
+            Borra el empleado de la base de datos
+            </summary>
+            <param name="empleadoId"></param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Clutch.Negocio.EditarEmpleado(Clutch.Empleado)">
+            <summary>
+            Edita el empleado en la base de datos
+            </summary>
+            <param name="empleado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerEmpleados">
+            <summary>
+            Obtiene todos los empleados de la base de datos
+            </summary>
+            <returns>Lista de Empleados</returns>
+        </member>
+        <member name="M:Clutch.Negocio.Vacaciones(Clutch.Empleado)">
+            <summary>
+            Activa el modo vacaciones en el empleado
+            </summary>
+            <param name="empleado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.CrearRepartidor(Clutch.Empleado,Clutch.Repartidor)">
+            <summary>
+            Crear un Repartidor en la base de datos
+            </summary>
+            <param name="empleado">Empleado que es repartidor</param>
+            <param name="repartidor"></param>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteRepartidorId">
+            <summary>
+            Obtiene el id del Repartidor que se va ha crear
+            </summary>
+            <returns>Id de repartidor</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerRepartidores">
+            <summary>
+            Obtiene todos los repartidores de la base de datos
+            </summary>
+            <returns>Lista de Repartidores</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerRepartidor(System.Int32)">
+            <summary>
+            Obtiene un Repartidor de la base de datos a partir del id de empleado
+            </summary>
+            <param name="empleadoId"></param>
+            <returns>Objeto de la clase Repartidor</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerRepartidor_Moto(System.Int32)">
+            <summary>
+            Obtiene el repartidor asignado a una moto de la base de datos
+            </summary>
+            <param name="motoId"></param>
+            <returns>Objeto de la clase repartidor</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CrearCocinero(Clutch.Empleado,Clutch.Cocina)">
+            <summary>
+            Crear un cocinero en la base de datos
+            </summary>
+            <param name="empleado">Empleado que es cocinero</param>
+            <param name="cocinero"></param>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerCocinero(System.Int32)">
+            <summary>
+            Obtiene un cocinero de la base de datos a partir del id de empleado
+            </summary>
+            <param name="empleadoId"></param>
+            <returns>Objeto de la clase Cocinero</returns>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteCocineroId">
+            <summary>
+            Obtiene el id del Cocinero que se va ha crear
+            </summary>
+            <returns>id del cocinero</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerCocineros">
+            <summary>
+            Obtiene todos los cocineros de la base de datos
+            </summary>
+            <returns>Lista de objetos Cocina</returns>
+        </member>
+        <member name="M:Clutch.Negocio.BucarCocinero(System.Int32)">
+            <summary>
+            Obtiene un cocinero a partir de su id
+            </summary>
+            <param name="cocineroId"></param>
+            <returns>Objeto de la clase cocinero</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CrearEncargado(Clutch.Empleado,Clutch.Encargado)">
+            <summary>
+             Crear un encargado en la base de datos
+            </summary>
+            <param name="empleado">Empleado que es encargado</param>
+            <param name="encargado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteEncargadoId">
+            <summary>
+            Obtiene el id del encargado que se va ha crear
+            </summary>
+            <returns>id de encargado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerEncargado(System.Int32)">
+            <summary>
+            Obtiene un encargado de la base de datos a partir del id de empleado
+            </summary>
+            <param name="empleadoId"></param>
+            <returns>Objeto de la clase Encargado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerEncargados">
+            <summary>
+            Obtiene todos los encargados de la base de datos
+            </summary>
+            <returns>Lista de la clase Encargado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.BuscarEncargado(System.Int32)">
+            <summary>
+            Obtiene un encargado a partir del id del encargado
+            </summary>
+            <param name="encargadoId"></param>
+            <returns>Objeto de la clase encargado</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CrearJornada(Clutch.Empleado,Clutch.Jornada)">
+            <summary>
+            Crea una jornada en la base de datos a partir del id de un empleado
+            </summary>
+            <param name="empleado">Empleado que crea la jornada</param>
+            <param name="jornada"></param>
+        </member>
+        <member name="M:Clutch.Negocio.EditarJornada(Clutch.Jornada)">
+            <summary>
+            Edita una jornada de la base de datos
+            </summary>
+            <param name="jornada"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BorrarJornada(System.Int32)">
+            <summary>
+            Borra una Jornada de la base de datos a partir del id
+            </summary>
+            <param name="jornadaId"></param>
+            <returns>Bool</returns>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteJornadaId">
+            <summary>
+            Obtiene el id de la jornada que se va ha crear
+            </summary>
+            <returns>id de la jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.Cerrarjornada(Clutch.Empleado)">
+            <summary>
+            Cierra la ultima jornada abierta por un emplado
+            </summary>
+            <param name="empleado"></param>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerJornada(System.Int32)">
+            <summary>
+            Obtiene una jornada de la base de datos a partir del id
+            </summary>
+            <param name="JornadaId"></param>
+            <returns>Objeto de la clase Jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerJornadas">
+            <summary>
+            Obtiene todas las jornadas de la base de datos
+            </summary>
+            <returns>Lista de la clase Jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CalcularSueldo(Clutch.Jornada)">
+            <summary>
+            Calcual el sueldo al acabar la 
+            </summary>
+            <param name="jornada"></param>
+        </member>
+        <member name="M:Clutch.Negocio.SumarPedido(Clutch.Jornada)">
+            <summary>
+            Suma un pedido a la jornada del repartidor que lo entrega
+            </summary>
+            <param name="jornada"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Clutch.Negocio.CrearIncidencia(Clutch.Empleado,Clutch.incidencia)" -->
+        <member name="M:Clutch.Negocio.ObtenerJornadasAbiertas">
+            <summary>
+            Obtiene las jornadas que no estan cerradas
+            </summary>
+            <returns>Lista de la clase Jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerJornadaAbierta(Clutch.Empleado)">
+            <summary>
+            Obtiene la jornada abierta a parti de un empleado
+            </summary>
+            <param name="empleado"></param>
+            <returns>Objeto de la clase jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteIncidenciaId">
+            <summary>
+             Obtiene el id de la incidencia que se va ha crear
+            </summary>
+            <returns>id de la jornada</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CerrarIncidencia(Clutch.incidencia)">
+            <summary>
+            Cierra la incidecnia
+            </summary>
+            <param name="incidencia"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BuscarIncidencia(System.Int32)">
+            <summary>
+            Obtiene una incidencia de la base de datos a partir del id
+            </summary>
+            <param name="incidenciaId"></param>
+            <returns>Objeto de la clase Uncidencia</returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerIncidencias">
+            <summary>
+            Obtiene las incidencias de la base de datos
+            </summary>
+            <returns>lista de la clase incidencia</returns>
+        </member>
+        <member name="M:Clutch.Negocio.EditarIncidencia(Clutch.incidencia)">
+            <summary>
+            Edita una incidencia de la base de datos
+            </summary>
+            <param name="incidencia"></param>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerIncidencia(System.Int32)">
+            <summary>
+            Obtiene una incidencia de la base de datos a partir del id
+            </summary>
+            <param name="id"></param>
+            <returns>Objeto de la clase incidencia</returns>
+        </member>
+        <member name="M:Clutch.Negocio.BorrarIncidencia(System.Int32)">
+            <summary>
+            Borra una incidencia de la base de datos a partir del id
+            </summary>
+            <param name="id"></param>
+            <returns>Bool</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CrearPedido(Clutch.Pedido)">
+            <summary>
+            Crea un pedido en la base de datos
+            </summary>
+            <param name="pedido"></param>
+        </member>
+        <member name="M:Clutch.Negocio.EditarPedido(Clutch.Pedido)">
+            <summary>
+            Edita un pedido de la base de datos
+            </summary>
+            <param name="pedido"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BorrarPedido(System.Int32)">
+            <summary>
+            Borra un pedido de la base de datos a partir del id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Negocio.SiguientePedidoId">
+            <summary>
+            Obtiene el id del pedido que se va ha crear
+            </summary>
+            <returns>id del pedido</returns>
+        </member>
+        <member name="M:Clutch.Negocio.RecogerPedido(Clutch.Pedido,Clutch.Repartidor)">
+            <summary>
+            Se asigna el pedido al repartidor
+            </summary>
+            <param name="pedido">Pedido asignado al repartidor</param>
+            <param name="repartidor">repartidor asignado al pedido</param>
+        </member>
+        <member name="M:Clutch.Negocio.EntregarPedido(Clutch.Pedido,Clutch.Jornada)">
+            <summary>
+            Entrega el pedido le suma a la jornada del repartidor
+            </summary>
+            <param name="pedido"></param>
+            <param name="jornada"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BuscarPedido(System.Int32)">
+            <summary>
+            Obtiene un pedido de la base de datos a partir del id
+            </summary>
+            <param name="pedidoId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerPedidos">
+            <summary>
+            Obtiene todos los pedidos de la base de datos
+            </summary>
+            <returns>Lista de la clase pedido</returns>
+        </member>
+        <member name="M:Clutch.Negocio.CrearMoto(Clutch.Moto)">
+            <summary>
+            Crea una moto en la base de datos
+            </summary>
+            <param name="moto"></param>
+        </member>
+        <member name="M:Clutch.Negocio.SiguienteMotoId">
+            <summary>
+            Obtiene el id de la moto que se va ha crear
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Negocio.EditarMoto(Clutch.Moto)">
+            <summary>
+            Edita una moto de la base de datos
+            </summary>
+            <param name="moto"></param>
+        </member>
+        <member name="M:Clutch.Negocio.BorrarMoto(Clutch.Moto)">
+            <summary>
+            Borra una moto de la base de datos
+            </summary>
+            <param name="moto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Negocio.ObtenerMotos">
+            <summary>
+            Obtiene todas las motos de la base de datos
+            </summary>
+            <returns>Lista de la clase moto</returns>
+        </member>
+        <member name="M:Clutch.Negocio.BuscarMoto(System.Int32)">
+            <summary>
+            Obtiene una moto de la base de datos a partir del id
+            </summary>
+            <param name="motoId"></param>
+            <returns>Objeto de la clase moto</returns>
+        </member>
+        <member name="M:Clutch.Negocio.AsignarMoto(Clutch.Repartidor,Clutch.Moto)">
+            <summary>
+            Asigna una moto a un repartidor
+            </summary>
+            <param name="repartidor"></param>
+            <param name="moto"></param>
+        </member>
+        <member name="T:Clutch.Reports.Generador">
+            <summary>
+            Clase generador de informes
+            </summary>
+        </member>
+        <member name="M:Clutch.Reports.Generador.GenerarInformeIncidencias">
+            <summary>
+            Funcion para generar el informe de incidencias
+            </summary>
+        </member>
+        <member name="M:Clutch.Reports.Generador.GenerarInformeTrabajadoresGrafico">
+            <summary>
+            Funcion para generar un informe con un grafico sobre los Empleados
+            </summary>
+        </member>
+        <member name="M:Clutch.Reports.Generador.GenerarInformeTrabajadores">
+            <summary>
+            Funcion para generar un informe con una tabla sobre los Empleados
+            </summary>
+        </member>
+        <member name="M:Clutch.Reports.Generador.GenerarInformePedidos">
+            <summary>
+            Funcion para generar un informe sobre los pedidos+
+            </summary>
+        </member>
+        <member name="T:Clutch.UserControls.PedidosRepartiendoUC">
+            <summary>
+            Lógica de interacción para PedidosRepartiendoUC.xaml
+            </summary>
+            <summary>
+            PedidosRepartiendoUC
+            </summary>
+        </member>
+        <member name="M:Clutch.UserControls.PedidosRepartiendoUC.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.UserControls.PedidoUC">
+            <summary>
+            Lógica de interacción para PedidoUC.xaml
+            </summary>
+            <summary>
+            PedidoUC
+            </summary>
+        </member>
+        <member name="M:Clutch.UserControls.PedidoUC.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.UserControls.RepartidorActivoUC">
+            <summary>
+            Lógica de interacción para RepartidorActivoUC.xaml
+            </summary>
+            <summary>
+            RepartidorActivoUC
+            </summary>
+        </member>
+        <member name="M:Clutch.UserControls.RepartidorActivoUC.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.AsignarMoto">
+            <summary>
+            Lógica de interacción para AsignarMoto.xaml
+            </summary>
+            <summary>
+            AsignarMoto
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.AsignarMoto.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.Identificacion">
+            <summary>
+            Lógica de interacción para Identificacion.xaml
+            </summary>
+            <summary>
+            Identificacion
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.Identificacion.ValidarCampos">
+            <summary>
+            Comprueba que los datos introducidos en los textbox sean validos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Views.Identificacion.CerrarJornada(Clutch.Jornada)">
+            <summary>
+            Funcion encargada de cerrar la jornada al hacer el fichaje de cierre
+            </summary>
+            <param name="jornadaHoy"></param>
+        </member>
+        <member name="M:Clutch.Views.Identificacion.ComprobarIdentificacion(System.String,System.String)">
+            <summary>
+            Funcion que comprueba que el campo usuario y la contraseña sean correctos de cada trabajador
+            </summary>
+            <param name="usuario">usuario</param>
+            <param name="pass">Contraseña</param>
+            <returns>Booleano en funcion de si es correcto el inicio de sesion o no</returns>
+        </member>
+        <member name="M:Clutch.Views.Identificacion.YaFichado(Clutch.Empleado)">
+            <summary>
+            Funcion que se encarga de comprobar si el fichaje es de salida o de entrada
+            </summary>
+            <param name="empleado"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Views.Identificacion.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.InfoReparto">
+            <summary>
+            Lógica de interacción para InfoReparto.xaml
+            </summary>
+            <summary>
+            InfoReparto
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.InfoReparto.CompletarCampos">
+            <summary>
+            Completa los cascos de la ventana de info de reparto
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.InfoReparto.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.MantenimientoEmpleados">
+            <summary>
+            Lógica de interacción para MantenimientoEmpleados.xaml
+            </summary>
+            <summary>
+            MantenimientoEmpleados
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.MantenimientoEmpleados.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.MantenimientoIncidencias">
+            <summary>
+            Lógica de interacción para MantenimientoIncidencias.xaml
+            </summary>
+            <summary>
+            MantenimientoIncidencias
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.MantenimientoIncidencias.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.MantenimientoJornadas">
+            <summary>
+            Lógica de interacción para MantenimientoJornadas.xaml
+            </summary>
+            <summary>
+            MantenimientoJornadas
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.MantenimientoJornadas.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.MantenimientoMotos">
+            <summary>
+            Lógica de interacción para MantenimientoMotos.xaml
+            </summary>
+            <summary>
+            MantenimientoMotos
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.MantenimientoMotos.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.MantenimientoPedidos">
+            <summary>
+            Lógica de interacción para MantenimientoPedidos.xaml
+            </summary>
+            <summary>
+            MantenimientoPedidos
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.MantenimientoPedidos.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.ReportViewer">
+            <summary>
+            Lógica de interacción para ReportViewer.xaml
+            </summary>
+            <summary>
+            ReportViewer
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.ReportViewer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.VerEmpleado">
+            <summary>
+            Lógica de interacción para VerEmpleado.xaml
+            </summary>
+            <summary>
+            VerEmpleado
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerEmpleado.ValidacionCampos">
+            <summary>
+            Valida los campos introducidos en el empleado
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Views.VerEmpleado.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.VerIncidencia">
+            <summary>
+            Lógica de interacción para VerIncidencia.xaml
+            </summary>
+            <summary>
+            VerIncidencia
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerIncidencia.ValidarCampos">
+            <summary>
+            Valida los campos intrducidos en la incidencia
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Views.VerIncidencia.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.VerJornada">
+            <summary>
+            Lógica de interacción para VerJornada.xaml
+            </summary>
+            <summary>
+            VerJornada
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerJornada.RellenarHorasSueldo">
+            <summary>
+            Se rellenan los campos autocalculados de la jornada
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerJornada.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.VerMoto">
+            <summary>
+            Lógica de interacción para VerMoto.xaml
+            </summary>
+            <summary>
+            VerMoto
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerMoto.ComprobarCampos">
+            <summary>
+            Valida que los campos introducidos en la moto son correctos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Clutch.Views.VerMoto.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Views.VerPedido">
+            <summary>
+            Lógica de interacción para VerPedido.xaml
+            </summary>
+            <summary>
+            VerPedido
+            </summary>
+        </member>
+        <member name="M:Clutch.Views.VerPedido.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.App">
+            <summary>
+            Lógica de interacción para App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:Clutch.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:Clutch.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:Clutch.MainWindow">
+            <summary>
+            Lógica de interacción para MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.ComprobarJornadasAbiertas">
+            <summary>
+            Comprueba las jornadas que no estan cerradas al abrir el programa
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.RepetirPedidos">
+            <summary>
+            Repite la funcion actualizar lista de pedidos cada 5 misn
+            </summary>
+            <returns>Objeto de clase ElipsedEventHandler</returns>
+        </member>
+        <member name="M:Clutch.MainWindow.ActualizarListaPedidos">
+            <summary>
+            Actualiza la lista de pedidos en la pantalla principal
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.ActualizarListaPedidosINI">
+            <summary>
+            Actualiza la lista de pedidos en la pantalla principal al iniciar la aplicacion
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.addPedidoEnRepartoUC">
+            <summary>
+            Actualiza la lista de pedidos en reparto de la pantalla principal
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.mnMantMotos_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre la ventana de mantenimiento de motos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnMantEmpleados_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre la ventana de mantenimiento de empleados
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnMantIncidencias_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre la ventana de mantenimiento de incidencias
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnMantJornadas_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre la ventana de mantenimiento de jornadas
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnMenuPedidos_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre la ventana de mantenimiento de pedidos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnFichar_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Abre Un dialogo para el fichaje de los empleados
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.EliminarRepartidor(Clutch.Empleado)">
+            <summary>
+            Elimina la tarjeta del repartidor activo cuando acaba su turno
+            </summary>
+            <param name="borrar"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.addRepartidorUC">
+            <summary>
+            Añade la tarjeta del repartidor activo al panel de la pantalla principal
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.mnGenIncidencia_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Generar incidecnia desde la pantalla principal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnRptInci_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Genera un informe de incidencias
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnDoc_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Aparece una ventana con la documentacion de ayuda de la aplicacion
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mnRptPedidos_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Genera un informe d elos pedidos
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mbRptJornadasNormal_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Genera un informe de Empleados
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.mbRptJornadasGrafica_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Genera un informe de Empleados
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.PedidoUC_MyEvent(System.Object,System.EventArgs)">
+            <summary>
+            Evento click de las tarjetas de los pedidos de la pantalla principal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.RepartidorUC_MyEvent(System.Object,System.EventArgs)">
+            <summary>
+            Evewnto click de las tarjetas de los repartidores activos de la pantalla principal
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Clutch.MainWindow.AsignarPedido">
+            <summary>
+            Funcion que asigna un pedido a un repartidor desde la pantalla principal
+            </summary>
+        </member>
+        <member name="M:Clutch.MainWindow.CerrarPedido(Clutch.UserControls.RepartidorActivoUC)">
+            <summary>
+            Cierra el pedido cuando pulsas en el UC del repartidor con reparto activo
+            </summary>
+            <param name="repartidor">RepartidorActivoUC</param>
+        </member>
+        <member name="M:Clutch.MainWindow.PedidoEnReparto_Event(System.Object,System.EventArgs)">
+            <summary>
+            Evento Click del UCPedidoEnReparto
+            </summary>
+            <param name="sender">btnEnReparto</param>
+            <param name="e">EventArgs</param>
+        </member>
+        <member name="M:Clutch.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Clutch.Properties.Resources">
+            <summary>
+              Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.
+            </summary>
+        </member>
+        <member name="P:Clutch.Properties.Resources.ResourceManager">
+            <summary>
+              Devuelve la instancia ResourceManager almacenada en caché utilizada por esta clase.
+            </summary>
+        </member>
+        <member name="P:Clutch.Properties.Resources.Culture">
+            <summary>
+              Invalida la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos usando esta clase de recursos fuertemente tipados.
+            </summary>
+        </member>
+        <member name="T:SqlServerTypes.Utilities">
+            <summary>
+            Utility methods related to CLR Types for SQL Server 
+            </summary>
+        </member>
+        <member name="M:SqlServerTypes.Utilities.LoadNativeAssemblies(System.String)">
+            <summary>
+            Loads the required native assemblies for the current architecture (x86 or x64)
+            </summary>
+            <param name="rootApplicationPath">
+            Root path of the current application. Use Server.MapPath(".") for ASP.NET applications
+            and AppDomain.CurrentDomain.BaseDirectory for desktop applications.
+            </param>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

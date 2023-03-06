@@ -18,14 +18,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/// <summary>
-/// Aplicacion Clutch
-/// </summary>
+
 namespace Clutch
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
         private static Timer aTimer;
@@ -47,7 +46,7 @@ namespace Clutch
             repartidoresActivos = new List<Empleado>();
             pedidos = new List<Pedido>();
             ComprobarJornadasAbiertas();
-
+            
 
             ActualizarListaPedidosINI();
 
@@ -56,7 +55,7 @@ namespace Clutch
             aTimer.Elapsed += RepetirPedidos();
             aTimer.Enabled = true;       
         }
-
+              
         /// <summary>
         /// Comprueba las jornadas que no estan cerradas al abrir el programa
         /// </summary>
@@ -77,7 +76,7 @@ namespace Clutch
         /// <summary>
         /// Repite la funcion actualizar lista de pedidos cada 5 misn
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Objeto de clase ElipsedEventHandler</returns>
         private ElapsedEventHandler RepetirPedidos()
         {
             return (sender, e) => { ActualizarListaPedidos(); };
@@ -311,13 +310,13 @@ namespace Clutch
         /// <param name="e"></param>
         private void mnDoc_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start(@"Documentation.chm");
         }
-     /// <summary>
-     /// Genera un informe d elos pedidos
-     /// </summary>
-     /// <param name="sender"></param>
-     /// <param name="e"></param>
+        /// <summary>
+        /// Genera un informe d elos pedidos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mnRptPedidos_Click(object sender, RoutedEventArgs e)
         {
             Generador generador = new Generador();

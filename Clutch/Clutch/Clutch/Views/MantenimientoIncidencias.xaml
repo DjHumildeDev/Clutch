@@ -6,7 +6,7 @@
         xmlns:Converters="clr-namespace:Clutch.Converters"
         xmlns:local="clr-namespace:Clutch.Views"
         mc:Ignorable="d"
-        Title="MantenimientoIncidencias" Height="450" Width="900">
+        Title="MantenimientoIncidencias" Height="450" Width="900" PreviewKeyDown="Window_PreviewKeyDown">
     <Window.Resources>
         <Converters:ResueltaConverter x:Key="ResueltaConverter"/>
     </Window.Resources>
