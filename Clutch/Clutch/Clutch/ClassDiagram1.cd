@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Clutch.App" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.ClutchDb" Collapsed="true">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEBAAAAAAAUAABAAAAAAEAAAAAAAIAEAAAAAAAA=</HashCode>
+      <FileName>ClutchDb.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Cocina" Collapsed="true">
+    <Position X="2.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Cocina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Empleado" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAABAAQAAACIAQACAABAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Encargado" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Encargado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.incidencia" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABCAAAQAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAgA=</HashCode>
+      <FileName>incidencia.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Jornada" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAAgAAAAAACAAAAgAAAAAAIAAAAAAAAAAAAAkA=</HashCode>
+      <FileName>Jornada.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Moto" Collapsed="true">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAgA=</HashCode>
+      <FileName>Moto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Pedido" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAIAEAAgAAACAAAAAAEgAAAAAAAAAAAgA=</HashCode>
+      <FileName>Pedido.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Repartidor" Collapsed="true">
+    <Position X="8" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Repartidor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.ClutchDbDataSet" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABqAwAAAAJABAAAQAAAACgCQBgAIAEAAAEABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="3.75" Y="4.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIBgJQAAACsBAAAgAQWgCACICIAAoAAEAoABAAABA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Negocio">
+    <Position X="0.5" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AGAANBEgUHokAhEBAEAFYBNAEJCYgUEJJACwAkkSgAA=</HashCode>
+      <FileName>Negocio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.ClutchDbDataSetTableAdapters.EmpleadosTableAdapter" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.ClutchDbDataSetTableAdapters.incidenciasTableAdapter" Collapsed="true">
+    <Position X="10" Y="1.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EASAAGAAEAAAAAcAIAAAAAAAACEICAAAAAAAAAAABBA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.ClutchDbDataSetTableAdapters.TableAdapterManager" Collapsed="true">
+    <Position X="10" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AQAAACAAAADABAMBAAQAMAAgAAACgAAAAQQAAAAABAQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Converters.ResueltaConverter" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="18.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAASAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\ResueltaConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Converters.VacacionesConverter" BaseTypeListCollapsed="true">
+    <Position X="24.25" Y="18.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAQAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Converters\VacacionesConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Models.IncidenciaListModel" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAABCBAAQAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAAgA=</HashCode>
+      <FileName>Models\IncidenciaListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Models.JornadaListModel" Collapsed="true">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAgAAAAAACAAAAgABAAAAIAgAAAAAAAAAAAEA=</HashCode>
+      <FileName>Models\JornadaListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Models.MotoListModel" Collapsed="true">
+    <Position X="8.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQGAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\MotoListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Properties.Resources" Collapsed="true">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Reports.Generador">
+    <Position X="26.75" Y="2.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAACAAAAAAAAAAAAAABAACAAAAAAAAAEAAA=</HashCode>
+      <FileName>Reports\Generador.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Reports.IncidenciaWr">
+    <Position X="27.75" Y="5.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAAAAAAEEAAAAAAAAAIAQAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Reports\IncidenciaWr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Reports.PedidosWr">
+    <Position X="30.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAABAQQAIACAAAAAAQAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reports\PedidosWr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.Reports.TrabajadoresWr">
+    <Position X="34" Y="4.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAQAAADgAAAAAQAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Reports\TrabajadoresWr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SqlServerTypes.Utilities" Collapsed="true">
+    <Position X="4.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>SqlServerTypes\Loader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Clutch.UserControls.PedidosRepartiendoUC" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="17.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAEAAAAAAAAAAAACAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControls\PedidosRepartiendoUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.UserControls.PedidoUC" BaseTypeListCollapsed="true">
+    <Position X="0.75" Y="17.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserControls\PedidoUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.UserControls.RepartidorActivoUC" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="17.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEAAAABAAAAAAAAEAAAAgAAAAAAAAAAAAAAAAEABAAA=</HashCode>
+      <FileName>UserControls\RepartidorActivoUC.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.AsignarMoto" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="13" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAgEAAAAAAAAAgCgIAAAAAAABFAAAAAABACCAAIAAA=</HashCode>
+      <FileName>Views\AsignarMoto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.Identificacion" BaseTypeListCollapsed="true">
+    <Position X="18.25" Y="17.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>QBAgIAAAAAAQQAABAIAAgAEAABCAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Views\Identificacion.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.InfoReparto" BaseTypeListCollapsed="true">
+    <Position X="5" Y="21" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAlAAIAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Views\InfoReparto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.MantenimientoEmpleados" BaseTypeListCollapsed="true">
+    <Position X="23.75" Y="5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAgCgAIAAAACQEgBAIAAAAAAAABEQAAAgAAAEQAAAkA=</HashCode>
+      <FileName>Views\MantenimientoEmpleados.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.MantenimientoIncidencias" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAACgBIgAABCAACBAIAAAAAAAQAARAAABgEAUABAAAA=</HashCode>
+      <FileName>Views\MantenimientoIncidencias.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.MantenimientoJornadas" BaseTypeListCollapsed="true">
+    <Position X="19.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAGgAIAAAACQQADAIAAABIAIEAAQAAIAACAEAAAAAA=</HashCode>
+      <FileName>Views\MantenimientoJornadas.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.MantenimientoMotos" BaseTypeListCollapsed="true">
+    <Position X="8.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAADgAYAAACBAggBAIAAAgABgAAAQAAAAAAEEAAAAAE=</HashCode>
+      <FileName>Views\MantenimientoMotos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.MantenimientoPedidos" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="5.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>QAAAgAIAAAAAAAABhIAAAAAAAAAAQKAAAAAAEABAAAA=</HashCode>
+      <FileName>Views\MantenimientoPedidos.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.ReportViewer" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ReportViewer.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.VerEmpleado" BaseTypeListCollapsed="true">
+    <Position X="27.5" Y="8.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAQAiAAIAAAEACAAACAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Views\VerEmpleado.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.VerIncidencia" BaseTypeListCollapsed="true">
+    <Position X="18.5" Y="12.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAAgAAAAQAiAAIAAAAAAAARCAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\VerIncidencia.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.VerJornada" BaseTypeListCollapsed="true">
+    <Position X="22" Y="12.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAgACgAAIgAQggAgIAAAEBAAIBIAAAQAAAAAAAEEAA=</HashCode>
+      <FileName>Views\VerJornada.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.VerMoto" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="13" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAAAHAAAAAAAAAwCAIAAAAAAAABCAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\VerMoto.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Clutch.Views.VerPedido" BaseTypeListCollapsed="true">
+    <Position X="14.75" Y="11.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\VerPedido.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="1.715" Collapsed="true" />
+  </Class>
+  <Enum Name="Clutch.Enums.CentimetrosCubicosEnum">
+    <Position X="27.25" Y="15" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\CentimetrosCubicosEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Clutch.Enums.EstadoMotoEnum">
+    <Position X="27.25" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAABAAAAAAAAAAIAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Enums\EstadoMotoEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Clutch.Enums.RolEnum">
+    <Position X="27.25" Y="19.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAIAIAAAAAAAAA=</HashCode>
+      <FileName>Enums\RolEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Clutch.Enums.TipoIncidenciaEnum">
+    <Position X="27.5" Y="13" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIIAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\TipoincidenciaEnum.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
