@@ -283,6 +283,16 @@
   </Class>
   <Class Name="Clutch.Views.ReportViewer" BaseTypeListCollapsed="true">
     <Position X="31.25" Y="2.25" Width="2.5" />
+    <InheritanceLine Type="System.Windows.Window" FixedFromPoint="true">
+      <Path>
+        <Point X="17.25" Y="2.5" />
+        <Point X="17.25" Y="1.875" />
+        <Point X="30.875" Y="1.875" />
+        <Point X="30.875" Y="4.242" />
+        <Point X="32.5" Y="4.242" />
+        <Point X="32.5" Y="3.867" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Views\ReportViewer.xaml.cs</FileName>
@@ -328,6 +338,18 @@
       <FileName>Views\VerPedido.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="1.715" Collapsed="true" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="15.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Controls.UserControl" Collapsed="true">
+    <Position X="9.5" Y="18.25" Width="1.5" />
+    <TypeIdentifier />
   </Class>
   <Enum Name="Clutch.Enums.CentimetrosCubicosEnum">
     <Position X="27.25" Y="15" Width="2" />
